@@ -9,7 +9,7 @@
 - Maximiliano Lizarraga: tengo 30 años, vivo en Capital Federal y me gusta hacer deportes y estoy iniciandome en el mundo de la programacion.
 - Estefania Pottassa: tengo 30 años, vivo en Rosario, Santa Fe, soy contadora, me encantan el cine y las series. Esta es mi primera experiencia en programación.
 - Rodrigo Fernando alvarez: tengo 25 años! Vivo en provincia, Gregorio de laferrere, Soy tecnico en refrigeracion y diseñador de interiores, me apasiona todo lo que tenga que ver con la tecnología hice cursos de reparacion de pc!
--
+- Hola sol Meli, tengo 29 años, soy de Medellin - Colombia,  profesional en Derecho,  y amo la tecnología.
 
 4- Referencias:
 https://ar.puma.com
