@@ -17,3 +17,6 @@ https://moov.com.ar
 https://dexter.com.ar
 https://solodeportes.com.ar
 https://www.sportline.com.ar/
+
+
+5- TABLERO DE TRELLO: https://trello.com/b/loBoMovR/tareas-move
