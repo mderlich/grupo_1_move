@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-integrador",
+  "version": "1.0.0",
+  "description": "1- Temática del sitio: tienda online de venta de calzado deportivo.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estefaniapottassa/grupo_1_voom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estefaniapottassa/grupo_1_voom/issues"
+  },
+  "homepage": "https://github.com/estefaniapottassa/grupo_1_voom#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
