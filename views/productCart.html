@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    <link rel="stylesheet" href="./css/styles-productCart.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Carrito</title>
 </head>
 <body>
-    <header>
+    <!-- <header>
        <nav class="nav-bar">
             <div class="nav-left">
-                <!-- aca va el logo-->
+             
                 <div class="nav-desktop">
                     <ul>
                         <li>Mujeres</li>
@@ -30,28 +33,81 @@
                 <div><i class="far fa-bars"></i></div>
             </div>
        </nav> 
-    </header>
+    </header> -->
     <main>
-       <section>
+       <section class="main-encabezado">
            <h1>Tu carrito</h1>
-           <a href="">Continuar comprando</a>
+           <a href="/">Continuar comprando</a>
        </section>
-        <section>
-            <div>
-                <div class="producto">
-                
-                </div>
-                <div class="resumen">
-                    <h4>Resumen</h4>
-                    <dl>
-                        <dt>Subtotal:</dt>
-                        <dd>$10.000</dd>
-                    </dl>
-                    <dl>
-                        <dt>Total del pedido:</dt>
-                        <dd>$10.000</dd>
-                    </dl>
-                    <button>Proceder al pago</button>
+        <section class="cart-page">
+            <div class="main-content"> <!--content wrapper-->
+                <figure class="product-details"> <!--static-->
+                    <div class="image">
+                        <a href="#">
+                            <img src="images/PU_388571-01-1.jpeg" alt="Zapatilla Puma">
+                        </a>
+                    </div>
+                    <figcaption class="cart-item">
+                        <a class="CartItem-Heading" href="/productDetail">Zapatilla Puma</a>
+                        <ul class="CartItem-Options">
+                            <li class="CartItem-Option">
+                                <span class="CartItem-OptionAttributeLabel"> Color: </span>
+                                <span class="CartItem-OptionAttributeValue"> Blanco </span>
+                            </li>
+                            <li class="CartItem-Option">
+                                <span class="CartItem-OptionAttributeLabel"> Talle: </span>
+                                <span class="CartItem-OptionAttributeValue"> 37 </span>
+                            </li>
+                            <li class="CartItem-Option">
+                                <span class="CartItem-OptionAttributeLabel"> Art.: </span>
+                                <span class="CartItem-OptionAttributeValue"> 534175_24 </span>
+                            </li>
+                        </ul>
+                        <div class="CartItem-Info">
+                            <div class="CartItem-Qty">
+                                <label for="cantidad">Cantidad</label>
+                                <select name="cantidad" id="cantidad">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div  class="ProductPrice">
+                                <span >
+                                    <data value="13999.00">$ 13999.00</data>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="CartItem-Actions">
+                            <button id="RemoveItem" name="RemoveItem" class="CartItem-Delete">
+                                <span>Eliminar Producto</span>
+                            </button>
+                        </div>
+                    </figcaption>
+                </figure>
+                <div class="resumen"> <!--floating-->
+                    <article>
+                        <h4>Resumen</h4>
+                        <dl class="subtotal">
+                            <dt>Subtotal:</dt>
+                            <dd>$10.000</dd>
+                        </dl>
+                        <dl class="total">
+                            <dt>Total del pedido:</dt>
+                            <dd>$10.000</dd>
+                        </dl>
+                        <div class="DiscountCode">
+                            <form class="CartCoupon">
+                                <div class="FieldInput">
+                                    <label for="couponCode" class="FieldInput-Label">Código promocional:</label>
+                                    <input id="couponCode" name="couponCode"  class="FieldInput-Input" value="" placeholder="Ingrese código">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="checkout-button">
+                            <button>Proceder al pago</button>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -61,3 +117,30 @@
     </footer>
 </body>
 </html>
+
+
+
+
+<!-- <figcaption class="cart-item">
+    <a href="">Zapatilla puma</a>
+    <ul class="cart-item-details">
+        <li class="Cart-item-options">
+            <span>Color:</span> 
+            <span>Blanco</span>
+        </li>
+        <li class="Cart-item-options">
+            <span>Talle:</span> 
+            <span>37</span>
+        </li>
+        <li class="Cart-item-options">
+            <span>Art:</span> 
+            <span>12345/6</span>
+        </li>
+    </ul>
+    <label for="cantidad">Cantidad</label>
+    <select name="cantidad" id="cantidad">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</figcaption> -->
