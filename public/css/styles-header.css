@@ -1,0 +1,186 @@
+/*
+
+
+                                    /$$                                 /$$                    
+                                   | $$                                | $$                    
+  /$$$$$$$  /$$$$$$$ /$$$$$$$      | $$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$ 
+ /$$_____/ /$$_____//$$_____/      | $$__  $$ /$$__  $$ |____  $$ /$$__  $$ /$$__  $$ /$$__  $$
+| $$      |  $$$$$$|  $$$$$$       | $$  \ $$| $$$$$$$$  /$$$$$$$| $$  | $$| $$$$$$$$| $$  \__/
+| $$       \____  $$\____  $$      | $$  | $$| $$_____/ /$$__  $$| $$  | $$| $$_____/| $$      
+|  $$$$$$$ /$$$$$$$//$$$$$$$/      | $$  | $$|  $$$$$$$|  $$$$$$$|  $$$$$$$|  $$$$$$$| $$      
+ \_______/|_______/|_______/       |__/  |__/ \_______/ \_______/ \_______/ \_______/|__/      
+                                                                                               
+                                                                                               
+                                                                                                                                                          
+text to ascii...
+https://patorjk.com/software/taag/#p=display&f=Big%20Money-ne&t=css%20header
+
+negro:  	#181818
+celeste:	#21D2FE
+violeta:	#A334FF
+verde:		#61A951
+salmon
+tomato
+*/
+
+* { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }
+
+ /* GOOGLE FONTS :: ROBOTO
+ Se debe aplicar aqui con @import y tambien en el body */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;    
+    font-size: 16px;
+    /* para footer responsive 
+       (se aplica en body + footer)
+       https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
+    */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 
+header
+--------------------------------------------- 
+*/
+header {
+    background-color: #181818;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    /*"Para que quede el header arriba"*/
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+
+
+}
+
+header a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+}
+
+
+.logo {
+    height: 40px;
+    transition: all 1s;
+}
+.logo:hover {
+    transform: scale(1.2);    
+}
+
+
+
+.mainheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* limitamos y centramos para tamaños mayores */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.mainheader_left{
+    display: flex;
+    align-items: center;
+
+}
+
+.mainheader_left nav{
+    display: none;
+}
+
+
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* Para que se ponga en linea... */
+    display: flex; 
+    justify-content: space-between;
+}
+
+nav li{
+    padding-left: 30px;
+    margin-left: 30px;
+}
+
+
+
+.mainheader_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.mainheader_right .iconos {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-left:  25px;
+
+}
+
+
+.mainheader_right form{
+    display: none;
+}
+
+.mainheader_right button{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    
+}
+
+.mainheader_right input{
+    height: 30px;
+    padding-left: 30px;
+    border: 1px solid #666666;
+    background-color: #181818;
+    color: white;
+}
+
+.mainheader_right input:focus{
+    outline: none;
+}
+
+
+
+
+
+
+
+/* 
+MAIN GRAL
+--------------------------------------------- 
+*/
+
+main{
+    width: 100%;
+    margin-top: 30px;
+}
+
+

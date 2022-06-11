@@ -20,3 +20,12 @@ https://www.sportline.com.ar/
 
 
 5- TABLERO DE TRELLO: https://trello.com/b/loBoMovR/tareas-move
+
+// =================================================
+SPRINT 1/2 como se repartio...
+
+HOME >> Rodrigo Alvarez
+DETALLE PRODUCTO >> Matias Derlich
+CARRITO DE COMPRAS >> Estefania Pottassa
+FORMULARIO REGISTRO >> Maximiliano Lizarraga / Melisa Sanchez
+FORMULARIO LOGIN >> Maximiliano Lizarraga / Melisa Sanchez

@@ -1,0 +1,240 @@
+/* 
+
+
+
+                                              /$$$$$$$              /$$               /$$ /$$
+                                             | $$__  $$            | $$              |__/| $$
+  /$$$$$$$  /$$$$$$$ /$$$$$$$        /$$$$$$ | $$  \ $$  /$$$$$$  /$$$$$$    /$$$$$$  /$$| $$
+ /$$_____/ /$$_____//$$_____/       /$$__  $$| $$  | $$ /$$__  $$|_  $$_/   |____  $$| $$| $$
+| $$      |  $$$$$$|  $$$$$$       | $$  \ $$| $$  | $$| $$$$$$$$  | $$      /$$$$$$$| $$| $$
+| $$       \____  $$\____  $$      | $$  | $$| $$  | $$| $$_____/  | $$ /$$ /$$__  $$| $$| $$
+|  $$$$$$$ /$$$$$$$//$$$$$$$/      | $$$$$$$/| $$$$$$$/|  $$$$$$$  |  $$$$/|  $$$$$$$| $$| $$
+ \_______/|_______/|_______/       | $$____/ |_______/  \_______/   \___/   \_______/|__/|__/
+                                   | $$                                                      
+                                   | $$                                                      
+                                   |__/                                                      
+
+
+text to ascii...
+https://patorjk.com/software/taag/#p=display&f=Big%20Money-ne&t=css%20header
+
+
+*/
+
+/* 
+MAIN
+--------------------------------------------- 
+*/
+
+/* 
+Este main gral esta en el... styles-headerFooter.css
+
+main{
+    width: 100%;
+    margin-top: 30px;
+}
+ */
+
+.zapatillas{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+
+}
+.zapatillas_izq{
+    margin: auto;
+
+}
+.zapatillas_der{
+    margin: auto;
+    
+}
+.imagenes_galeria {
+    display: flex;
+    width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    
+}
+.imagenes_galeria img{
+    width: 70px;
+    border: 1px solid grey;
+
+}
+.imagenes_galeria img:hover{
+    border: 2px solid black;
+    cursor: pointer;
+}
+.zapatillas_izq img{
+    display:block;
+    margin:auto;
+    max-height: 350px;
+}
+
+
+.zapatillas h1{
+    margin-bottom: 0;
+}
+.zapatillas h2{
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.detalles_zapatillas{
+    margin-bottom: 10px;
+    color: #61A951;
+}
+.detalles_zapatillas_alerta{
+    margin-bottom: 10px;
+    color: salmon;
+    font-weight: bold;
+}
+
+.detalles_zapatillas:first-of-type{
+    margin-top: 20px;
+}
+
+.talles{
+    display: flex;
+}
+.circulo_talles{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid grey;
+    margin: 10px;
+    text-align: center;
+    line-height: 38px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    background-color: #CCCCCC;
+
+}
+.circulo_talles:first-child{
+ margin-left: 0px;
+}
+.circulo_talles:hover{
+    background-color: #21D2FE;
+    cursor: pointer;
+}
+
+.boton_alcarrito{
+    width: 100%;
+    background-color: #21D2FE;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    max-width: 400px;
+    margin: auto;
+    transition: all 1s;
+
+}
+.boton_alcarrito:hover{
+    background-color: #A334FF;
+    cursor: pointer;
+}
+
+/* ------------------------------ */
+main h2{
+    text-align: center;
+}
+
+main ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+main li:first-child {
+    padding-top: 25px;
+}
+
+main li {
+    padding-bottom: 10px;
+}
+
+
+
+.info_negrita{
+    font-weight: bold;
+}
+
+
+
+
+main .informacion{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 20px;
+ 
+
+}
+
+main .recomendados{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+/*     background-color: salmon;
+ */
+
+}
+
+main .recomendados img{
+    width: 100%;
+}
+
+main .recomendados .imagen_texto{
+    /* con margin auto centramos para cuando se vea en movil  */     
+    margin: auto;
+
+}
+
+
+
+main .recomendados .imagen{
+    width: 270px;
+    height: 270px;
+    position: relative;
+}
+main .recomendados .imagen:hover{
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+
+main .recomendados i{
+    position: absolute;
+    font-size: 25px;
+    top: 10px;
+    right: 10px;
+}
+main .recomendados i:hover{
+    color:tomato;
+    cursor: pointer;
+}
+
+main .recomendados .texto {
+/*     border-top: #666666 1px solid; 
+*/ 
+    padding-top: 10px;
+    margin: 10px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+main hr{
+    /* https://css-tricks.com/examples/hrs/ */
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+

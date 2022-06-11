@@ -1,0 +1,111 @@
+/* 
+
+
+
+                                     /$$$$$$                      /$$                        
+                                    /$$__  $$                    | $$                        
+  /$$$$$$$  /$$$$$$$ /$$$$$$$      | $$  \__//$$$$$$   /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+ /$$_____/ /$$_____//$$_____/      | $$$$   /$$__  $$ /$$__  $$|_  $$_/   /$$__  $$ /$$__  $$
+| $$      |  $$$$$$|  $$$$$$       | $$_/  | $$  \ $$| $$  \ $$  | $$    | $$$$$$$$| $$  \__/
+| $$       \____  $$\____  $$      | $$    | $$  | $$| $$  | $$  | $$ /$$| $$_____/| $$      
+|  $$$$$$$ /$$$$$$$//$$$$$$$/      | $$    |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$      
+ \_______/|_______/|_______/       |__/     \______/  \______/    \___/   \_______/|__/      
+                                                                                             
+                                                                                             
+                                                                                             
+
+
+text to ascii...
+https://patorjk.com/software/taag/#p=display&f=Big%20Money-ne&t=css%20header
+
+ */
+
+ 
+/* 
+FOOTER
+--------------------------------------------- 
+*/
+
+
+footer{
+    background-color: #181818;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    /* para footer responsive 
+       (se aplica en body + footer)
+       https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
+    */
+    margin-top: auto;
+}
+
+.footer_iconoscontenedor {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer hr{
+    border: 1px solid #666666;
+    
+}
+
+
+footer p{
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+/* MEDIA 360 PX 
+Navegación en tablets
+-------------------------------- */
+@media (min-width: 360px) {
+
+
+
+    
+  
+    
+
+
+    
+
+}
+
+/* MEDIA 768 PX 
+Navegación en desktop
+-------------------------------- */
+@media (min-width: 768px) {
+
+    
+    .mainheader_left nav{
+        display: block;
+    }
+
+    .mainheader_right form{
+        display: block;
+        position: relative;
+        display: inline-flex;
+    }
+    
+
+ 
+
+    
+}
