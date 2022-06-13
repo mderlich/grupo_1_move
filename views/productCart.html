@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/normalize.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles-productCart.css">
+    <link href="css/styles-footer.css" rel="stylesheet">
+    <link href="css/styles-header.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,27 +16,49 @@
     <title>Carrito</title>
 </head>
 <body>
-    <!-- <header>
-       <nav class="nav-bar">
-            <div class="nav-left">
-             
-                <div class="nav-desktop">
+    <header>
+
+        <div class="mainheader" >
+        
+            <div class="mainheader_left" >
+        
+                <!-- Logo -->
+                <a href="/">
+                    <img src="images/move.png"  alt="logo-move" class="logo">
+                </a>
+                
+                <!-- 'nav' está destinado sólo para el bloque principal de enlaces de navegación -->
+                <nav>
                     <ul>
-                        <li>Mujeres</li>
-                        <li>Hombres</li>
-                        <li>Niños</li>
+                        <li><a href="/">Mujeres</a></li>
+                        <li><a href="/">Hombres</a></li>
+                        <li><a href="/">Niños</a></li>
                     </ul>
+                </nav>
+        
+            </div>
+        
+            <div class="mainheader_right" >
+            
+                <!-- Buscador -->
+                <form  action="/" method="GET" >
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button> 
+                    <input type="search" >
+                </form>
+        
+                <!-- Iconos -->
+                <div class="iconos">
+                <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+                <a href="/login"><i class="fas fa-user"></i></a>
+                <a href=""><i class="fas fa-bars"></i></a>
                 </div>
             </div>
-            <div class="nav-right"  >
-                <div class="search-form">
-                    <input type="text">
-                </div>
-                <div><i class="far fa-shopping-cart"></i></div> 
-                <div><i class="far fa-bars"></i></div>
-            </div>
-       </nav> 
-    </header> -->
+        
+        </div>
+            
+        </header>
     <main>
        <section class="main-encabezado">
            <h1>Tu carrito</h1>
@@ -111,9 +136,51 @@
                 </div>
             </div>
         </section>
+        <section>
+            <h2>Recomendados para vos</h2>
+            <div class="recomendados">
+                <div class="imagen_texto">
+                    <div class="imagen">
+                        <img src="images/aviator.png" alt="Zapatillas Electrify Nitro Turn"><i class="fas fa-heart"></i>
+                    </div>
+                    <hr>
+                    <div class="texto">Zapatillas Electrify Nitro Turn<br><br><h4>$19.999</h4> </div>
+                </div>
+                <div class="imagen_texto">
+                    <div class="imagen">
+                        <img src="images/electrify.png" alt="Zapatillas Aviator"><i class="fas fa-heart"></i>
+                    </div>
+                    <hr>
+                    <div class="texto">Zapatillas Aviator <br><br><h4>$16.499</h4> </div>
+                </div>
+                <div class="imagen_texto">
+                    <div class="imagen">
+                        <img src="images/suede.png" alt="Zapatillas Wild Rider Vintage"><i class="fas fa-heart"></i>
+                    </div>
+                    <hr>
+                    <div class="texto">Zapatillas Wild Rider Vintage <br><br><h4>$18.699</h4> </div>
+                </div>
+                <div class="imagen_texto">
+                    <div class="imagen">
+                        <img src="images/wildrider.png" alt="Zapatillas Suede Classic XXI"><i class="fas fa-heart"></i>
+                    </div>
+                    <hr>
+                    <div class="texto">Zapatillas Suede Classic XXI <br><br><h4>$14.999</h4> </div>
+                </div> 
+            </div>
+        </section>
     </main>
     <footer>
-
+        <div class="footer_iconoscontenedor">
+            <div><a href="/puma"><i class="fab fa-facebook-square"></i></a></div>
+            <div><a href="/puma"><i class="fab fa-twitter"></i></a></div>
+            <div><a href="/puma"><i class="fab fa-instagram"></i></a></div>
+            <div><a href="/puma"><i class="fab fa-youtube"></i></a></div>
+        </div>
+        <hr>
+        <div>
+        <p>© MOVE Todos los derechos reservados, 2022</p>
+        </div>
     </footer>
 </body>
 </html>
@@ -121,26 +188,3 @@
 
 
 
-<!-- <figcaption class="cart-item">
-    <a href="">Zapatilla puma</a>
-    <ul class="cart-item-details">
-        <li class="Cart-item-options">
-            <span>Color:</span> 
-            <span>Blanco</span>
-        </li>
-        <li class="Cart-item-options">
-            <span>Talle:</span> 
-            <span>37</span>
-        </li>
-        <li class="Cart-item-options">
-            <span>Art:</span> 
-            <span>12345/6</span>
-        </li>
-    </ul>
-    <label for="cantidad">Cantidad</label>
-    <select name="cantidad" id="cantidad">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-    </select>
-</figcaption> -->
