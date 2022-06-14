@@ -1,0 +1,296 @@
+/*
+negro:  	#181818
+celeste:	#21D2FE
+violeta:	#A334FF
+verde:		#61A951
+salmon
+tomato
+*/
+
+* { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }
+
+ /* GOOGLE FONTS :: ROBOTO
+ Se debe aplicar aqui con @import y tambien en el body */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;    
+    font-size: 16px;
+    /* para footer responsive 
+       (se aplica en body + footer)
+       https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
+    */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 
+header
+--------------------------------------------- 
+*/
+header {
+    background-color: #181818;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    /*"Para que quede el header arriba"*/
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+
+
+}
+
+header a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+}
+
+
+.logo {
+    height: 40px;
+    transition: all 1s;
+}
+.logo:hover {
+    transform: scale(1.2);    
+}
+
+
+
+.mainheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* limitamos y centramos para tamaños mayores */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.mainheader_left{
+    display: flex;
+    align-items: center;
+
+}
+
+.mainheader_left nav{
+    display: none;
+}
+
+
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* Para que se ponga en linea... */
+    display: flex; 
+    justify-content: space-between;
+}
+
+nav li{
+    padding-left: 30px;
+    margin-left: 30px;
+}
+
+
+
+.mainheader_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.mainheader_right .iconos {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-left:  25px;
+
+}
+
+
+.mainheader_right form{
+    display: none;
+}
+
+.mainheader_right button{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    
+}
+
+.mainheader_right input{
+    height: 30px;
+    padding-left: 30px;
+    border: 1px solid #666666;
+    background-color: #181818;
+    color: white;
+}
+
+.mainheader_right input:focus{
+    outline: none;
+}
+
+
+
+
+
+
+
+/* 
+MAIN
+--------------------------------------------- 
+*/
+
+main{
+    width: 100%;
+    margin-top: 30px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+#tipo {
+    width: 25%;
+}
+
+#numero{
+    width: 65%;
+}
+
+.tipoynum{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+FOOTER
+--------------------------------------------- 
+*/
+
+
+footer{
+    background-color: #181818;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    /* para footer responsive 
+       (se aplica en body + footer)
+       https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
+    */
+    margin-top: auto;
+}
+
+.footer_iconoscontenedor {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer hr{
+    border: 1px solid #666666;
+    
+}
+
+
+footer p{
+    margin-top: 30px;
+}
+
+
+
+
+/* FORMULARIOS
+-------------------------------- */
+
+
+
+
+
+
+
+/* MEDIA 360 PX 
+Navegación en tablets
+-------------------------------- */
+@media (min-width: 360px) {
+
+
+
+    
+  
+    
+
+
+    
+
+}
+
+/* MEDIA 768 PX 
+Navegación en desktop
+-------------------------------- */
+@media (min-width: 768px) {
+
+    
+    .mainheader_left nav{
+        display: block;
+    }
+
+    .mainheader_right form{
+        display: block;
+        position: relative;
+        display: inline-flex;
+    }
+    
+
+ 
+
+    
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- --------------------------------------------- -->
+<!-- HEAD (inicio) -->
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move - Las mejores zapatillas!</title>
+
+<!-- CSS NORMALIZE -->
+<!-- https://necolas.github.io/normalize.css/
+Muy importante colocar la referencia a este fichero antes que cualquier otro estilo. -->
+<link href="css/styles-register.css" rel="stylesheet">
+
+<!-- ICONOS -->
+<!-- Se buscan desde aqui...
+https://fontawesome.com/v5/search?s=solid%2Cbrands 
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+rel="stylesheet" />
+
+</head>
+<!-- HEAD (fin) -->
+<!-- --------------------------------------------- -->
+
+<!-- --------------------------------------------- -->
+<!-- BODY (inicio) -->
+<body>
+
+<!-- --------------------------------------------- -->
+<!-- BODY / HEADER (inicio) -->
+<header>
+
+<div class="mainheader" >
+
+    <div class="mainheader_left" >
+
+        <!-- Logo -->
+        <a href="/puma">
+            <img src="images/move.png"  alt="logo-move" class="logo">
+        </a>
+        
+        <!-- 'nav' está destinado sólo para el bloque principal de enlaces de navegación -->
+        <nav>
+            <ul>
+                <li><a href="/">Mujeres</a></li>
+                <li><a href="/">Hombres</a></li>
+                <li><a href="/">Niños</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="mainheader_right" >
+    
+        <!-- Buscador -->
+        <form  action="/" method="GET" >
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button> 
+            <input type="search" >
+        </form>
+
+        <!-- Iconos -->
+        <div class="iconos">
+        <a href=""><i class="fas fa-shopping-cart"></i></a>
+        <a href=""><i class="fas fa-user"></i></a>
+        <a href=""><i class="fas fa-bars"></i></a>
+        </div>
+    </div>
+
+</div>
+    
+</header>
+<!-- BODY / HEADER (fin) -->
+<!-- --------------------------------------------- -->
+<!-- BODY / MAIN (inicio) -->
+<main>
+<!-- --------------------------------------------- -->
+    <h1>Registrarme</h1>
+
+        <form action="/register" method="post" name="registrousuario">
+
+            <label for="nombre">Nombre</label>
+            <input name="nombre" id="nombre">
+
+            <label for="apellido">Apellido</label>
+            <input name="apellido" id="apellido">
+
+            <label for="nacimiento">Fecha de nacimiento</label>
+            <input type="date" name="nacimiento" id="nacimiento">
+
+            <article class="tipoynum">
+                <label id="tipo" for="tipodoc">Tipo</label>
+                <label id="numero" for="numerodoc"> Número de documento</label>
+            </article>
+
+            <article class="tipoynum">
+                <input id="tipo" name="tipodoc" id="tipodoc">
+                <input id="numero" name="numerodoc" id="numerodoc">
+            </article>
+            
+
+            <label for="genero">Género</label>
+            <input name="genero" id="genero">
+
+            <label for="telefono">Teléfono (cod área + número)</label>
+            <input name="telefono" id="telefono">
+
+        </form>
+
+    <h2>Sobre tu cuenta</h2>
+        
+        <form action="/register" method="post" name="registrousuario">
+
+            <label name="email">Ingresar email</label>
+            <input name="email" id="email">
+
+            <label name="confemail">Confirmar email</label>
+            <input name="confemail" id="confemail">
+
+            <label for="contraseña">Elegí tu contraseña</label>
+            <input type="password" name="contraseña" id="contraseña">
+
+            <label for="confcontraseña">Confirmar contraseña</label>
+            <input type="password" name="confcontraseña" id="confcontraseña">
+
+            <label for="intereses">Cuales son tus intereses?</label>
+            <input type="checkbox" name="zapatillas" id="zapatillas">Zapatillas
+            <input type="checkbox" name="zapatillas" id="zapatillas">Deportes
+            <input type="checkbox" name="zapatillas" id="zapatillas">Running
+            <input type="checkbox" name="zapatillas" id="zapatillas">Accesorios
+
+        </form>
+
+        <div>
+            <input type="checkbox" name="politicas" id="politicas">
+            <label for="politicas">Acepto las politicas de privacidad, terminos y condiciones</label>
+        </div>
+
+        <div>
+            <input type="checkbox" name="promocoiones" id="promociones">
+            <label for="promociones">Quiero recibir emails de promociones y noticias</label>
+        </div>
+
+        <button id="crearcuenta">
+            <a href= "/" >
+                <label for="crearcuenta">Crear mi cuenta</label>
+            </a>
+        </button>
+        
+
+
+
+<!-- --------------------------------------------- -->
+</main>
+<!-- BODY / MAIN (fin) -->
+<!-- --------------------------------------------- -->
+<!-- BODY / FOOTER (inicio) -->
+<footer>
+
+    <div class="footer_iconoscontenedor">
+        <div><a href="/puma"><i class="fab fa-facebook-square"></i></a></div>
+        <div><a href="/puma"><i class="fab fa-twitter"></i></a></div>
+        <div><a href="/puma"><i class="fab fa-instagram"></i></a></div>
+        <div><a href="/puma"><i class="fab fa-youtube"></i></a></div>
+    </div>
+
+    <!-- Linea -->
+    <hr>
+
+    <div>
+    <p>© MOVE Todos los derechos reservados, 2022</p>
+    </div>
+
+</footer>
+<!-- BODY / FOOTER (fin) -->
+<!-- --------------------------------------------- -->
+
+</body>
+</html>
