@@ -5,8 +5,8 @@ app.use(express.static('public'));
 
 // ---------------------------------------------------------------
 // ruta hacia... home
-app.get('/', (req, res) => { res.sendFile( path.join(__dirname, '/views/index.html') ); });
-app.post('/', (req, res) => { res.sendFile( path.join(__dirname, '/views/index.html') ); });
+app.get('/', (req, res) => { res.sendFile( path.join(__dirname, '/views/home.html') ); });
+app.post('/', (req, res) => { res.sendFile( path.join(__dirname, '/views/home.html') ); });
 
 // ruta hacia... login
 app.get('/login', (req, res) => { res.sendFile( path.join(__dirname, '/views/login.html') ); });
