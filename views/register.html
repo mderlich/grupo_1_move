@@ -81,75 +81,91 @@ rel="stylesheet" />
 <!-- --------------------------------------------- -->
     <h1>Registrarme</h1>
 
-        <form action="/register" method="post" name="registrousuario">
+    <article class="todoslosforms">
 
-            <label for="nombre">Nombre</label>
-            <input name="nombre" id="nombre">
+            <form class="datospersona" action="/register" method="post" name="registrousuario">
 
-            <label for="apellido">Apellido</label>
-            <input name="apellido" id="apellido">
+                <label for="nombre">Nombre</label>
+                <input name="nombre" id="nombre">
 
-            <label for="nacimiento">Fecha de nacimiento</label>
-            <input type="date" name="nacimiento" id="nacimiento">
+                <label for="apellido">Apellido</label>
+                <input name="apellido" id="apellido">
 
-            <article class="tipoynum">
-                <label id="tipo" for="tipodoc">Tipo</label>
-                <label id="numero" for="numerodoc"> Número de documento</label>
-            </article>
+                <label for="nacimiento">Fecha de nacimiento</label>
+                <input type="date" name="nacimiento" id="nacimiento">
 
-            <article class="tipoynum">
-                <input id="tipo" name="tipodoc" id="tipodoc">
-                <input id="numero" name="numerodoc" id="numerodoc">
-            </article>
+                <article class="tipoynum">
+                    <label id="tipo" for="tipodoc">Tipo</label>
+                    <label id="numero" for="numerodoc"> Número de documento</label>
+                </article>
+
+                <article class="tipoynum">
+                    <input id="tipo" name="tipodoc" id="tipodoc">
+                    <input id="numero" name="numerodoc" id="numerodoc">
+                </article>
+                
+
+                <label for="genero">Género</label>
+                <input name="genero" id="genero">
+
+                <label for="telefono">Teléfono (cod área + número)</label>
+                <input name="telefono" id="telefono">
+
+            </form>
             
 
-            <label for="genero">Género</label>
-            <input name="genero" id="genero">
+        <h2>Sobre tu cuenta</h2>
+            
+            <form class="datoscuenta" action="/register" method="post" name="registrousuario">
 
-            <label for="telefono">Teléfono (cod área + número)</label>
-            <input name="telefono" id="telefono">
+                <label name="email">Ingresar email</label>
+                <input name="email" id="email">
+
+                <label name="confemail">Confirmar email</label>
+                <input name="confemail" id="confemail">
+
+                <label for="contraseña">Elegí tu contraseña</label>
+                <input type="password" name="contraseña" id="contraseña">
+
+                <label for="confcontraseña">Confirmar contraseña</label>
+                <input type="password" name="confcontraseña" id="confcontraseña">
+
+
+            
+                <label for="intereses">Cuales son tus intereses?</label>
+            <article class="intereses">
+                <div>
+                    <input type="checkbox" name="zapatillas" id="zapatillas">  Zapatillas
+                </div>
+                <div>
+                    <input type="checkbox" name="zapatillas" id="zapatillas">  Deportes
+                </div>
+                <div>
+                    <input type="checkbox" name="zapatillas" id="zapatillas">  Running
+                </div>
+                <div>
+                    <input type="checkbox" name="zapatillas" id="zapatillas">  Accesorios
+                </div>
+            </article>
+
+            <div id="politicas">
+                <input type="checkbox" name="politicas" id="politicas">
+                <label for="politicas">Acepto las politicas de privacidad, terminos y condiciones</label>
+            </div>
+
+            <div id="promociones">
+                <input type="checkbox" name="promocoiones" id="promociones">
+                <label for="promociones">Quiero recibir emails de promociones y noticias</label>
+            </div>
+
+            <button id="crearcuenta">
+                <a href= "/" >
+                    <label id="botonenvio" for="crearcuenta">Crear mi cuenta</label>
+                </a>
+            </button>
 
         </form>
-
-    <h2>Sobre tu cuenta</h2>
-        
-        <form action="/register" method="post" name="registrousuario">
-
-            <label name="email">Ingresar email</label>
-            <input name="email" id="email">
-
-            <label name="confemail">Confirmar email</label>
-            <input name="confemail" id="confemail">
-
-            <label for="contraseña">Elegí tu contraseña</label>
-            <input type="password" name="contraseña" id="contraseña">
-
-            <label for="confcontraseña">Confirmar contraseña</label>
-            <input type="password" name="confcontraseña" id="confcontraseña">
-
-            <label for="intereses">Cuales son tus intereses?</label>
-            <input type="checkbox" name="zapatillas" id="zapatillas">Zapatillas
-            <input type="checkbox" name="zapatillas" id="zapatillas">Deportes
-            <input type="checkbox" name="zapatillas" id="zapatillas">Running
-            <input type="checkbox" name="zapatillas" id="zapatillas">Accesorios
-
-        </form>
-
-        <div>
-            <input type="checkbox" name="politicas" id="politicas">
-            <label for="politicas">Acepto las politicas de privacidad, terminos y condiciones</label>
-        </div>
-
-        <div>
-            <input type="checkbox" name="promocoiones" id="promociones">
-            <label for="promociones">Quiero recibir emails de promociones y noticias</label>
-        </div>
-
-        <button id="crearcuenta">
-            <a href= "/" >
-                <label for="crearcuenta">Crear mi cuenta</label>
-            </a>
-        </button>
+    </article>
         
 
 

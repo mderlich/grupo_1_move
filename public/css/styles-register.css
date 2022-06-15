@@ -167,16 +167,23 @@ main{
     margin-top: 30px;
 }
 
+label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 form {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding-top: 5px;
     padding-bottom: 5px;
-}
+    width: 95%;
+    }
 
 input{
     margin-bottom: 10px;
+    padding: 2px
 }
 
 #tipo {
@@ -191,6 +198,45 @@ input{
     display: flex;
     justify-content: space-between;
 }
+
+.intereses {
+    display: flex;
+    border-bottom: solid #181818 1px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#politicas {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: dashed grey 1px;
+    padding-bottom: 5px;
+}
+
+#promociones {
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+
+#crearcuenta {
+    background-color: black;
+    border-radius: 5px;
+    border: black;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: bold; 
+}
+
+#botonenvio {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
 
 
 
@@ -288,9 +334,19 @@ Navegación en desktop
         position: relative;
         display: inline-flex;
     }
-    
 
- 
+    .todoslosforms {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .datospersona{
+        width: 45%;
+    }
+
+    .datoscuenta {
+        width: 45%;
+    }
 
     
 }
