@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/normalize.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles-productCart.css">
     <link href="css/styles-footer.css" rel="stylesheet">
     <link href="css/styles-header.css" rel="stylesheet">
+    <link href="css/styles-productCart.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,16 +17,12 @@
 </head>
 <body>
     <header>
-
         <div class="mainheader" >
-        
             <div class="mainheader_left" >
-        
                 <!-- Logo -->
                 <a href="/">
                     <img src="images/move.png"  alt="logo-move" class="logo">
                 </a>
-                
                 <!-- 'nav' está destinado sólo para el bloque principal de enlaces de navegación -->
                 <nav>
                     <ul>
@@ -35,11 +31,8 @@
                         <li><a href="/">Niños</a></li>
                     </ul>
                 </nav>
-        
             </div>
-        
             <div class="mainheader_right" >
-            
                 <!-- Buscador -->
                 <form  action="/" method="GET" >
                     <button type="submit">
@@ -47,7 +40,6 @@
                     </button> 
                     <input type="search" >
                 </form>
-        
                 <!-- Iconos -->
                 <div class="iconos">
                 <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
@@ -55,19 +47,17 @@
                 <a href=""><i class="fas fa-bars"></i></a>
                 </div>
             </div>
-        
         </div>
-            
-        </header>
+    </header>
     <main>
-       <section class="main-encabezado">
+       <section class="cart-header">
            <h1>Tu carrito</h1>
            <a href="/">Continuar comprando</a>
        </section>
         <section class="cart-page">
-            <div class="main-content"> <!--content wrapper-->
-                <figure class="product-details"> <!--static-->
-                    <div class="image">
+            <div class="main-content">
+                <figure class="product-details"> 
+                    <div class="cart-image">
                         <a href="#">
                             <img src="images/PU_388571-01-1.jpeg" alt="Zapatilla Puma">
                         </a>
@@ -76,16 +66,16 @@
                         <a class="CartItem-Heading" href="/productDetail">Zapatilla Puma</a>
                         <ul class="CartItem-Options">
                             <li class="CartItem-Option">
-                                <span class="CartItem-OptionAttributeLabel"> Color: </span>
-                                <span class="CartItem-OptionAttributeValue"> Blanco </span>
+                                <span> Color: </span>
+                                <span> Blanco </span>
                             </li>
                             <li class="CartItem-Option">
-                                <span class="CartItem-OptionAttributeLabel"> Talle: </span>
-                                <span class="CartItem-OptionAttributeValue"> 37 </span>
+                                <span> Talle: </span>
+                                <span> 37 </span>
                             </li>
                             <li class="CartItem-Option">
-                                <span class="CartItem-OptionAttributeLabel"> Art.: </span>
-                                <span class="CartItem-OptionAttributeValue"> 534175_24 </span>
+                                <span> Art.: </span>
+                                <span> 534175_24 </span>
                             </li>
                         </ul>
                         <div class="CartItem-Info">
@@ -110,7 +100,7 @@
                         </div>
                     </figcaption>
                 </figure>
-                <div class="resumen"> <!--floating-->
+                <div class="resumen">
                     <article>
                         <h4>Resumen</h4>
                         <dl class="subtotal">
@@ -130,7 +120,7 @@
                             </form>
                         </div>
                         <div class="checkout-button">
-                            <button>Proceder al pago</button>
+                            Proceder al pago
                         </div>
                     </article>
                 </div>

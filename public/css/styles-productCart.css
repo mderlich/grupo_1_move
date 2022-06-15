@@ -1,27 +1,25 @@
-*{
-    margin: 0px;
-    padding: 0px;  
-    border: 0px;  
-    box-sizing: border-box;
-}
+main {
+    margin-top: 0px;
+ }
 
-body{
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
-}
-
-.main-encabezado{
+.cart-header{
     background-color: #ebebeb;
     display: flex;
     justify-content: space-between;
     padding: 15px;
     color: #4b4848;
+    font-size: 12px;
+    align-items: center;
 }
 
-.main-encabezado a{
+main h2 {
+    text-align: center
+}
+.cart-header a{
     color: #898383; 
 }
 
-.main-encabezado a:hover {
+.cart-header a:hover {
     color: #686161; 
 }
 
@@ -29,24 +27,21 @@ body{
     display: flex;
 }
 
-
 .product-details{
     display: flex;
     width: 70%;
-
     padding: 20px;    
-
 }
 
-.image {
+.cart-image {
     width: 50%;
     padding: 10px;
 }
 
-img {
-    width: 200px;
-    padding: 10px;
+.cart-image img {
+    width: 250px;
 }
+
 
 .cart-item {
     padding: 10px;
@@ -54,8 +49,9 @@ img {
 
 .CartItem-Heading {
     text-decoration: none; 
-    color: #686161;
+    color: #252323;
     font-weight: bold;
+    font-size: 20px;
 }
 .CartItem-Options {
     margin-top: 10px;
@@ -83,7 +79,6 @@ img {
 }
 
 .resumen {
-
     align-items: center;
     width: 30%;
     padding: 20px;
@@ -91,6 +86,8 @@ img {
 
 article h4 {
     margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 .subtotal{
     display: flex;
@@ -112,14 +109,32 @@ article h4 {
 }
 
 .DiscountCode {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.checkout-button {
-    background-color: red;
-    color: white;
+.FieldInput{
+    display: flex;
 }
+
+.checkout-button{
+    width: 100%;
+    background-color: red;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    max-width: 400px;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+/* .checkout-button:hover{
+    background-color: blue;
+    cursor: pointer;
+} */
 
 main .recomendados{
     display: flex;
@@ -141,10 +156,7 @@ main .recomendados img{
 main .recomendados .imagen_texto{
     /* con margin auto centramos para cuando se vea en movil  */     
     margin: auto;
-
 }
-
-
 
 main .recomendados .imagen{
     width: 270px;
@@ -154,7 +166,6 @@ main .recomendados .imagen{
 main .recomendados .imagen:hover{
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
-
 
 main .recomendados i{
     position: absolute;
