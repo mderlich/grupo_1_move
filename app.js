@@ -19,4 +19,5 @@ app.get('/register', (req, res) => { res.sendFile( path.join(__dirname, '/views/
 // ---------------------------------------------------------------
 
 // el puerto segun indiquen
-app.listen(3000, () => console.log('Listo para ver en (Ctrl + Click)... http://localhost:3000/') );
+// Modificacion para emplear en Heroku... 'process.env.PORT ||'
+app.listen(process.env.PORT || 3000, () => console.log('Listo para ver en (Ctrl + Click)... http://localhost:3000/') );
