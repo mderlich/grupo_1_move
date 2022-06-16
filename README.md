@@ -21,6 +21,8 @@ https://www.sportline.com.ar/
 
 5- TABLERO DE TRELLO: https://trello.com/b/loBoMovR/tareas-move
 
+6- PROYECTO EN LINEA ( HEROKU ): https://grupo1move.herokuapp.com/
+
 // =================================================
 SPRINT 1/2 como se repartio...
 
