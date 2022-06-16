@@ -1,4 +1,5 @@
 Retrospectiva sprint 1
+// ////////////////////////////////////////////////////
 
 1. Comenzar a hacer: tener una reunion semanal para ver avances del trabajo.
 
@@ -10,7 +11,9 @@ Retrospectiva sprint 1
 
 5. Dejar de hacer: dejar para ultimo momento la revision del trabajo final.
 
+
 Retrospectiva sprint 2
+// ////////////////////////////////////////////////////
 
 1. Comenzar a hacer: tener una segunda weekly para ver avances del trabajo.
 
