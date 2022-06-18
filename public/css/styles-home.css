@@ -73,8 +73,7 @@ div.galeria:hover{
   
 }
 
-.colorhr{
-    background-color: red;}
+
 
 
     
@@ -85,10 +84,40 @@ div.galeria:hover{
       margin: auto;
       margin-bottom: 40px;
       background-color: #ACCAD4; /* For browsers that do not support gradients */
-      background-image: linear-gradient(to right, #ACCAD4 , #FF8499);
-      
+      background-image: var(--gradient);
+      animation: bg-animation 15s infinite;
+      transition: background-position 1s;
+      background-size: 300%;
+      background-position: left;
     /* fuente... 
     https://www.w3schools.com/css/tryit.asp?filename=trycss3_gradient-linear_ltr
     */
     }
 
+    @keyframes bg-animation{
+        0%{
+            background-position: left;
+        }
+        100%{
+            background-position: right;
+        }
+    }
+    
+    
+    :root{
+        --gradient: linear-gradient(
+            45deg,
+            #ACCAD4,
+            #ff6f91,
+            #ff6971,
+            #ffc75f,
+            #f9f871
+            
+        );
+    }
+    
+    .degrade:hover,
+    .degrade:focus{
+        background-position: right;
+        
+    } 
