@@ -27,6 +27,7 @@ rel="stylesheet" />
 <link href="css/styles-footer.css" rel="stylesheet">
 <link href="css/styles-home.css" rel="stylesheet">
 
+
 </head>
 <!-- HEAD (fin) -->
 <!-- --------------------------------------------- -->
@@ -87,49 +88,43 @@ rel="stylesheet" />
 <!-- --------------------------------------------- -->
 <!-- BODY / MAIN (inicio) -->
 <main> 
-<div>
+<div>   
         <img src="images/banner.jpg" alt="banner" height="100%" width="100%">
 </div>
 <br>
 <div>
     <h1>NAVEGÁ POR MARCAS</h1>
-    
     <div class="contenedor-productos">
         <article class="producto">
-            <img src="/images/newbalance.png" alt="Newbalance" width="100%" >
-            <hr class="colorhr">
-             <article class="detalleprod">   
-            <p class="descripcion">Lo nuevo de Newbalance</p>
-            <hr class="colorhr">
+            <a href="New">
+            <img src="/images/newbalance.png" alt="Newbalance" width="100%"></a>
             </article>
-        </article>
+   
+    
         <article class="producto">
-            <img src="/images/puma.png" alt="puma" width="100%"> 
-            <hr class="colorhr" > 
-            <article class="detalleprod">
-            <p class="descripcion">Lo nuevo de Puma</p> 
-            <hr class="colorhr">
+            <a href="puma">
+            <img src="/images/puma.png" alt="puma" width="100%"></a> 
             </article>  
-            </article>
+       
+            
+            
         <article class="producto">
-            <img src="/images/converse.png" alt="converse" width="100%">
-            <hr class="colorhr">
-            <article class="detalleprod">
-                <p class="descripcion">Lo nuevo de Converse</p> 
-                <hr class="colorhr">
+            <a href="convers">
+            <img src="/images/converse.png" alt="converse" width="100%"></a>
+            
             </article>
-        </article>
+        
+        
+        
         <article class="producto">
-            <img src="/images/nike.png" alt="nike" width="100%">
-            <hr class="colorhr">
-            <article class="detalleprod">
-                <p class="descripcion">Lo nuevo de Nike</p>
-                <hr class="colorhr">
-            </article>  
+            <a href="nike">
+            <img src="/images/nike.png" alt="nike" width="100%"></a>
+         
         </article>
     </div>
+    
 </section>      
-    <!-- recordatorio poner linea degrade color-->
+<div class="degrade" ></div>
 <section>
 <h2>MAS RECIENTES</h2>
 <div class="recomendados">
@@ -163,46 +158,7 @@ rel="stylesheet" />
     </div> 
 </div>
 </section>
-<!-- recordatorio falta botones-->
-<section>
-    <h2>Listos Para EL Frio!</h2>
-    <div>
-        <img src="images/holiday.jpg" alt="banner" height="100%" width="100%">
-    </div> 
-    <hr class="colorhr">
-    <div class="recomendados">
-        <div class="imagen_texto">
-            <div class="imagen">
-                <img src="images/buso.png" alt="buso"><i class="fas fa-heart"></i>
-            </div>
-            <hr>
-            <div class="texto">Buso CLSX deportivo<br><br><h4>$9.999</h4> </div>
-        </div>
-        <div class="imagen_texto">
-            <div class="imagen">
-                <img src="images/PantalonesT7 Rectos.webp" alt="Pantalones T7 Rectos"><i class="fas fa-heart"></i>
-            </div>
-            <hr>
-            <div class="texto">PantalonesT7 Rectos<br><br><h4>$6.499</h4> </div>
-        </div>
-        <div class="imagen_texto">
-            <div class="imagen">
-                <img src="images/Buzo oversize para mujer Classics.png" alt="Buzo oversize para mujer Classics"><i class="fas fa-heart"></i>
-            </div>
-            <hr>
-            <div class="texto">Buzo oversize para mujer Classics <br><br><h4>$8.699</h4> </div>
-        </div>
-        <div class="imagen_texto">
-            <div class="imagen">
-                <img src="images/Buzo CLSX con capucha.png" alt="Buzo CLSX"><i class="fas fa-heart"></i>
-            </div>
-            <hr>
-            <div class="texto">Buzo CLSX con capucha<br><br><h4>$8.000</h4> </div>
-        </div> 
-    </div>
-</section>
-
-
+<div class="degrade" ></div>
 <section>
     <h2>MAS VENDIDOS</h2>
     <div class="recomendados">
@@ -235,6 +191,9 @@ rel="stylesheet" />
             <div class="texto">Zapatillas Suede Classic XXI <br><br><h4>$14.999</h4> </div>
         </div> 
     </div>
+    <section>
+        <div class="degrade" ></div>
+    </section>
     </section>
         <h2>RECOMENDADOS PARA VOS</h2>
         <div class="recomendados">
@@ -269,22 +228,6 @@ rel="stylesheet" />
         </div>
        
         </section>    
-
-
-        <style>
-            .degrade {
-              height: 40px;
-              width: 90%;
-              max-width: 1200px;
-              margin: auto;
-              margin-bottom: 40px;
-              background-color: #ACCAD4; /* For browsers that do not support gradients */
-              background-image: linear-gradient(to right, #ACCAD4 , #FF8499);
-            /* fuente... 
-            https://www.w3schools.com/css/tryit.asp?filename=trycss3_gradient-linear_ltr
-            */
-            }
-        </style>
 
         <div class="degrade"></div>
 
