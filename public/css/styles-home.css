@@ -30,6 +30,7 @@ div.galeria:hover{
     
     
     
+    
 }
 
 
@@ -70,11 +71,14 @@ div.galeria:hover{
    border-radius: 30px;
    background-image: var(--gradient);
    animation: bg-animation 15s infinite;
-   transition: background-position 1s;
    background-size: 300%;
    background-position: left;
+   transition:border-radius 450ms;
    
-  
+}
+
+.imagenmove{
+    transition:border-radius 450ms;
 }
 
     .degrade {
@@ -113,7 +117,12 @@ div.galeria:hover{
     }
     
     .producto:hover,
+    .imagenmove:hover,
     .producto:focus{
         background-position: right;
+        border-radius:50%
         
     } 
+
+
+
