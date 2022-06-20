@@ -67,28 +67,24 @@ div.galeria:hover{
    left: 200px;
    margin: 10px;
    padding: 5px 5px;
-   background-image: linear-gradient(to right, #ACCAD4 , #FF8499);
    border-radius: 30px;
+   background-image: var(--gradient);
+   animation: bg-animation 15s infinite;
+   transition: background-position 1s;
+   background-size: 300%;
+   background-position: left;
    
   
 }
 
-
-
-
-    
     .degrade {
       height: 40px;
       width: 100%;
       max-width: 1200px;
       margin: auto;
       margin-bottom: 40px;
-      background-color: #ACCAD4; /* For browsers that do not support gradients */
-      background-image: var(--gradient);
-      animation: bg-animation 15s infinite;
-      transition: background-position 1s;
-      background-size: 300%;
-      background-position: left;
+      background-image: linear-gradient(to right, #ACCAD4 , #FF8499);
+      background-size: 120%;
     /* fuente... 
     https://www.w3schools.com/css/tryit.asp?filename=trycss3_gradient-linear_ltr
     */
@@ -116,8 +112,8 @@ div.galeria:hover{
         );
     }
     
-    .degrade:hover,
-    .degrade:focus{
+    .producto:hover,
+    .producto:focus{
         background-position: right;
         
     } 
