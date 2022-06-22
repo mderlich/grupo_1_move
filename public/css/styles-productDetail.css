@@ -46,12 +46,32 @@ main{
 
 }
 .zapatillas_der{
-    margin: auto;
+
+    margin-left: 30px;
+    margin-right: 30px;
     
 }
+.zapatillas_izq img{
+    display:block;
+    margin:auto;
+    width: 100%;
+    max-height: 350px;
+    border: 1px solid red;
+}
+
+
+.zapatillas h1{
+    margin-bottom: 0;
+}
+.zapatillas h2{
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
 .imagenes_galeria {
     display: flex;
-    width: 400px;
     margin: auto;
     margin-top: 10px;
     
@@ -64,21 +84,6 @@ main{
 .imagenes_galeria img:hover{
     border: 2px solid black;
     cursor: pointer;
-}
-.zapatillas_izq img{
-    display:block;
-    margin:auto;
-    max-height: 350px;
-}
-
-
-.zapatillas h1{
-    margin-bottom: 0;
-}
-.zapatillas h2{
-    text-align: left;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .detalles_zapatillas{
