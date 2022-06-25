@@ -2,6 +2,7 @@ main {
     margin-top: 0px;
  }
 
+ /*/*------------Encabezado del carrito/*------------*/
 .cart-header{
     background-color: #ebebeb;
     display: flex;
@@ -23,28 +24,36 @@ main h2 {
     color: #686161; 
 }
 
+ /*------------Seccion del producto/*------------*/
+
 .main-content{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
 }
 
 .product-details{
     display: flex;
-    width: 70%;
-    padding: 20px;    
+    padding: 20px; 
+    min-width: 320px;
+    justify-content: space-between;
 }
 
 .cart-image {
     width: 50%;
     padding: 10px;
+    display: block;
 }
 
 .cart-image img {
-    width: 250px;
+    width: 25vw;
+    min-width: 100px;
 }
-
 
 .cart-item {
     padding: 10px;
+    width: 50%;
 }
 
 .CartItem-Heading {
@@ -53,6 +62,7 @@ main h2 {
     font-weight: bold;
     font-size: 20px;
 }
+
 .CartItem-Options {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -66,7 +76,7 @@ main h2 {
 
 .CartItem-Info {
     display: flex;
-    justify-content: space-between;
+    
     gap: 20px;
 }
 
@@ -83,10 +93,13 @@ main h2 {
     color: red;
 }
 
+ /*/*------------Seccion resumen/*------------*/
+
 .resumen {
+    display: flex;
     align-items: center;
-    width: 30%;
     padding: 20px;
+ 
 }
 
 article h4 {
@@ -141,6 +154,8 @@ article h4 {
     background-color: blue;
     cursor: pointer;
 } */
+
+ /*/*------------Seccion recomendados/*------------*/
 
 main .recomendados{
     display: flex;
@@ -198,4 +213,16 @@ main hr{
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+@media (min-width: 768px) {
+    .product-details{
+        width: 70%;
+    }
+
+    .resumen {
+        width: 30%;
+    }
+
+
 }
