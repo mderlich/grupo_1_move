@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- --------------------------------------------- -->
+<!-- HEAD (inicio) -->
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move - Las mejores zapatillas!</title>
+
+<!-- CSS NORMALIZE -->
+<!-- https://necolas.github.io/normalize.css/
+Muy importante colocar la referencia a este fichero antes que cualquier otro estilo. -->
+<link href="styles-home.css" rel="stylesheet">
+
+<!-- ICONOS -->
+<!-- Se buscan desde aqui...
+https://fontawesome.com/v5/search?s=solid%2Cbrands 
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+rel="stylesheet" />
+
+<!-- ESTILOS PROPIOS -->
+<link href="css/styles-header.css" rel="stylesheet">
+<link href="css/styles-productDetail.css" rel="stylesheet">
+<link href="css/styles-footer.css" rel="stylesheet">
+<link href="css/styles-home.css" rel="stylesheet">
+<link href="css/styles-forgetpw.css" rel="stylesheet">
+
+
+</head>
+<!-- HEAD (fin) -->
+<!-- --------------------------------------------- -->
+
+<!-- --------------------------------------------- -->
+
+<body>  
+
+ <header>
+    <div class="mainheader" >
+
+        <div class="mainheader_left" >
+    
+            <!-- Logo -->
+            <a href="/">
+                <img src="images/move.png"  alt="logo-move" class="logo">
+            </a>
+            
+            <!-- 'nav' está destinado sólo para el bloque principal de enlaces de navegación -->
+            <nav>
+                <ul>
+                    <li><a href="/">Mujeres</a></li>
+                    <li><a href="/">Hombres</a></li>
+                    <li><a href="/">Niños</a></li>
+                </ul>
+            </nav>
+    
+        </div>
+    
+        <div class="mainheader_right" >
+        
+            <!-- Buscador -->
+            <form  action="/" method="GET" >
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button> 
+                <input type="search" >
+            </form>
+    
+            <!-- Iconos -->
+            <div class="iconos">
+            <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/login"><i class="fas fa-user"></i></a>
+            <a href=""><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+    
+    </div>
+        
+ 
+</header>
+
+<div class="box-3">
+    <h1>¿Olvidaste tu contraseña?</h1>
+    <p>Escribi tu email y recibirás un enlace para 
+    restablecerla.</p>
+
+    <!--form para recordar contraseña-->
+    <!--falta poner el hipervinculo para hacer esto-->
+    <form action="" method="POST">
+    <label for="forgetpw"></label>
+    <input type="email" value="Email"/>
+    </form>
+
+    <!--boton iniciar sesión-->
+    <div class="enviarcorreo">
+    <button type="button">ENVIAR</button>
+    </div>
+
+</div>
+
+<footer>
+    <!--aquí pegar el header general-->
+</footer>
+
+<footer>
+
+    <div class="footer_iconoscontenedor">
+        <div><a href="/puma"><i class="fab fa-facebook-square"></i></a></div>
+        <div><a href="/puma"><i class="fab fa-twitter"></i></a></div>
+        <div><a href="/puma"><i class="fab fa-instagram"></i></a></div>
+        <div><a href="/puma"><i class="fab fa-youtube"></i></a></div>
+    </div>
+
+    
+
+    <!-- Linea -->
+    <hr>
+
+    <div>
+    <p>© MOVE Todos los derechos reservados, 2022</p>
+    </div>
+
+</footer>
+<!-- BODY / FOOTER (fin) -->
+<!-- --------------------------------------------- -->
+
+</body>
+</html>
+    
+
