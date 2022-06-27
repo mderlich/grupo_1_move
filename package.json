@@ -1,7 +1,7 @@
 {
-  "name": "proyecto-integrador",
+  "name": "MOVE - Proyecto Integrador",
   "version": "1.0.0",
-  "description": "1- Temática del sitio: tienda online de venta de calzado deportivo.",
+  "description": "Tienda online de venta de calzado deportivo",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

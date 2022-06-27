@@ -1,0 +1,3 @@
+/* 
+Aqui iran las funciones de JavaScripts
+*/
