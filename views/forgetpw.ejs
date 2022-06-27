@@ -37,92 +37,27 @@ rel="stylesheet" />
 
 <body>  
 
- <header>
-    <div class="mainheader" >
+    <%- include('./partials/header')%>
 
-        <div class="mainheader_left" >
-    
-            <!-- Logo -->
-            <a href="/">
-                <img src="images/move.png"  alt="logo-move" class="logo">
-            </a>
-            
-            <!-- 'nav' está destinado sólo para el bloque principal de enlaces de navegación -->
-            <nav>
-                <ul>
-                    <li><a href="/">Mujeres</a></li>
-                    <li><a href="/">Hombres</a></li>
-                    <li><a href="/">Niños</a></li>
-                </ul>
-            </nav>
-    
-        </div>
-    
-        <div class="mainheader_right" >
-        
-            <!-- Buscador -->
-            <form  action="/" method="GET" >
-                <button type="submit">
-                    <i class="fas fa-search"></i>
-                </button> 
-                <input type="search" >
-            </form>
-    
-            <!-- Iconos -->
-            <div class="iconos">
-            <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
-            <a href="/login"><i class="fas fa-user"></i></a>
-            <a href=""><i class="fas fa-bars"></i></a>
-            </div>
-        </div>
-    
-    </div>
-        
- 
-</header>
-
-<div class="box-3">
+<div id="caja-forgetpw">
     <h1>¿Olvidaste tu contraseña?</h1>
-    <p>Escribi tu email y recibirás un enlace para 
+    <p id="indicaciones-forgetpw">Escribí tu email y recibirás un enlace para 
     restablecerla.</p>
 
     <!--form para recordar contraseña-->
     <!--falta poner el hipervinculo para hacer esto-->
     <form action="" method="POST">
-    <label for="forgetpw"></label>
-    <input type="email" value="Email"/>
+    <input class="cajitafpw" type="email"/>
     </form>
 
     <!--boton iniciar sesión-->
-    <div class="enviarcorreo">
-    <button type="button">ENVIAR</button>
+    <div>
+    <button class="b-enviarcor"><label class="t-enviarcor">ENVIAR</label></button>
     </div>
 
 </div>
 
-<footer>
-    <!--aquí pegar el header general-->
-</footer>
-
-<footer>
-
-    <div class="footer_iconoscontenedor">
-        <div><a href="/puma"><i class="fab fa-facebook-square"></i></a></div>
-        <div><a href="/puma"><i class="fab fa-twitter"></i></a></div>
-        <div><a href="/puma"><i class="fab fa-instagram"></i></a></div>
-        <div><a href="/puma"><i class="fab fa-youtube"></i></a></div>
-    </div>
-
-    
-
-    <!-- Linea -->
-    <hr>
-
-    <div>
-    <p>© MOVE Todos los derechos reservados, 2022</p>
-    </div>
-
-</footer>
+<%- include('./partials/footer')%>
 <!-- BODY / FOOTER (fin) -->
 <!-- --------------------------------------------- -->
 

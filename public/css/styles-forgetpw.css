@@ -185,84 +185,51 @@ main{
 
 
 
-/* CSS LOGIN*/
+/* CSS FORGETPW*/
 
-
-.todo{
-    text-align:center;
+#caja-forgetpw{
+    margin-top:60px;;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
 }
 
-.firstis{
+h1{
     margin-top: 30px;
-}
-.asterisco{
-    color: salmon;
+    margin-bottom: 15px;
 }
 
-.emailycontra{
-    margin-top:20px;
-    margin-bottom: 8px;
-    color: #666666;
+#indicaciones-forgetpw{
+    margin: 25px;
 }
 
-.cajita{
-    margin-left: 25%;
-    margin-right: 25%;
+.cajitafpw{
+    width: 40%;
+    max-width: 300px;
+    height: 30px;
     border-radius: 6px;
 }
 
-.cajita:hover{
+.cajitafpw:hover{
     border-color: grey;
 }
 
-.ojo{
-    color: white;
-    border:#666666;
-   
-}
-
-.botonojo{
-    width:7%;
-    margin-left: 48%;
-    background-color:black;
-    border-radius: 8px;;
-}
-
-.checkbox{
-    margin-top:20px;
-    margin-bottom: 8px;
-}
-
-.olvidastecontra{
-    margin-top:15px;
-    margin-bottom: 8px;
-}
-
-.boton-inicio{
-    margin-top:15px;
-    margin-bottom: 8px;
-    border-radius: 25px;
-    width: 60%;
-    height: 50px;
-    background-image:linear-gradient(to bottom right,rgb(151, 65, 151),rgb(194, 242, 105));
+.b-enviarcor{
+    margin: 30px;
+    width: 20%;
+    height: 30px;
+    border-radius:20px ;
     border: 1px solid black;
+    background-image:linear-gradient(to bottom right,rgb(151, 65, 151),rgb(194, 242, 105));
 }
 
-.texto-boton{
-    font-size: 20px;
-    color: white;
-}
-a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-.resaltacolor:hover {
+.b-enviarcor:hover{
     color: darkblue;
 }
 
+.t-enviarcor{
+    color:white;
+    font-weight: bold;
+}
 
 
 
