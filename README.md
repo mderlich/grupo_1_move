@@ -1,4 +1,4 @@
-# grupo_1_voom
+# grupo_1_move
 
 1- Temática del sitio: tienda online de venta de calzado deportivo.
 
