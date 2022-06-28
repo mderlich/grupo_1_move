@@ -6,10 +6,68 @@
 <body>
     <%- include('./partials/header')%>
     
+    <main>
+
+    <!--FORMULARIO DE EDICIÓN-->     
+<!--id: 1,
+    codigo: "PU_374915",
+    marca: "Puma",
+    nombre: "Suede Classic XXI",
+    precio: 14999,
+    fecha_inicio: 03/01/2022,
+    descripcion: "Mostrá tu estilo clásico y urbano con las Zapatillas Puma Suede Classic XXI su diseño emblemático desde 1968 y que son recordadas por varias generaciones icónicas, su capellada en gamuza te da un look sofisticado, su entresuela y suela de goma te dará pisadas amortiguadas y con mejor reacción en cualquier superficie. Además, la etiqueta puma archive en la lengüeta le da un toque moderno para que las combines con tus outfits preferidos.",
+    categoria: "zapatillas",
+    genero: "Hombre",
+    origen: "Importado",
+    ref: "https://www.moov.com.ar/zapatillas-puma-suede-classic-xxi/PU_374915%2F01.html"
+    -->
     
+    <form action="/registro" method="POST">
+    
+        <label for="codigo">Código</label>
+        <input name="codigo" id="codigo">
+
+        <label for="marca">Marca</label>
+        <input name="marca" id="marca">
+
+        <label for="nombre">Nombre</label>
+        <input name="nombre" id="nombre">
+
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio">
+
+        <label for="fechadecarga">Fecha de Carga</label>
+        <input type="date"  name="fechadecarga" id="fechadecarga">
+
+        <label for="descripcion">Descripción</label>
+        <textarea name="descripcion" id="descripcion"></textarea>
+        
+        <label for="categoria">Categoria</label>
+        <input type="text " name="categoria" id="categoria" disabled value="zapatillas">
+
+        <select name="genero">
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+            <option value="unisex">Unisex</option>
+        </select>
+
+        <label for="origen">Origen</label>
+        <label>
+        <input type="radio" name="origen" id="nacional" value="nacional">Nacional
+        </label>
+        <label>
+        <input type="radio" name="origen" id="importado" value="importado">Importado
+        </label>
+     
+    </form>
+    
+<!--FIN FORMULARIO DE EDICIÓN-->  
+    </main>
+
+
+    <%- include('./partials/footer')%>
 
 </body>
 
-<%- include('./partials/footer')%>
 
 </html>
