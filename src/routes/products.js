@@ -38,7 +38,7 @@ const {
     edit,
     update,
     destroy
-} = require('../controllers/productController');
+} = require('../controllers/productControllers');
 
 /*** GET ALL PRODUCTS ***/ 
 /* Aqui dentro tambien esta... search */
@@ -63,3 +63,7 @@ router.get('/api/:id', detailApi);
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/:id/', detail); 
+
+
+
+module.exports = router;
