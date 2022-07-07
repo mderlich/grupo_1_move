@@ -28,4 +28,9 @@ router.get('/register', (req, res) => {
 router.get('/forgetpw', (req, res) => { 
     res.render( 'forgetpw') });
 
-module.exports = router;
+
+// ruta hacia... creacion de usuario
+router.get('/register', (req, res) => { 
+    res.render( 'register') });
+
+

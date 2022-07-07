@@ -1,34 +1,65 @@
 
-const express = require("express");
+// ************ Require's ************
+const express = require('express');
 const router = express.Router();
+// multer util para imagenes
+const multer = require('multer');
+const path = require('path');
 
-const productController = require("../controllers/productos");
+// ************ Multer Settings ************
+// acompaña a la linea de ruta mas adelante...
+// router.post('/', upload.single('image'), store);      
 
-router.get("/", productController.listar);
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, "../../public/images/products"))
+	},
+	filename: (req, file, cb) => {
+        // Datos propios del 'file' son...
+        // fieldname / originalname / encoding / mimetype / destination / filename / path / size
+		let nombreImagen = "ximg-" + Date.now() + path.extname(file.originalname);
+        cb(null, nombreImagen)
+	}
+})
 
-router.get("/lista", productController.vistaListado);
+var upload = multer({ storage: storage })
 
-router.get("/:id", productController.obtenerPorId);
+// /multer fin --------------------------------
 
-router.post("/", productController.agregarProducto);
 
-router.delete("/:id", productController.borrarProducto);
+// ************ Controller Require ************
+const {
+    index,
+    detailApiAll,
+    create,
+    store,
+    detail,
+    detailApi,
+    edit,
+    update,
+    destroy
+} = require('../controllers/productController');
 
-module.exports = router;
+/*** GET ALL PRODUCTS ***/ 
+/* Aqui dentro tambien esta... search */
+router.get('/', index); 
+router.get('/api', detailApiAll); 
 
-/*
-1. /products (GET)
-Listado de productos
-2. /products/create (GET)
-Formulario de creación de productos
-3. /products/:id (GET)
-Detalle de un producto particular
-4. /products (POST)
-Acción de creación (a donde se envía el formulario)
-5. /products/:id/edit (GET)
-Formulario de edición de productos
-6. /products/:id (PUT)
-Acción de edición (a donde se envía el formulario):
-7. /products/:id (DELETE)
-Acción de borrado
-*/
+/*** CREATE ONE PRODUCT ***/ 
+// IMPORTANTE!!! este caso tiene prioridad y debe ir antes de 'GET ONE PRODUCT'
+// IMPORTANTE!!! 'image' corresponde al name del input... <input type="file" name="image" id="image" >
+router.get('/create/', create); 
+router.post('/', upload.single('image'), store);        /* <<============= */
+
+/*** EDIT ONE PRODUCT ***/ 
+router.get('/edit/:id', edit); 
+router.put('/:id', update);     /* <<============= */
+
+/*** DELETE ONE PRODUCT***/ 
+router.delete('/:id', destroy); /* <<============= */
+
+/*** GET ONE PRODUCT ***/ 
+router.get('/api/:id', detailApi); 
+
+/*** GET ONE PRODUCT ***/ 
+router.get('/:id/', detail); 

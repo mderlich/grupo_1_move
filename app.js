@@ -5,8 +5,12 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-const mainRoutes = require('./src/routes/main');
-app.use('/', mainRoutes);
+
+const mainRouter = require('./src/routes/main'); // Rutas main
+const productsRouter = require('./src/routes/products'); // Rutas /products
+
+app.use('/', mainRouter);
+app.use('/products', productsRouter);
 
 // el puerto segun indiquen
 // Modificacion para emplear en Heroku... 'process.env.PORT ||'
