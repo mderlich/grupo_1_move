@@ -1,3 +1,4 @@
+// ************ Require's ************
 // fs requerido para JSON
 const fs = require('fs');
 const path = require('path');
@@ -23,6 +24,22 @@ const controller = {
 			products: products
 		});
 	},
+
+	productDetail: (req, res) => {
+
+		res.render('productDetail');
+
+	},
+
+	productCart: (req, res) => {
+
+		res.render('productCart');
+
+	},
+
+		
+	// De aqui en adelante todavia esta pendiente de aplicar
+	// ------------------------------------------------------
 
 	detailApiAll: (req, res) => {
 

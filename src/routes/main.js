@@ -1,17 +1,32 @@
-const express = require("express");
+// ************ Require's ************
+const express = require('express');
 const router = express.Router();
 
 
-router.get('/', (req, res) => { 
-    res.render('home') });
-    
-router.post('/', (req, res) => { 
-    res.render('home') });
+// ************ Controller Require ************
+const {
+    index,
+    search,
+    login,
+    register,
+    forgetpw
+} = require('../controllers/mainController');
+// ********************************************
 
-// ruta hacia... login
-router.get('/login', (req, res) => { 
-    res.render( 'login') });
+router.get('/', index); 
 
+router.get('/search', search); 
+
+router.get('/login', login); 
+
+router.get('/register', register); 
+
+router.get('/forgetpw', forgetpw); 
+
+
+
+// ********************************************
+// OBS estas dos siguientes hay que llevarlas a products
 // ruta hacia... productCart
 router.get('/productCart', (req, res) => { 
     res.render('productCart') });
@@ -20,19 +35,8 @@ router.get('/productCart', (req, res) => {
 router.get('/productDetail', (req, res) => { 
     res.render( 'productDetail') });
 
-// ruta hacia... register
-router.get('/register', (req, res) => { 
-    res.render( 'register') });
-
-// ruta hacia... forget password
-router.get('/forgetpw', (req, res) => { 
-    res.render( 'forgetpw') });
 
 
-// ruta hacia... creacion de usuario
-router.get('/register', (req, res) => { 
-    res.render( 'register') });
-
-
+// ********************************************
 
 module.exports = router;

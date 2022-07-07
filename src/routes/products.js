@@ -1,4 +1,3 @@
-
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
@@ -12,7 +11,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, "../../public/images/products"))
+        cb(null, path.join(__dirname, "../../public/images"))
 	},
 	filename: (req, file, cb) => {
         // Datos propios del 'file' son...
@@ -30,6 +29,8 @@ var upload = multer({ storage: storage })
 // ************ Controller Require ************
 const {
     index,
+    productDetail,
+    productCart,
     detailApiAll,
     create,
     store,
@@ -38,11 +39,18 @@ const {
     edit,
     update,
     destroy
-} = require('../controllers/productControllers');
+} = require('../controllers/productController');
 
 /*** GET ALL PRODUCTS ***/ 
 /* Aqui dentro tambien esta... search */
 router.get('/', index); 
+
+
+
+// De aqui en adelante todavia esta pendiente de aplicar
+// ------------------------------------------------------
+
+/*** API // TODOS LOS PRODUCTOS ***/ 
 router.get('/api', detailApiAll); 
 
 /*** CREATE ONE PRODUCT ***/ 
