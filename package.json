@@ -9,7 +9,9 @@
   "license": "ISC",
   
   "scripts": {
-    "start": "nodemon app.js -e js,ejs,json,mjs"
+    "start": "node app.js",
+    "dev": "nodemon app.js -e js,ejs,json,mjs"
+
   },
   
   "repository": {
