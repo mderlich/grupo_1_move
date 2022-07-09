@@ -7,22 +7,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js -e js,ejs,json,mjs"
-
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/estefaniapottassa/grupo_1_voom.git"
   },
- 
   "bugs": {
     "url": "https://github.com/estefaniapottassa/grupo_1_voom/issues"
   },
-  
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.1",
@@ -30,5 +25,4 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.1"
   }
-
 }
