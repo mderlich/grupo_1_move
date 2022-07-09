@@ -1,0 +1,47 @@
+[
+    {
+    "id": 1,
+    "nombre": "Estefania",
+    "apellido": "Pottassa",
+    "email": "estefania.pottassa@gmail.com",
+    "contraseña": "123456",
+    "genero": "femenino",
+    "avatar": " "
+    },
+    {
+    "id": 2,
+    "nombre": " ",
+    "apellido": " ",
+    "email": " ",
+    "contraseña": " ",
+    "genero": " ",
+    "avatar": " "
+    },
+    {
+    "id": 3,
+    "nombre": " ",
+    "apellido": " ",
+    "email": " ",
+    "contraseña": " ",
+    "genero": " ",
+    "avatar": " "
+    },
+    {
+    "id": 4,
+    "nombre": " ",
+    "apellido": " ",
+    "email": " ",
+    "contraseña": " ",
+    "genero": " ",
+    "avatar": " "
+    },
+    {
+    "id": 5,
+    "nombre": " ",
+    "apellido": " ",
+    "email": " ",
+    "contraseña": " ",
+    "genero": " ",
+    "avatar": " "
+    }
+]
