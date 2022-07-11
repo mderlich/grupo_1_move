@@ -1,52 +1,68 @@
 [
     {
     "id": 1,
-    "nombre": "Estefania",
-    "apellido": "Pottassa",
+    "firstName": "Estefania",
+    "lastName": "Pottassa",
     "email": "estefania.pottassa@gmail.com",
-    "contraseña": "123456",
-    "genero": "femenino",
-    "avatar": ""
+    "password": "123456",
+    "gender": "femenino",
+    "category:": "user",
+    "image": ""
     },
 
     {
     "id": 2,
-    "nombre": "Maximiliano",
-    "apellido": "Lizarraga",
+    "firstName": "Maximiliano",
+    "lastName": "Lizarraga",
     "email": "maxi.lizarraga.91@gmail.com ",
-    "contraseña": "Hola123",
-    "genero": "Masculino",
-    "avatar": " "
+    "password": "Hola123",
+    "gender": "Masculino",
+    "category:": "user",
+    "image": " "
     },
 
     {
     "id": 3,
-    "nombre": "Melissa ",
-    "apellido": "Sánchez ",
+    "firstName": "Melissa ",
+    "lastName": "Sánchez ",
     "email": "sanchezvergaras@gmail.com ",
-    "contraseña": "Amarillo1* ",
-    "genero": "femenino",
-    "avatar": " "
+    "password": "Amarillo1* ",
+    "gender": "femenino",
+    "category:": "user",
+    "image": " "
     },
 
     {
     "id": 4,
-    "nombre": "Matias",
-    "apellido": "Derlich",
+    "firstName": "Matias",
+    "lastName": "Derlich",
     "email": "mderlich@gmail.com",
-    "contraseña": "monito123",
-    "genero": "masculino",
-    "avatar": ""
+    "password": "monito123",
+    "gender:": "masculino",
+    "category:": "user",
+    "image": ""
     },
 
     {
     "id": 5,
-    "nombre": " ",
-    "apellido": " ",
-    "email": " ",
-    "contraseña": " ",
-    "genero": " ",
-    "avatar": " "
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "gender": "",
+    "category": "user",
+    "image": ""
+    },
+
+    {
+    "id": 6,
+    "firstName": "Admin",
+    "lastName": "Admin",
+    "email": "admin@move.com",
+    "password": "1234",
+    "gender": "",
+    "category": "admin",
+    "image": ""
     }
 
 ]
