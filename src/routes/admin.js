@@ -6,7 +6,8 @@ const router = express.Router();
 // ************ Controller Require ************
 const {
     admin,
-    create
+    create,
+    store
 } = require('../controllers/adminController');
 
 
@@ -14,6 +15,8 @@ const {
 router.get('/', admin); 
 
 router.get('/create', create); 
+
+router.post('/create', store); 
 
 // ************ Exportamos ************
 module.exports = router;
