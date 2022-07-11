@@ -16,28 +16,6 @@ salmon
 tomato
 */
 
-* { 
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
- }
-
- /* GOOGLE FONTS :: ROBOTO
- Se debe aplicar aqui con @import y tambien en el body */
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #FFFFFF;    
-    font-size: 16px;
-    /* para footer responsive 
-       (se aplica en body + footer)
-       https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
-    */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
 
 
 /* 
@@ -158,22 +136,6 @@ nav li{
 
 .mainheader_right input:focus{
     outline: none;
-}
-
-
-
-
-
-
-
-/* 
-MAIN GRAL
---------------------------------------------- 
-*/
-
-main{
-    width: 100%;
-    margin-top: 30px;
 }
 
 
