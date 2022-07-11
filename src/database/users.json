@@ -6,8 +6,9 @@
     "email": "estefania.pottassa@gmail.com",
     "contraseña": "123456",
     "genero": "femenino",
-    "avatar": " "
+    "avatar": ""
     },
+
     {
     "id": 2,
     "nombre": "Maximiliano",
@@ -17,6 +18,7 @@
     "genero": "Masculino",
     "avatar": " "
     },
+
     {
     "id": 3,
     "nombre": "Melissa ",
@@ -26,15 +28,17 @@
     "genero": "femenino",
     "avatar": " "
     },
+
     {
     "id": 4,
-    "nombre": " ",
-    "apellido": " ",
-    "email": " ",
-    "contraseña": " ",
-    "genero": " ",
-    "avatar": " "
+    "nombre": "Matias",
+    "apellido": "Derlich",
+    "email": "mderlich@gmail.com",
+    "contraseña": "monito123",
+    "genero": "masculino",
+    "avatar": ""
     },
+
     {
     "id": 5,
     "nombre": " ",
@@ -44,4 +48,5 @@
     "genero": " ",
     "avatar": " "
     }
+
 ]
