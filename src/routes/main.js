@@ -11,7 +11,8 @@ const {
     register,
     forgetpw
 } = require('../controllers/mainController');
-// ********************************************
+
+// ************ Rutas Generales ************
 
 router.get('/', index); 
 
@@ -37,6 +38,5 @@ router.get('/productDetail', (req, res) => {
 
 
 
-// ********************************************
-
+// ************ Exportamos ************
 module.exports = router;

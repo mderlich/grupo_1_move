@@ -94,15 +94,7 @@ const controller = {
     
 	},
 
-    // REGISTER ************
-    register: (req, res) => {
 
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-        res.render( 'register');
-
-	},
   
 
 };
