@@ -7,61 +7,57 @@
 
 <%- include('./partials/header')%>
 
+
+
+
     <main>
 
-   <!--FORMULARIO DE CREACIÓN-->     
-<!--id: 1,
-    codigo: "PU_374915",
-    marca: "Puma",
-    nombre: "Suede Classic XXI",
-    precio: 14999,
-    fecha_inicio: 03/01/2022,
-    descripcion: "Mostrá tu estilo clásico y urbano con las Zapatillas Puma Suede Classic XXI su diseño emblemático desde 1968 y que son recordadas por varias generaciones icónicas, su capellada en gamuza te da un look sofisticado, su entresuela y suela de goma te dará pisadas amortiguadas y con mejor reacción en cualquier superficie. Además, la etiqueta puma archive en la lengüeta le da un toque moderno para que las combines con tus outfits preferidos.",
-    categoria: "zapatillas",
-    genero: "Hombre",
-    origen: "Importado",
-    ref: "https://www.moov.com.ar/zapatillas-puma-suede-classic-xxi/PU_374915%2F01.html"
-    -->
+        <div class="formulario">
+
+        
+        <h1>ADMIN / CREAR</h1>
+
+    <form action="/products" method="POST" >
     
-    <form action="/products" method="POST">
-    
+            
             <label for="codigo">Código</label>
-            <input name="codigo" id="codigo">
+            <input type="text" name="codigo" id="codigo" >
 
             <label for="marca">Marca</label>
-            <input name="marca" id="marca">
+            <input type="text" name="marca" id="marca">
 
             <label for="nombre">Nombre</label>
-            <input name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre">
 
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio">
+            <input type="number" type="number" name="precio" id="precio">
 
             <label for="fechadecarga">Fecha de Carga</label>
-            <input type="date"  name="fechadecarga" id="fechadecarga">
+            <input type="date" name="fechadecarga" id="fechadecarga" min="2022-01-01">
 
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion"></textarea>
             
             <label for="categoria">Categoria</label>
-            <input type="text " name="categoria" id="categoria" disabled value="zapatillas">
+            <input type="text " name="categoria" id="categoria"  value="zapatillas" disabled>
 
-            <select name="genero">
+            <label for="genero">Genero</label>
+            <select id="genero" name="genero">
                 <option value="femenino">Femenino</option>
                 <option value="masculino">Masculino</option>
                 <option value="unisex">Unisex</option>
             </select>
 
             <label for="origen">Origen</label>
-            <label>
-            <input type="radio" name="origen" id="nacional" value="nacional">Nacional
-            </label>
-            <label>
-            <input type="radio" name="origen" id="importado" value="importado">Importado
-            </label>
-         
+            <input type="radio" name="origen" id="origen" value="nacional">Nacional
+            <input type="radio" name="origen" id="origen" value="importado">Importado
+            
+            
+            <input type="submit" value="INSERTAR">
+
         </form>
-        
+      
+    </div>
     <!--FIN FORMULARIO DE CREACIÓN-->          
 
     </main>
