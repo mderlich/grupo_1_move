@@ -26,15 +26,6 @@ router.get('/forgetpw', forgetpw);
 
 
 
-// ********************************************
-// OBS estas dos siguientes hay que llevarlas a products
-// ruta hacia... productCart
-router.get('/productCart', (req, res) => { 
-    res.render('productCart') });
-
-// ruta hacia... productDetail
-router.get('/productDetail', (req, res) => { 
-    res.render( 'productDetail') });
 
 
 

@@ -44,6 +44,9 @@ const {
 /*** GET ALL PRODUCTS ***/ 
 /* Aqui dentro tambien esta... search */
 router.get('/', index); 
+  
+  
+
 
 
 
@@ -68,6 +71,12 @@ router.delete('/:id', destroy); /* <<============= */
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/api/:id', detailApi); 
+
+
+
+/*** CARRO DE PRODUCTOS ***/ 
+router.get('/productCart', productCart); 
+
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/:id/', detail); 

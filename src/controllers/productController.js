@@ -6,7 +6,7 @@ const path = require('path');
 
 /* 
 // De aqui se retiro y envio dentro de cada funcion porque sino no lo tomaba bien al .json
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 */
 
@@ -16,7 +16,7 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		// Do the magic
@@ -25,11 +25,8 @@ const controller = {
 		});
 	},
 
-	productDetail: (req, res) => {
 
-		res.render('productDetail');
-
-	},
+	
 
 	productCart: (req, res) => {
 
@@ -43,7 +40,7 @@ const controller = {
 
 	detailApiAll: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		// Do the magic
@@ -53,7 +50,7 @@ const controller = {
 	// Detail - Detail from one product
 	detail: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		// Do the magic
@@ -70,7 +67,7 @@ const controller = {
 		
         // si existe...
         if (productDetail){
-            res.render( "detail",  {productDetail: productDetail} );
+            res.render( "productDetail",  {productDetail: productDetail} );
 		}
 		// si no hay producto...
         else {
@@ -87,7 +84,7 @@ const controller = {
 	// Detail - Detail from one product
 	detailApi: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		// Do the magic
@@ -120,7 +117,7 @@ const controller = {
 	// Create - Form to create
 	create: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		// Do the magic
@@ -133,7 +130,7 @@ const controller = {
 	store: (req, res) => {
 
 		
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		// Do the magic
@@ -164,7 +161,7 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		// Do the magic
@@ -203,7 +200,7 @@ const controller = {
 		// res.json(req.body) 
 
 		
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         const productId = parseInt(req.params.id, 10);
@@ -236,7 +233,7 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		// Do the magic
@@ -245,7 +242,7 @@ const controller = {
 		const productsFinal = products.filter(prod => prod.id != productId);        
 		// guardamos...
 		let productsGuardar = JSON.stringify(productsFinal,null,4);
-		fs.writeFileSync(path.resolve(__dirname, '../data/productsDataBase.json'),productsGuardar);
+		fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),productsGuardar);
 		res.redirect('/products');
 		
 	}
