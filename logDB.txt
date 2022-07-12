@@ -1,0 +1,2 @@
+Se creó un registro al ingresar en la página /register
+Se creó un registro al ingresar en la página /register
