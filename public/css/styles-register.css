@@ -5,12 +5,12 @@ REGISTER
 */
 
 
-label {
+.mainRegister label {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-form {
+.mainRegister form {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -19,7 +19,7 @@ form {
     width: 95%;
     }
 
-input{
+.mainRegister input{
     margin-bottom: 10px;
     padding: 2px
 }
@@ -71,10 +71,11 @@ input{
     color: white;
 }
 
+/* 
 a {
     text-decoration: none;
 }
-
+ */
 
 
 

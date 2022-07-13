@@ -2,21 +2,29 @@
 /* CSS LOGIN*/
 
 
-.mainLogin a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
 
 .todo{
-    text-align:center;
-    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 50px;
 }
 
-.firstis{
+.todo input {
+
+    height: 40px;
+    padding: 10px;
+
+}
+
+.mainLogin h1{
     margin-top: 30px;
 }
+
+.login_register{
+    margin-bottom: 40px;
+}
+
 .asterisco{
     color: salmon;
 }
@@ -28,15 +36,15 @@
 }
 
 .cajita{
-    margin-left: 25%;
-    margin-right: 25%;
-    border-radius: 6px;
+    border-radius: 3px;
+    margin: auto;
+    width: 100%;
 }
 
 .cajita:hover{
     border-color: grey;
 }
-
+/* 
 .ojo{
     color: white;
     border:#666666;
@@ -59,22 +67,58 @@
     margin-top:15px;
     margin-bottom: 8px;
 }
+ */
 
 .boton-inicio{
-    margin-top:15px;
-    margin-bottom: 8px;
-    border-radius: 25px;
-    width: 60%;
+    width: 100%;
+    background-color: #000;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
     height: 50px;
-    background-image:linear-gradient(to bottom right,rgb(151, 65, 151),rgb(194, 242, 105));
-    border: 1px solid black;
+    line-height: 40px;
+    max-width: 400px;
+    margin: auto;
+    transition: all 1s;
+    margin-top: 30px;
+    border: none;
+
 }
 
-.texto-boton{
-    font-size: 20px;
-    color: white;
+.boton-inicio:hover{
+    background-color: #A334FF;
+    cursor: pointer;
 }
-
+/* 
 .resaltacolor:hover {
     color: darkblue;
+} */
+
+/*
+FORMULARIO NUEVAS CORRECCIONES 
+*/
+
+.inline { 
+    display: inline-block; 
+    border-bottom: 2px solid #A334FF; 
+    width: 190px;
+}
+.mainLogin label {
+    display:block;
+    text-align: left;
+}
+.mainLogin input[type=checkbox], input[type=radio] {
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+    
+}
+.mainLogin textarea:focus, input:focus{
+    outline: none;
+}
+.recordar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
