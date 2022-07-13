@@ -31,6 +31,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #FFFFFF;    
     font-size: 16px;
+    text-align: center;
     /* para footer responsive 
        (se aplica en body + footer)
        https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
@@ -38,4 +39,5 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    
 }
