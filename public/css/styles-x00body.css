@@ -41,3 +41,9 @@ body {
     flex-direction: column;
     
 }
+
+/* Links // enlaces sin estilos */
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}

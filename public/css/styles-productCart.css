@@ -9,9 +9,7 @@
     align-items: center;
 }
 
-main h2 {
-    text-align: center
-}
+
 .cart-header a{
     color: #898383; 
 }
@@ -98,7 +96,7 @@ main h2 {
  
 }
 
-article h4 {
+.resumen h4 {
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: bold;
