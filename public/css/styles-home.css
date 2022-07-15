@@ -63,6 +63,7 @@ div.galeria:hover{
    background-size: 300%;
    background-position: left;
    /*transition:border-radius 450ms; transicion de bordes*/
+   transition: all 0.5s;
    
 }
 

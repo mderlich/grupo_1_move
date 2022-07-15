@@ -9,6 +9,7 @@ const logMiddleware = require('./middlewares/logMiddleware');
 const app = express();
 
 
+
 // ************ Middlewares - (don't touch) ************
 // Necesario para los archivos estáticos en el folder /public
 app.use(express.static(path.join(__dirname, '/public')));  
