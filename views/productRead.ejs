@@ -8,40 +8,131 @@
 <%- include('./partials/header')%>
 
 
+<style type="text/css">
+
+    .admin_nav{
+        margin-bottom: 20px;
+    }
+
+    /* CSS TABLA (inicio) ------------------- */
+    .table {
+        display: table;
+        margin: auto;
+    }
+
+    .heading{
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+        background-color: aquamarine;
+    }
+
+    .row{
+        display: table-row;
+        
+    }
+
+    .cell{
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    /* CSS TABLA (fin) ------------------- */
+
+</style>
 
     <main >
+    
+        <h1>ADMIN / LISTAR</h1>
 
-        <div class="formulario">
-
-            <h1>ADMIN</h1>
-
-            <i class="fas fa-plus"></i><a href="admin/create">Crear</a>
-            <i class="fas fa-edit"></i>Editar
-            <i class="fas fa-trash"></i>Borrar
-
+        <div class="admin_nav">
+        <i class="fas fa-solid fa-list"></i><a href="/admin">Listar</a>
+        <i class="fas fa-plus"></i><a href="/admin/create">Crear</a>
         </div>
-        <!-- 
-OBS: En este archivo listaremos los items que disponemos, ej
-        (crear item)
-zapatilla 1 ....... edit / borrar
-zapatilla 2 ....... edit / borrar
--->
 
-<!--id: 1,
-    codigo: "PU_374915",
-    marca: "Puma",
-    nombre: "Suede Classic XXI",
-    precio: 14999,
-    fecha_inicio: 03/01/2022,
-    descripcion: "Mostrá tu estilo clásico y urbano con las Zapatillas Puma Suede Classic XXI su diseño emblemático desde 1968 y que son recordadas por varias generaciones icónicas, su capellada en gamuza te da un look sofisticado, su entresuela y suela de goma te dará pisadas amortiguadas y con mejor reacción en cualquier superficie. Además, la etiqueta puma archive en la lengüeta le da un toque moderno para que las combines con tus outfits preferidos.",
-    categoria: "zapatillas",
-    genero: "Hombre",
-    origen: "Importado",
-    ref: "https://www.moov.com.ar/zapatillas-puma-suede-classic-xxi/PU_374915%2F01.html"
-    -->
+        <!-- Tabla (inicio) -->
+        <div class="table">
+
     
+            <div class="heading">
+                <div class="cell">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="cell">
+                    <p>ID</p>
+                </div>
+                <div class="cell">
+                    <p>MARCA</p>
+                </div>
+                <div class="cell">
+                    <p>NOMBRE</p>
+                </div>
+                <div class="cell">
+                    <p>PRECIO</p>
+                </div>
+                <div class="cell">
+                    <p>DTO</p>
+                </div>
+                <div class="cell">
+                    <i class="fas fa-trash"></i>
+                </div>
+            </div>
     
-    <!--FIN FORMULARIO DE CREACIÓN-->          
+            <div class="row">
+                <div class="cell">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="cell">
+                    <p> 6</p>
+                </div>
+                <div class="cell">
+                    <p>Puma</p>
+                </div>
+                <div class="cell">
+                    <p>Mayze Leather S</p>
+                </div>
+                <div class="cell">
+                    <p>19999</p>
+                </div>
+                <div class="cell">
+                    <p>---</p>
+                </div>
+                <div class="cell">
+                    <i class="fas fa-trash"></i>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="cell">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="cell">
+                    <p>7</p>
+                </div>
+                <div class="cell">
+                    <p>Nike</p>
+                </div>
+                <div class="cell">
+                    <p>Blazer Mid 77</p>
+                </div>
+                <div class="cell">
+                    <p>26900</p>
+                </div>
+                <div class="cell">
+                    <p>---</p>
+                </div>
+                <div class="cell">
+                    <i class="fas fa-trash"></i>
+                </div>
+            </div>
+    
+        </div>
+        <!-- Tabla (fin) -->
+  
 
     </main>
 
