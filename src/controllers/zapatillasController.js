@@ -20,7 +20,7 @@ const controller = {
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		// Do the magic
-		res.render('products', { 
+		res.render('productAll', { 
 			products: products
 		});
 	},

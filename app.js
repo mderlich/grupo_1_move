@@ -32,11 +32,11 @@ app.set('views', path.join(__dirname, '/views'));
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 const mainRouter = require('./src/routes/main'); // Rutas main
-const productsRouter = require('./src/routes/products'); // Rutas /products
+const zapatillasRouter = require('./src/routes/zapatillas'); // Rutas /products
 const adminRouter = require('./src/routes/admin'); // Rutas admin
 
 app.use('/', mainRouter);
-app.use('/products', productsRouter);
+app.use('/zapatillas', zapatillasRouter);
 app.use('/admin', adminRouter);
 
 

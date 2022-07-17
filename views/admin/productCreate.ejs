@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
 
 <body>
 
-<%- include('./partials/header')%>
+<%- include('../partials/header')%>
 
 
 
@@ -55,21 +55,24 @@
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion"></textarea>
             
-            <label for="categoria">Categoria</label>
-            <input type="text " name="categoria" id="categoria"  value="zapatillas" disabled>
+            <!-- este se envia oculto -->
+            <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
 
             <label for="genero">Genero</label>
             <select id="genero" name="genero">
+                <option value="">Seleccione...</option>
                 <option value="femenino">Femenino</option>
                 <option value="masculino">Masculino</option>
                 <option value="unisex">Unisex</option>
             </select>
 
             <label for="origen">Origen</label>
-            <input type="radio" name="origen" id="origen" value="nacional">Nacional
-            <input type="radio" name="origen" id="origen" value="importado">Importado
-            
-            
+            <select id="origen" name="origen">
+                <option value="nacional">Nacional</option>
+                <option value="importado">Importado</option>
+            </select>
+
+
             <input type="submit" value="INSERTAR">
 
         </form>
@@ -79,7 +82,7 @@
 
     </main>
 
-    <%- include('./partials/footer')%>
+    <%- include('../partials/footer')%>
 
 </body>
 </html>

@@ -11,7 +11,7 @@ const controller = {
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render( 'productRead');
+        res.render( 'admin/productRead');
 
 	},
 
@@ -21,7 +21,7 @@ const controller = {
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render( 'productCreate');
+        res.render( 'admin/productCreate');
 
     },
 
@@ -64,6 +64,15 @@ const controller = {
 
 	},
 
+    // EDIT ************
+    edit: (req, res) => {
+
+        const productsFilePath = path.join(__dirname, '../database/products.json');
+        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+        res.render( 'admin/productUpdate');
+
+    },
 
 };
 
