@@ -7,10 +7,44 @@
 
     <%- include('./partials/header')%>
 
+    <style>
+        .portada{
+            /* background image */
+            background-image: url("/images/portada_superior.jpg");
+            background-size: cover;
+            height: 100vh;
+
+            /* alineacion flex */
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+
+            /* sombra texto */
+            color: #fff;
+            text-shadow: 0 5px 5px #7f00b2; 
+            font-size: large;
+        }
+
+        
+    </style>
+     
+    <div class="portada">
+        <% if (genero == 'todas') { %><h1>(TODAS)</h1><% } %>
+        <% if (genero == 'mujeres') { %><h1>(MUJERES)</h1><% } %>
+        <% if (genero == 'hombres') { %><h1>(HOMBRES)</h1><% } %>
+        <% if (genero == 'unisex') { %><h1>(UNISEX)</h1><% } %>
+    </div>
+
     <main> 
         
-        <h1>ZAPATILLAS / TODAS</h1>
+        <h1>ZAPATILLAS</h1>
+        <% if (genero == 'todas') { %><h2>(TODAS)</h2><% } %>
+        <% if (genero == 'mujeres') { %><h2>(MUJERES)</h2><% } %>
+        <% if (genero == 'hombres') { %><h2>(HOMBRES)</h2><% } %>
+        <% if (genero == 'unisex') { %><h2>(UNISEX)</h2><% } %>
+
         
+    
         <%- include('./partials/productDetailBox')%>
         <%- include('./partials/productDetailBox')%>
         <%- include('./partials/productDetailBox')%>

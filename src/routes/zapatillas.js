@@ -41,9 +41,6 @@ const {
     destroy
 } = require('../controllers/zapatillasController');
 
-/*** GET ALL PRODUCTS ***/ 
-/* Aqui dentro tambien esta... search */
-router.get('/', index); 
   
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/:genero', index); 

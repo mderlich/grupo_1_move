@@ -19,9 +19,12 @@ const controller = {
 		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
+		const genero = req.params.genero;
+
 		// Do the magic
 		res.render('productAll', { 
-			products: products
+			products: products,
+			genero: genero
 		});
 	},
 
@@ -34,7 +37,10 @@ const controller = {
 
 	},
 
-		
+
+
+	
+
 	// De aqui en adelante todavia esta pendiente de aplicar
 	// ------------------------------------------------------
 
