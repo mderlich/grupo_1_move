@@ -38,3 +38,18 @@ Retrospectiva sprint 3
 4. Hacer menos: dejar pasar tanto tiempo entre reuniones.
 
 5. Dejar de hacer: cuando detectamos un error, solucionarlo en el momento y no arrastralo.
+
+
+
+Retrospectiva sprint 4
+//////////////////////////////////////////////////////
+
+1. Comenzar a hacer: no dejar que se acumulen pequeñas tareas para que no se nos haga mucho trabajo al final.
+
+2. Hacer más: Usar mas Trello.
+
+3. Continuar haciendo: mantener el ritmo de trabajo y la comunicacion en el equipo.
+
+4. Hacer menos: dejar de subestimar errores o problemas.
+
+5. Dejar de hacer: cuando detectamos un error, solucionarlo en el momento y no arrastralo.
