@@ -6,14 +6,16 @@ const path = require('path');
 const controller = {
 
     // REGISTER ************
-    admin: (req, res) => {
+    readGet: (req, res) => {
 
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render( 'admin/productRead');
+ 		res.render('admin/productRead', { 
+			products: products
+		}); 
 
-	},
+    },
 
     // CREATE // GET ************
     createGet: (req, res) => {

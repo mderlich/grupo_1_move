@@ -48,7 +48,7 @@
         <div class="recomendados">
 
             <% for(let i=0; i< productsFiltrados.length ; i++) { %>
-            <a href="/zapatillas/<%= productsFiltrados[i].id %>">
+            <a href="/zapatillas/id/<%= productsFiltrados[i].id %>">
             <div class="imagen_texto">
                 <div class="imagen">
                     <img src="/images/<%= productsFiltrados[i].codigo %>.jpg" alt="<%= productsFiltrados[i].nombre %>">

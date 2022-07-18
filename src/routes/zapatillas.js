@@ -8,17 +8,21 @@ const router = express.Router();
 const {
     readAll,
     readGenero,
+    readId,
     detailApiAll,
-    detailApi,
-    detail
+    detailApi,    
 } = require('../controllers/zapatillasController');
 
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/', readAll); 
   
+
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/:genero', readGenero); 
 
+
+/*** GET ONE PRODUCT ***/ 
+router.get('/id/:id/', readId); 
 
 
 // De aqui en adelante todavia esta pendiente de aplicar
@@ -32,8 +36,6 @@ router.get('/api', detailApiAll);
 router.get('/api/:id', detailApi); 
 
 
-/*** GET ONE PRODUCT ***/ 
-router.get('/:id/', detail); 
 
 
 

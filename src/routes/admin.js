@@ -29,7 +29,7 @@ var upload = multer({ storage: storage })
 
 // ************ Controller Require ************
 const {
-    admin,
+    readGet,
     createGet,
     createPost,
     editGet,
@@ -39,23 +39,26 @@ const {
 
 
 // ************ Rutas Privadas ************
-router.get('/', admin); 
+// ----------------------------------------
+// READ // GET 
+router.get('/', readGet); 
 
+// ----------------------------------------
 // CREATE // GET 
 router.get('/create', createGet); 
-
 // CREATE // POST 
 // STORE, falta agregar las sig. linea de midleware
+router.post('/create', createPost); 
 // IMPORTANTE!!! 'image' corresponde al name del input... <input type="file" name="image" id="image" >
 // router.post('/', upload.single('image'), store);        /* <<============= */
-router.post('/create', createPost); 
 
-// EDIT // POST 
+// ----------------------------------------
+// EDIT // GET 
 router.get('/edit/:id', editGet); 
 // EDIT // PUT 
 router.put('/:id', editPut);     /* <<============= */
 
-
+// ----------------------------------------
 // DELETE // DELETE 
 router.delete('/:id', deleteDelete); /* <<============= */
 

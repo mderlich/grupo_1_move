@@ -12,21 +12,21 @@
         <div class="zapatillas">
 
             <div class="zapatillas_izq">
-                <img src="/images/suede.png" alt="Zapatillas Wild Rider Vintage">
+                <img src="/images/<%= productDetail.codigo %>.jpg" alt="<%= productDetail.nombre %>">
 
                 <div class="imagenes_galeria">
-                    <img src="/images/suede.png" alt="Zapatillas Wild Rider Vintage">
-                    <img src="/images/suede.png" alt="Zapatillas Wild Rider Vintage">
-                    <img src="/images/suede.png" alt="Zapatillas Wild Rider Vintage">
-                    <img src="/images/suede.png" alt="Zapatillas Wild Rider Vintage">
+                    <img src="/images/<%= productDetail.codigo %>.jpg" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productDetail.codigo %>.jpg" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productDetail.codigo %>.jpg" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productDetail.codigo %>.jpg" alt="<%= productDetail.nombre %>">
                 </div>
             </div>
 
             <div class="zapatillas_der">
                 <!-- titulo -->
-                <h1>Zapatillas Wild Rider Vintage</h1>
+                <h1><%= productDetail.nombre %></h1>
                 <!-- precio -->
-                <h2>$ 14.999</h2>
+                <h2>$ <%= productDetail.precio %></h2>
                 <!-- cuotas -->
                 <div class="detalles_zapatillas">
                     <i class="fas fa-credit-card"></i>
@@ -63,17 +63,17 @@
         <h2>+ Información</h2>
         <div class="informacion">
             <p>
-                <span class="info_negrita">Descripcion:</span>
-            Estas zapatillas Vans Old Skool son las originales y las ponemos de nuevo en tus pies. Cubiertas con materiales resistentes de lona y gamuza, podrás ir a la par de esos momentos de diversión de la vieja escuela sin preocuparte por el desgaste.
+            <span class="info_negrita">Descripcion:</span>
+            <%= productDetail.descripcion %>
             </p>
             <ul>
-                <li><span class="info_negrita">Genero:</span> Mujer</li>
-                <li><span class="info_negrita">Adecuado para:</span> Todo el dia</li>
-                <li><span class="info_negrita">Caña:</span> Baja</li>
-                <li><span class="info_negrita">Ajuste:</span> Con cordones</li>
-                <li><span class="info_negrita">Origen:</span> Nacional</li>
-                <li><span class="info_negrita">Marca:</span> Puma</li>
-                <li><span class="info_negrita">Material:</span> Cuero</li>
+                <li><span class="info_negrita">Genero:</span><%= productDetail.genero %></li>
+                <li><span class="info_negrita">Adecuado para:</span>Todo el dia</li>
+                <li><span class="info_negrita">Caña:</span>Baja</li>
+                <li><span class="info_negrita">Ajuste:</span>Con cordones</li>
+                <li><span class="info_negrita">Origen:</span><%= productDetail.origen %></li>
+                <li><span class="info_negrita">Marca:</span><%= productDetail.marca %></li>
+                <li><span class="info_negrita">Material:</span>Cuero</li>
             </ul>
         
         </div>

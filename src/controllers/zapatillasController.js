@@ -30,6 +30,10 @@ const controller = {
 		
 	},
 
+
+
+
+
 	// Root - Show all products
 	readGenero: (req, res) => {
 
@@ -61,26 +65,10 @@ const controller = {
 
 
 	
-
-
-
-
 	
 
-	// De aqui en adelante todavia esta pendiente de aplicar
-	// ------------------------------------------------------
-
-	detailApiAll: (req, res) => {
-
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		// Do the magic
-		res.status(201).send(products); 
-	},
-
 	// Detail - Detail from one product
-	detail: (req, res) => {
+	readId: (req, res) => {
 
 		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -99,17 +87,30 @@ const controller = {
 		
         // si existe...
         if (productDetail){
-            res.render( "productDetail",  {productDetail: productDetail} );
+           res.render( "productDetail",  {productDetail: productDetail} ); 
 		}
 		// si no hay producto...
-        else {
+/*         else {
 			res.status(404).render( "error",  {
 				message: 'Producto no encontrado',
 			} );
-        }
+        } */
 
 
 
+	},
+
+
+	// De aqui en adelante todavia esta pendiente de aplicar
+	// ------------------------------------------------------
+
+	detailApiAll: (req, res) => {
+
+		const productsFilePath = path.join(__dirname, '../database/products.json');
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+		// Do the magic
+		res.status(201).send(products); 
 	},
 
 

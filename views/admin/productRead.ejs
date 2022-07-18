@@ -18,6 +18,7 @@
     .table {
         display: table;
         margin: auto;
+        margin-bottom: 50px;
     }
 
     .heading{
@@ -29,7 +30,6 @@
 
     .row{
         display: table-row;
-        
     }
 
     .cell{
@@ -40,6 +40,11 @@
         padding-bottom: 10px;
         padding-left: 20px;
         padding-right: 20px;
+        vertical-align: middle;
+    }
+
+    .cell img {
+        width: 50px;
     }
     /* CSS TABLA (fin) ------------------- */
 
@@ -66,6 +71,9 @@
                     <p>ID</p>
                 </div>
                 <div class="cell">
+                    <p>IMAGEN</p>
+                </div>
+                <div class="cell">
                     <p>MARCA</p>
                 </div>
                 <div class="cell">
@@ -82,53 +90,36 @@
                 </div>
             </div>
     
+            <% for(let i=0; i< products.length ; i++) { %>
             <div class="row">
                 <div class="cell">
-                    <a href="/admin/edit/6"><i class="fas fa-edit"></i></a> 
+                    <a href="/admin/edit/<%= products[i].id %>"><i class="fas fa-edit"></i></a> 
                 </div>
                 <div class="cell">
-                    <p> 6</p>
+                    <p><%= products[i].id %></p>
                 </div>
                 <div class="cell">
-                    <p>Puma</p>
+                    <p><img src="/images/<%= products[i].codigo %>.jpg"></p>
                 </div>
                 <div class="cell">
-                    <p>Mayze Leather S</p>
+                    <p><%= products[i].marca %></p>
                 </div>
                 <div class="cell">
-                    <p>19999</p>
+                    <p><%= products[i].nombre %></p>
                 </div>
                 <div class="cell">
-                    <p>---</p>
+                    <p><%= products[i].precio %></p>
                 </div>
                 <div class="cell">
-                    <a href="/admin/delete/6"><i class="fas fa-trash"></i></i></a> 
+                    <p><%= products[i].descuento %></p>
+                </div>
+                <div class="cell">
+                    <a href="/admin/delete/<%= products[i].id %>"><i class="fas fa-trash"></i></i></a> 
                 </div>
             </div>
+            <% } %>
     
-            <div class="row">
-                <div class="cell">
-                    <a href="/admin/edit/7"><i class="fas fa-edit"></i></a> 
-                </div>
-                <div class="cell">
-                    <p>7</p>
-                </div>
-                <div class="cell">
-                    <p>Nike</p>
-                </div>
-                <div class="cell">
-                    <p>Blazer Mid 77</p>
-                </div>
-                <div class="cell">
-                    <p>26900</p>
-                </div>
-                <div class="cell">
-                    <p>---</p>
-                </div>
-                <div class="cell">
-                    <a href="/admin/delete/7"><i class="fas fa-trash"></i></i></a> 
-                </div>
-            </div>
+            
     
         </div>
         <!-- Tabla (fin) -->
