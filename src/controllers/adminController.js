@@ -15,8 +15,8 @@ const controller = {
 
 	},
 
-    // CREATE ************
-    create: (req, res) => {
+    // CREATE // GET ************
+    createGet: (req, res) => {
 
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -25,8 +25,8 @@ const controller = {
 
     },
 
-    // STORE ************
-    store: (req, res) => {
+    // CREATE // POST ************
+    createPost: (req, res) => {
 
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -64,8 +64,8 @@ const controller = {
 
 	},
 
-    // EDIT ************
-    edit: (req, res) => {
+    // EDIT // GET ************
+    editGet: (req, res) => {
 
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -74,6 +74,20 @@ const controller = {
 
     },
 
+    // EDIT // GET ************
+    editPut: (req, res) => {
+
+        res.send('edit por put');
+
+    },
+
+    // EDIT // GET ************
+    deleteDelete: (req, res) => {
+
+        res.send('delete');
+
+    },
+    
 };
 
 module.exports = controller;

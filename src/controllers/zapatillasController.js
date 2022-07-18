@@ -13,19 +13,50 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const controller = {
 
 
+	
 	// Root - Show all products
-	index: (req, res) => {
+	readAll: (req, res) => {
 
 		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
-		const genero = req.params.genero;
+		let genero = '';
+
+		// Do the magic
+		res.render('productAll', { 
+			genero: genero,
+			productsFiltrados: products
+		});
+		
+	},
+
+	// Root - Show all products
+	readGenero: (req, res) => {
+
+		const productsFilePath = path.join(__dirname, '../database/products.json');
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		
+		/* Obtenemos desde la ruta... /:genero */
+		/* debe ser 'let' sino no podemos modificarlo luego  */
+		let genero = req.params.genero;
+		let productsFiltrados = '';
+
+		if( genero == 'mujeres' ){ genero = 'mujer'; }
+		if( genero == 'hombres' ){ genero = 'hombre'; }
+
+		if ( genero == 'mujer' || genero == 'hombre' || genero == 'unisex' ){
+			productsFiltrados = products.filter((e)=> {
+				return e.genero == genero;
+			});
+		}
 
 		// Do the magic
 		res.render('productAll', { 
 			products: products,
-			genero: genero
+			genero: genero,
+			productsFiltrados: productsFiltrados
 		});
+		
 	},
 
 
