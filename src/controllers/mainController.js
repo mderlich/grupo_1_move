@@ -95,6 +95,11 @@ const controller = {
 	},
 
 
+	carrito: (req, res) => {
+
+		res.render('productCart');
+
+	},
   
 
 };

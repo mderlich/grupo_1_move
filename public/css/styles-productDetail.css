@@ -173,25 +173,16 @@ main .informacion{
 
 main .recomendados{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 1200px;
     margin: auto;
+    justify-content: space-around;
+    max-width: 1200px;
     margin-top: 25px;
     margin-bottom: 30px;
-/*     background-color: salmon;
- */
-
 }
 
 main .recomendados img{
     width: 100%;
-}
-
-main .recomendados .imagen_texto{
-    /* con margin auto centramos para cuando se vea en movil  */     
-    margin: auto;
-
 }
 
 

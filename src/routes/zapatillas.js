@@ -29,8 +29,6 @@ var upload = multer({ storage: storage })
 // ************ Controller Require ************
 const {
     index,
-    productDetail,
-    productCart,
     detailApiAll,
     create,
     store,
@@ -68,11 +66,6 @@ router.delete('/:id', destroy); /* <<============= */
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/api/:id', detailApi); 
-
-
-
-/*** CARRO DE PRODUCTOS ***/ 
-router.get('/productCart', productCart); 
 
 
 /*** GET ONE PRODUCT ***/ 

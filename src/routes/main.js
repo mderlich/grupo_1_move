@@ -9,7 +9,8 @@ const {
     search,
     login,
     register,
-    forgetpw
+    forgetpw,
+    carrito
 } = require('../controllers/mainController');
 
 
@@ -25,7 +26,8 @@ router.get('/register', logDBMiddleware ,register);
 
 router.get('/forgetpw', forgetpw); 
 
-
+/*** CARRO DE PRODUCTOS ***/ 
+router.get('/carrito', carrito); 
 
 
 
