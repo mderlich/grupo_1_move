@@ -46,7 +46,7 @@ Retrospectiva sprint 4
 
 1. Comenzar a hacer: no dejar que se acumulen pequeñas tareas para que no se nos haga mucho trabajo al final.
 
-2. Hacer más: Usar mas Trello.
+2. Hacer más: Usar mas Trello y juntarnos a realizar las dudas y ejercicios tanto de playground como de las clases en vivo.
 
 3. Continuar haciendo: mantener el ritmo de trabajo y la comunicacion en el equipo.
 
