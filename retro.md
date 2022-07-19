@@ -53,3 +53,6 @@ Retrospectiva sprint 4
 4. Hacer menos: dejar de subestimar errores o problemas.
 
 5. Dejar de hacer: cuando detectamos un error, solucionarlo en el momento y no arrastralo.
+
+
+
