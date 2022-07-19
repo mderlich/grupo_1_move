@@ -43,20 +43,26 @@ const controller = {
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-/* 		let buscado = req.query.keywords.toLowerCase();
+        // pasamos a minuscula, lo que nos envia por formulario
+        // 'keywords' es el name del input del buscador del header.ejs
+ 		let buscado = req.query.keywords.toLowerCase();
 
 		let resultados = [];
 
 		for (let i = 0; i < products.length; i++) {
-            if ( (products[i].name.toLowerCase()).includes(buscado) ) {
+            // 'nombre' es el key utilizado en data/products.json
+            if ( 
+                (products[i].nombre.toLowerCase()).includes(buscado) 
+                ||
+                (products[i].marca.toLowerCase()).includes(buscado) 
+                ) {
                 // acá lo encontramos al producto
                 resultados.push( products[i] );
             }
-        } */
+        } 
 
  		res.render('productResultados', { 
-			/* productDetail: resultados */
-            productDetail: products
+			productDetail: resultados 
 		});
 
         
