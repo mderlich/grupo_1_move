@@ -18,6 +18,7 @@ const {
 
 router.get('/', index); 
 
+/* ruta del buscador... */
 router.get('/search', search); 
 
 router.get('/login', login); 

@@ -138,4 +138,7 @@ nav li{
     outline: none;
 }
 
+.buscador_lupa{
+    cursor: pointer;
+}
 

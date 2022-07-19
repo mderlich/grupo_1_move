@@ -40,11 +40,10 @@ const controller = {
     // SEARCH ************
 	search: (req, res) => {
 
-        /* --------------------------------------------
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-		let buscado = req.query.keywords.toLowerCase();
+/* 		let buscado = req.query.keywords.toLowerCase();
 
 		let resultados = [];
 
@@ -53,15 +52,14 @@ const controller = {
                 // acá lo encontramos al producto
                 resultados.push( products[i] );
             }
-        }
+        } */
 
- 		res.render('results', { 
-			productDetail: resultados
+ 		res.render('productResultados', { 
+			/* productDetail: resultados */
+            productDetail: products
 		});
-        -------------------------------------------- */
 
-        res.render( 'results');
-
+        
 	},
 
     // LOGIN ************

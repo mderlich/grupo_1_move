@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head') %>
+
+<body>
+
+    <%- include('./partials/header')%>
+
+    <style>
+        .portada{
+            /* background image */
+            background-image: url("/images/portada_superior.jpg");
+            background-size: cover;
+            height: 100vh;
+
+            /* alineacion flex */
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+
+            /* sombra texto */
+            color: #fff;
+            text-shadow: 0 5px 5px #7f00b2; 
+            font-size: large;
+        }
+
+        .sin_resultados{
+            color: tomato;
+        }
+        
+    </style>
+     
+    <div class="portada">
+        <h1>(RESULTADOS)</h1>
+    </div>
+
+    <main> 
+        
+        <h1>ZAPATILLAS</h1>
+        <h2>(RESULTADOS)</h2>
+
+        
+    
+        <div class="recomendados">
+
+
+        <% if (productDetail.length > 0) { %>
+            <!-- con resultados -->
+            <% for(let i=0; i< productDetail.length ; i++) { %>
+                <a href="/zapatillas/id/<%= productDetail[i].id %>">
+                <div class="imagen_texto">
+                    <div class="imagen">
+                        <img src="/images/<%= productDetail[i].codigo %>.jpg" alt="<%= productDetail[i].nombre %>">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <hr>
+                    <div class="texto"><%= productDetail[i].nombre %>
+                    <br><br>
+                    <h4>$<%= productDetail[i].precio %></h4> </div>
+                </div>
+                </a>
+            <% } %>
+        <!-- /con resultados -->
+        <% } else { %>
+        <!-- sin resultados -->
+        <div>
+            <h2 class="sin_resultados">No hay productos que coincidan con esa búsqueda</h2>
+        </div>
+        <!-- /sin resultados -->
+        <% } %>
+
+        </div>
+
+        <div class="degrade"></div>
+
+    </main>
+
+    <%- include('./partials/footer')%>
+
+</body>
+</html>
