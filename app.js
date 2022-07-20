@@ -7,6 +7,8 @@ const methodOverride =  require('method-override');
 const logMiddleware = require('./middlewares/logMiddleware');
 // ************ express() - (don't touch) ************
 const app = express();
+///*********************express-session require*************************///
+const session = require('express-session');
 
 
 
@@ -25,8 +27,8 @@ app.use(logMiddleware);
 app.set('view engine', 'ejs');
 // Define la ubicación de la carpeta de las Vistas
 app.set('views', path.join(__dirname, '/views')); 
-
-
+//npm install express-session --save ----lo cruzamos a traves de toda la app, middleware lvlgloval
+app.use(session({secret: "Secreto"}));
 
 
 // ************ WRITE YOUR CODE FROM HERE ************
@@ -34,6 +36,7 @@ app.set('views', path.join(__dirname, '/views'));
 const mainRouter = require('./src/routes/main'); // Rutas main
 const zapatillasRouter = require('./src/routes/zapatillas'); // Rutas /products
 const adminRouter = require('./src/routes/admin'); // Rutas admin
+
 
 app.use('/', mainRouter);
 app.use('/zapatillas', zapatillasRouter);
