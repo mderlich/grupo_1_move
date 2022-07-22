@@ -2,7 +2,7 @@
     {
         "id": 1,
         "codigo": "PU_374915",
-        "marca": "Puma",
+        "marca": "puma",
         "nombre": "Suede Classic XXI",
         "precio": 14999,
         "descuento": 10,
@@ -44,7 +44,7 @@
     {
         "id": 4,
         "codigo": "NI_DA7254",
-        "marca": "Nike",
+        "marca": "nike",
         "nombre": "Blazer Low 77 Suede",
         "precio": 21499,
         "descuento": 0,
@@ -58,7 +58,7 @@
     {
         "id": 5,
         "codigo": "NI_CW2386",
-        "marca": "Nike",
+        "marca": "nike",
         "nombre": "Crater Impact",
         "precio": 22499,
         "descuento": 0,
@@ -72,7 +72,7 @@
     {
         "id": 6,
         "codigo": "PU_388265",
-        "marca": "Puma",
+        "marca": "puma",
         "nombre": "Mayze Leather S",
         "precio": 19999,
         "descuento": 0,
@@ -86,7 +86,7 @@
     {
         "id": 7,
         "codigo": "NI_DQ1471",
-        "marca": "Nike",
+        "marca": "nike",
         "nombre": "Blazer Mid 77",
         "precio": 26999,
         "descuento": 0,
@@ -100,7 +100,7 @@
     {
         "id": 8,
         "codigo": "VA_456113",
-        "marca": "Vans",
+        "marca": "vans",
         "nombre": "Era",
         "precio": 10900,
         "descuento": 0,
@@ -114,7 +114,7 @@
     {
         "id": 9,
         "codigo": "NI_DH4406",
-        "marca": "Nike",
+        "marca": "nike",
         "nombre": "Air Force 1",
         "precio": 25999,
         "descuento": 0,
@@ -128,7 +128,7 @@
     {
         "id": 10,
         "codigo": "CO_169993",
-        "marca": "Converse",
+        "marca": "converse",
         "nombre": "Net Star Ox",
         "precio": 13299,
         "descuento": 0,
@@ -142,7 +142,7 @@
     {
         "id": 11,
         "codigo": "VA_422113",
-        "marca": "Vans",
+        "marca": "vans",
         "nombre": "U Authentic",
         "precio": 9500,
         "descuento": 0,
@@ -156,7 +156,7 @@
     {
         "id": 12,
         "codigo": "VA_789113",
-        "marca": "Vans",
+        "marca": "vans",
         "nombre": "Authentic Platform 2.0",
         "precio": 15900,
         "descuento": 0,
@@ -170,7 +170,7 @@
     {
         "id": 13,
         "codigo": "VA_654113",
-        "marca": "Vans",
+        "marca": "vans",
         "nombre": "Classic Slip-On",
         "precio": 10900,
         "descuento": 0,
@@ -184,7 +184,7 @@
     {
         "id": 14,
         "codigo": "RE_GZ7396",
-        "marca": "Reebok",
+        "marca": "reebok",
         "nombre": "Classic Legacy",
         "precio": 16499,
         "descuento": 0,
@@ -198,7 +198,7 @@
     {
         "id": 15,
         "codigo": "NI_DD0384",
-        "marca": "Nike",
+        "marca": "nike",
         "nombre": "Air Max 90",
         "precio": 32499,
         "descuento": 0,
@@ -212,7 +212,7 @@
     {
         "id": 16,
         "codigo": "TO_521811",
-        "marca": "Topper",
+        "marca": "tooper",
         "nombre": "Yucca",
         "precio": 8999,
         "descuento": 0,
@@ -225,26 +225,17 @@
     },
     {
         "id": 17,
-        "codigo": "123",
-        "marca": "",
-        "nombre": "",
-        "precio": null,
-        "descuento": null,
-        "fechadecarga": "",
-        "descripcion": "",
+        "codigo": "324",
+        "marca": "adidas",
+        "nombre": "adasdasd",
+        "precio": 233,
+        "descuento": 0,
+        "descripcion": "adfaafdf",
+        "categoria": "zapatillas",
         "genero": "femenino",
-        "image": ""
-    },
-    {
-        "id": 18,
-        "codigo": "123",
-        "marca": "",
-        "nombre": "",
-        "precio": null,
-        "descuento": null,
-        "fechadecarga": "",
-        "descripcion": "",
-        "genero": "femenino",
+        "origen": "nacional",
+        "fechadecarga": "2022-07-22",
+        "ref": "",
         "image": ""
     }
 ]

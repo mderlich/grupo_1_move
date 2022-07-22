@@ -42,11 +42,13 @@ const controller = {
 			nombre: req.body.nombre,
 			precio: parseInt(req.body.precio), 		// <= debe ser numero!
 			descuento: parseInt(req.body.descuento),	// <= debe ser numero!
-            fechadecarga: req.body.fechadecarga,
             descripcion: req.body.descripcion,
-			categoria: req.body.categoria,
+			categoria: 'zapatillas',
 			genero: req.body.genero,
-            ref: req.body.ref,
+            origen: req.body.origen,
+            fechadecarga: req.body.fechadecarga,
+            //ref: req.body.ref,
+            ref: '',
             image: '',
             // 'filename' esta indicado como llega desde el multer en el ruteador de products...
 			// filename: 'ximg-1657115263090',

@@ -18,16 +18,25 @@ https://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=cssHeader
 }
 
 
-.formulario input[type=text], .formulario select {
+.formulario input[type=text], input[type=number], input[type=email], input[type=date], select, textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #9b9b9b;
     border-radius: 4px;
     box-sizing: border-box;
   }
   
+  .formulario label{
+    margin-top: 10px;
+    font-weight: bold;
+  }
+.formulario textarea{
+  max-width: 300px;
+}
+
+
   .formulario input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -37,6 +46,8 @@ https://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=cssHeader
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
   
   .formulario input[type=submit]:hover {

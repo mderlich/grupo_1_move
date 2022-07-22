@@ -35,6 +35,7 @@ form label {
         </div>
 
 
+        <div class="formulario">
 
         <form action="/admin/create" method="POST" >
     
@@ -43,7 +44,16 @@ form label {
             <input type="text" name="codigo" id="codigo" >
 
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="marca">
+            <select id="marca" name="marca">
+                <option value="">Seleccione...</option>
+                <option value="adidas">Adidas</option>
+                <option value="converse">Converse</option>
+                <option value="nike">Nike</option>
+                <option value="puma">Puma</option>
+                <option value="reebok">Reebok</option>
+                <option value="topper">Topper</option>
+                <option value="vans">Vans</option>             
+            </select>
 
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre">
@@ -52,16 +62,14 @@ form label {
             <input type="number" name="precio" id="precio">
 
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento">
-
-            <label for="fechadecarga">Fecha de Carga</label>
-            <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01">
+            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" >
 
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion"></textarea>
             
-            <!-- este se envia oculto -->
+            <!-- este se podria enviar oculto, pero lo insertamos desde el controlador
             <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
+            -->
 
             <label for="genero">Genero</label>
             <select id="genero" name="genero">
@@ -73,15 +81,31 @@ form label {
 
             <label for="origen">Origen</label>
             <select id="origen" name="origen">
+                <option value="">Seleccione...</option>
                 <option value="nacional">Nacional</option>
                 <option value="importado">Importado</option>
             </select>
 
+            <% 
+            // JS ponemos la fecha del dia
+            // https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd ;
+            // ------------------------------------
+            %>
+            <label for="fechadecarga">Fecha de Carga</label>
+            <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01" value="<%= today %>">
 
             <input type="submit" value="INSERTAR">
 
         </form>
       
+        </div>
+
     </div>
     <!--FIN FORMULARIO DE CREACIÓN-->          
 
