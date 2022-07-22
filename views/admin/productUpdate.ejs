@@ -48,16 +48,35 @@ form label {
             <label for="codigo">Código</label>
             <input type="text" name="codigo" id="codigo" value="<%= productDetail.codigo %>">
 
+            <% 
+            let adidasSelected = '';
+            let conversedSelected = '';
+            let nikeSelected = '';
+            let pumaSelected = '';
+            let reebokSelected = '';
+            let topperSelected = '';
+            let vansSelected = '';
+
+            if (productDetail.marca == "adidas") { adidasSelected = 'selected'; } 
+            if (productDetail.marca == "converse") { conversedSelected = 'selected'; } 
+            if (productDetail.marca == "nike") { nikeSelected = 'selected'; } 
+            if (productDetail.marca == "puma") { pumaSelected = 'selected'; } 
+            if (productDetail.marca == "reebok") { reebokSelected = 'selected'; } 
+            if (productDetail.marca == "topper") { topperSelected = 'selected'; } 
+            if (productDetail.marca == "vans") { vansSelected = 'selected'; } 
+            
+            %>
+
             <label for="marca">Marca</label>
             <select id="marca" name="marca">
                 <option value="">Seleccione...</option>
-                <option value="adidas">Adidas</option>
-                <option value="converse">Converse</option>
-                <option value="nike">Nike</option>
-                <option value="puma">Puma</option>
-                <option value="reebok">Reebok</option>
-                <option value="topper">Topper</option>
-                <option value="vans">Vans</option>             
+                <option value="adidas" <%= adidasSelected %>>Adidas</option>
+                <option value="converse"<%= conversedSelected %>>Converse</option>
+                <option value="nike"<%= nikeSelected %>>Nike</option>
+                <option value="puma" <%= pumaSelected %>>Puma</option>
+                <option value="reebok" <%= reebokSelected %>>Reebok</option>
+                <option value="topper" <%= topperSelected %>>Topper</option>
+                <option value="vans" <%= vansSelected %>>Vans</option>             
             </select>
 
             <label for="nombre">Nombre</label>
@@ -76,32 +95,44 @@ form label {
             <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
             -->
 
+            
+            <% 
+            
+            let femeninoSelected = '';
+            let masculinoSelected = '';
+            let unisexSelected = '';
+
+            if (productDetail.genero == "femenino") { femeninoSelected = 'selected'; } 
+            if (productDetail.genero == "masculino") { masculinoSelected = 'selected'; } 
+            if (productDetail.genero == "unisex") { unisexSelected = 'selected'; } 
+
+            %>
+
             <label for="genero">Genero</label>
             <select id="genero" name="genero">
                 <option value="">Seleccione...</option>
-                <option value="femenino">Femenino</option>
-                <option value="masculino">Masculino</option>
-                <option value="unisex">Unisex</option>
+                <option value="femenino" <%= femeninoSelected %>>Femenino</option>
+                <option value="masculino" <%= masculinoSelected %>>Masculino</option>
+                <option value="unisex" <%= unisexSelected %>>Unisex</option>
             </select>
+
+            <% 
+            
+            let nacionalSelected = '';
+            let importadoSelected = '';
+        
+            if (productDetail.origen == "nacional") { nacionalSelected = 'selected'; } 
+            if (productDetail.origen == "importado") { importadoSelected = 'selected'; } 
+
+            %>
 
             <label for="origen">Origen</label>
             <select id="origen" name="origen">
                 <option value="">Seleccione...</option>
-                <option value="nacional">Nacional</option>
-                <option value="importado">Importado</option>
+                <option value="nacional" <%= nacionalSelected %>>Nacional</option>
+                <option value="importado" <%= importadoSelected %>>Importado</option>
             </select>
 
-            <% 
-            // JS ponemos la fecha del dia
-            // https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
-
-            today = yyyy + '-' + mm + '-' + dd ;
-            // ------------------------------------
-            %>
             <label for="fechadecarga">Fecha de Carga</label>
             <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01" value="<%= productDetail.fechadecarga %>">
             <input type="submit" value="INSERTAR">

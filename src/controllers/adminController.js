@@ -106,7 +106,9 @@ const controller = {
     // EDIT // GET ************
     editPut: (req, res) => {
 
-        res.send('edit por put');
+		
+		// si queremos ver lo enviado por el formulario...
+		res.json(req.body) 
 
     },
 
