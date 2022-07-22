@@ -28,7 +28,11 @@ app.set('view engine', 'ejs');
 // Define la ubicación de la carpeta de las Vistas
 app.set('views', path.join(__dirname, '/views')); 
 //npm install express-session --save ----lo cruzamos a traves de toda la app, middleware lvlgloval
-app.use(session({secret: "Secreto"}));
+app.use(session({
+    secret: "Secreto",
+    resave: true,
+    saveUninitialized: true
+}));
 
 
 // ************ WRITE YOUR CODE FROM HERE ************
