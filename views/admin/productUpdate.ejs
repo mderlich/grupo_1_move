@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include('../partials/head') %>
+    <!-- Include Head -->
+    <%- include('../partials/head', {title: 'Editando: ' + productDetail.name }) %>
 
 <body>
 
@@ -28,6 +29,9 @@ form label {
 
     
         <h1>ADMIN / EDICION</h1>
+        <h3>Estás editando:</h3>
+        <h3><i><%= productDetail.nombre %></i></h3>
+        <br>
 
         <div class="admin_nav">
         <i class="fas fa-solid fa-list"></i><a href="/admin">Listar</a>
@@ -38,11 +42,11 @@ form label {
         <div class="formulario">
 
         <!-- Desde aqui seguir -->
-        <form action="/admin/create" method="POST" >
-    
+        <!-- OBS para imagenes incluir... enctype="multipart/form-data" -->
+        <form action="/admin/<%= productDetail.id %>/?_method=PUT" method="POST">
             
             <label for="codigo">Código</label>
-            <input type="text" name="codigo" id="codigo" >
+            <input type="text" name="codigo" id="codigo" value="<%= productDetail.codigo %>">
 
             <label for="marca">Marca</label>
             <select id="marca" name="marca">
@@ -57,16 +61,16 @@ form label {
             </select>
 
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" value="<%= productDetail.nombre %>">
 
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio">
+            <input type="number" name="precio" id="precio" value="<%= productDetail.precio %>">
 
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" >
+            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" value="<%= productDetail.descuento %>">
 
             <label for="descripcion">Descripción</label>
-            <textarea name="descripcion" id="descripcion"></textarea>
+            <textarea name="descripcion" id="descripcion"><%= productDetail.descripcion %></textarea>
             
             <!-- este se podria enviar oculto, pero lo insertamos desde el controlador
             <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
@@ -99,8 +103,7 @@ form label {
             // ------------------------------------
             %>
             <label for="fechadecarga">Fecha de Carga</label>
-            <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01" value="<%= today %>">
-
+            <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01" value="<%= productDetail.fechadecarga %>">
             <input type="submit" value="INSERTAR">
 
         </form>

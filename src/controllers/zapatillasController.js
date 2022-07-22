@@ -147,84 +147,8 @@ const controller = {
 
 	},
 
-	// Create - Form to create
-	create: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		// Do the magic
-		res.render('product-create-form', { 
-			products: products
-		});
-	},
 	
-	// Create -  Method to store
-	store: (req, res) => {
-
-		
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		// Do the magic
-		let nuevoProducto = {
-			// para el id, buscamos el maximo valor y le sumamos 1
-			id: Math.max(...products.map( e => e.id )) + 1,
-			name: req.body.name,
-			description: req.body.description,
-			price: parseInt(req.body.price), 		// <= debe ser numero!
-			discount: parseInt(req.body.discount),	// <= debe ser numero!
-			category: req.body.category,
-			// 'filename' esta indicado como llega desde el multer en el ruteador de products...
-			// filename: 'ximg-1657115263090',
-			image: req.file.filename
-		}
-
-		// anexamos el nuevo dato...
-		products.push(nuevoProducto);
-
-		// JSON STRINGIFY...
-		// las ultimas dos lineas son necesarias para que sea legible 'null, 4);'
-		let productsGuardar = JSON.stringify(products,null,4);
-		fs.writeFileSync(productsFilePath,productsGuardar);
-		res.redirect('/products');
-
-	},
-
-	// Update - Form to edit
-	edit: (req, res) => {
-
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		// Do the magic
-        const productId = parseInt(req.params.id, 10);
-        let productDetail; 
-
-        for (let i = 0; i < products.length; i++) {
-            if ( products[i].id === productId ) {
-                // acá lo encontramos al producto
-                productDetail = products[i];
-            }
-        }
-
-        // si existe...
-        if (productDetail){
-			// enviamos la vista con el producto encontrado
-			res.render('product-edit-form', { 
-				productDetail: productDetail
-			});
-		}
-		// si no existe el producto, mandamos error...
-        else {
-			res.status(404).render( "error",  {
-				message: 'Producto no encontrado',
-			} );
-        }
-
-
-
-	},
 	// Update - Method to update
 	update: (req, res) => {
 

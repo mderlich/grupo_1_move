@@ -71,10 +71,35 @@ const controller = {
     // EDIT // GET ************
     editGet: (req, res) => {
 
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		const productsFilePath = path.join(__dirname, '../database/products.json');
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render( 'admin/productUpdate');
+		// Do the magic
+        const productId = parseInt(req.params.id, 10);
+        let productDetail; 
+
+        for (let i = 0; i < products.length; i++) {
+            if ( products[i].id === productId ) {
+                // acá lo encontramos al producto
+                productDetail = products[i];
+            }
+        }
+
+        // si existe...
+        if (productDetail){
+			// enviamos la vista con el producto encontrado
+			res.render('admin/productUpdate', { 
+				productDetail: productDetail
+			});
+		}
+		// si no existe el producto, mandamos error...
+        else {
+			res.status(404).render( "error",  {
+				message: 'Producto no encontrado',
+			} );
+        }
+
+
 
     },
 
