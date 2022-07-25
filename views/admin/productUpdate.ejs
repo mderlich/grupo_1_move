@@ -133,9 +133,22 @@ form label {
                 <option value="importado" <%= importadoSelected %>>Importado</option>
             </select>
 
-            <label for="fechadecarga">Fecha de Carga</label>
-            <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01" value="<%= productDetail.fechadecarga %>">
-            <input type="submit" value="INSERTAR">
+            <% 
+            // JS ponemos la fecha del dia
+            // https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd ;
+            // ------------------------------------
+            %>
+           
+            <!-- El siguiente campo va oculto -->
+            <input type="hidden" name="fechademodificacion" id="fechademodificacion"  value="<%= today %>" >
+            
+            <input type="submit" value="ACTUALIZAR">
 
         </form>
       

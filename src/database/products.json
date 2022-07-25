@@ -222,20 +222,5 @@
         "genero": "mujer",
         "origen": "importado",
         "ref": "https://www.moov.com.ar/zapatillas-topper-yucca/TO_52181.html"
-    },
-    {
-        "id": 17,
-        "codigo": "324",
-        "marca": "adidas",
-        "nombre": "adasdasd",
-        "precio": 233,
-        "descuento": 0,
-        "descripcion": "adfaafdf",
-        "categoria": "zapatillas",
-        "genero": "femenino",
-        "origen": "nacional",
-        "fechadecarga": "2022-07-22",
-        "ref": "",
-        "image": ""
     }
 ]

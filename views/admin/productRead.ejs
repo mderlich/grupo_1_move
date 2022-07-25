@@ -46,6 +46,14 @@
     .cell img {
         width: 50px;
     }
+
+    .cell button{
+        cursor: pointer;
+        padding: 5px;
+        background: none;
+        color: inherit;
+        border: none;
+    }
     /* CSS TABLA (fin) ------------------- */
 
 </style>
@@ -113,9 +121,18 @@
                 <div class="cell">
                     <p><%= products[i].descuento %></p>
                 </div>
+                
                 <div class="cell">
-                    <a href="/admin/delete/<%= products[i].id %>"><i class="fas fa-trash"></i></i></a> 
+                <!--
+                confirmacion en javascript
+                https://stackoverflow.com/questions/27921283/add-a-confirmation-alert-before-submitting-a-form
+                 -->
+                <form action="/admin/delete/<%= products[i].id %>/?_method=DELETE" method="POST" onSubmit="return confirm('¿Esta seguro?');">
+                    <button type="submit"><i class="fas fa-trash"></i></button>
+                </form>
                 </div>
+
+
             </div>
             <% } %>
     

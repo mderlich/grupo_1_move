@@ -148,61 +148,8 @@ const controller = {
 	},
 
 
-	
-	// Update - Method to update
-	update: (req, res) => {
-
-		
-		// si queremos ver lo enviado por el formulario...
-		// res.json(req.body) 
-
-		
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-        const productId = parseInt(req.params.id, 10);
-
-        for (let i = 0 ; i < products.length ; i++) {
-            if ( products[i].id === productId ) {
-                // acá lo encontramos al producto
-				products[i]['name'] = req.body.name;
-				products[i]['price'] = req.body.price;
-				products[i]['discount'] = req.body.discount;
-				products[i]['category'] = req.body.category;
-				products[i]['description'] = req.body.description;
-				// 'filename' esta indicado como llega desde el multer en el ruteador de products...
-				// filename: 'ximg-1657115263090',
-	
-				
-            }
-        }
 
 
-		
-
-		// guardamos los datos...
-		let productsGuardar = JSON.stringify(products,null,4);
-		fs.writeFileSync(productsFilePath,productsGuardar);
-		res.redirect('/products');
-
-	},
-
-	// Delete - Delete one product from DB
-	destroy : (req, res) => {
-
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		
-		// Do the magic
-		const productId = parseInt(req.params.id, 10);
-		// filtramos los que tengan id distinto al que buscamos...
-		const productsFinal = products.filter(prod => prod.id != productId);        
-		// guardamos...
-		let productsGuardar = JSON.stringify(productsFinal,null,4);
-		fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),productsGuardar);
-		res.redirect('/products');
-		
-	}
 };
 
 

@@ -60,7 +60,7 @@ router.put('/:id', editPut);     /* <<============= */
 
 // ----------------------------------------
 // DELETE // DELETE 
-router.delete('/:id', deleteDelete); /* <<============= */
+router.delete('/delete/:id', deleteDelete); /* <<============= */
 
 
 
