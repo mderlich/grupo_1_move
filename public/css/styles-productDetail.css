@@ -26,23 +26,29 @@ main{
 }
  */
 
-.zapatillas{
-    display: flex;
+.zapatillasDetail{
+    display: flex; 
     flex-wrap: wrap;
+    justify-content: space-around;
     margin-bottom: 80px;
 
 }
-.zapatillas_izq{
-    margin: auto;
-
+.zapatillasDetail_izq{
+    /* 
+    background-color: yellow; 
+    */
 }
-.zapatillas_der{
+.zapatillasDetail_der{
 
+    text-align: left;
     margin-left: 30px;
     margin-right: 30px;
+    /* 
+    background-color: yellow; */
+
     
 }
-.zapatillas_izq img{
+.zapatillasDetail_izq img{
     display:block;
     margin:auto;
     width: 100%;
@@ -50,10 +56,10 @@ main{
 }
 
 
-.zapatillas h1{
+.zapatillasDetail h1{
     margin-bottom: 0;
 }
-.zapatillas h2{
+.zapatillasDetail h2{
     text-align: left;
     margin-top: 10px;
     margin-bottom: 10px;
