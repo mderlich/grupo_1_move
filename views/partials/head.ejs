@@ -3,7 +3,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Move - Las mejores zapatillas!</title>
+
+    <!-- title... lo especificamos en cada include de header, ver ej en productDetail.ejs 
+    y por el if ternario... https://stackoverflow.com/questions/37732986/ejs-js-referenceerror-title-not-defined -->
+    <title>Move / <%= (typeof title != "undefined" ? title : "Las mejores zapatillas!") %></title>
     
     <!-- CSS NORMALIZE -->
     <!-- https://necolas.github.io/normalize.css/
@@ -14,9 +17,13 @@
     <!-- Se buscan desde aqui...
     https://fontawesome.com/v5/search?s=solid%2Cbrands 
     -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     
+    <!-- FAVICON / se edito primero en photoshop y luego se termino en la siguiente web
+    https://realfavicongenerator.net/ -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
     <!-- ESTILOS PROPIOS -->
     <link href="/css/styles-x00body.css" rel="stylesheet">
     <link href="/css/styles-x01header.css" rel="stylesheet">
