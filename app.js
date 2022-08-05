@@ -5,11 +5,14 @@ const path = require('path');
 const methodOverride =  require('method-override'); 
  //Requerimos el logMiddleware//   
 const logMiddleware = require('./middlewares/logMiddleware');
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 // ************ express() - (don't touch) ************
 const app = express();
 ///*********************express-session require*************************///
 const session = require('express-session');
 
+var cookieParser = require('cookie-parser');
 
 
 // ************ Middlewares - (don't touch) ************
@@ -34,17 +37,22 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.use(cookieParser());
+
+app.use(userLoggedMiddleware); //este middleware tiene que ir desp de session porque la sesion se tiene que inicializar antes
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 const mainRouter = require('./src/routes/main'); // Rutas main
 const zapatillasRouter = require('./src/routes/zapatillas'); // Rutas /products
 const adminRouter = require('./src/routes/admin'); // Rutas admin
+const usersRouter = require('./src/routes/users'); // Rutas users
 
 
 app.use('/', mainRouter);
 app.use('/zapatillas', zapatillasRouter);
 app.use('/admin', adminRouter);
+app.use('/users', usersRouter);
 
 
 
