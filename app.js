@@ -4,7 +4,7 @@ const path = require('path');
 // Permite usar el method="POST" en el formulario como PUT y DELETE
 const methodOverride =  require('method-override'); 
  //Requerimos el logMiddleware//   
-const logMiddleware = require('./middlewares/logMiddleware');
+//const logMiddleware = require('./middlewares/logMiddleware');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 // ************ express() - (don't touch) ************
@@ -25,7 +25,7 @@ app.use(express.json());
 // npm install method-override --save
 app.use(methodOverride('_method')); 
 //Permite usar logmiddleware//
-app.use(logMiddleware);
+//app.use(logMiddleware);
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
 // Define la ubicación de la carpeta de las Vistas
