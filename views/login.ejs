@@ -38,7 +38,11 @@
         <label for="email"><span class="asterisco">* </span>Email</label>
     </div>
     <input type="email" id="email" name="email" value="" class="cajita"/>
-
+    <% if (locals.errors && errors.email) { %>
+        <div style="color: red"> 
+        <%= errors.email.msg%>
+        </div>
+      <% } %>
     <!--contraseña-->
     <div class="emailycontra">
         <label for="password"><span class="asterisco">* </span>Contraseña</label>

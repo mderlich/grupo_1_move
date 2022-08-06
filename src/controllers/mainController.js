@@ -68,25 +68,25 @@ const controller = {
         
 	},
 
-    // LOGIN ************
-	login: (req, res) => {
+    // // LOGIN ************
+	// login: (req, res) => {
 
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    //     const productsFilePath = path.join(__dirname, '../database/products.json');
+    //     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render( 'login');
+    //     res.render( 'login');
 
-	},
+	// },
 
-    // REGISTER ************
-    register: (req, res) => {
+    // // REGISTER ************
+    // register: (req, res) => {
 
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    //     const productsFilePath = path.join(__dirname, '../database/products.json');
+    //     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render( 'register');
+    //     res.render( 'register');
 
-	},
+	// },
 
     // FORGET PASWORD ************
     forgetpw: (req, res) => {

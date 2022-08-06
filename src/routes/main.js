@@ -21,9 +21,10 @@ router.get('/', index);
 /* ruta del buscador... */
 router.get('/search', search); 
 
-router.get('/login', login); 
+//Estas rutas se pasaron al archivo Users:
+//router.get('/login', login); 
 
-router.get('/register', logDBMiddleware ,register); 
+//router.get('/register', logDBMiddleware ,register); 
 
 router.get('/forgetpw', forgetpw); 
 

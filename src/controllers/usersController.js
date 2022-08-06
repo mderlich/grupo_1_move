@@ -73,11 +73,11 @@ const usersController = {
                 return res.redirect('/users/profile');
             }
             //Si la contrasena es incorrecta mando error a la vista:
-            return res.render('login', { errors: { email : {msg: 'Las credenciales son invalidas'}}})
+            return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
         }
 
         //Si no encuentra el email manda un error a la vista:
-        return res.render('login', { errors: { email : {msg: 'No se encuentra este email en la base de datos'}}})
+        return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
     },
 
     profile: function(req, res) {

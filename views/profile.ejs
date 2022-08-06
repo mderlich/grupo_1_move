@@ -14,8 +14,17 @@
             <h2>Hi <%= user.name %> <%= user.last_name %></h2>
             <img src="/images/users/<%= user.profileImage %> ">
             <br>
-            <br>
-            <div><%= user.email %> </div>
+            <div>
+                <h3>Mi perfil</h3>  
+
+                <p><%= user.email %> </p>
+
+                <p>Mis compras</p>
+
+
+            </div>
+
+            <a class="boton-inicio" href="/users/logout">Logout</a>
         </div>
     </div>
 </div>
