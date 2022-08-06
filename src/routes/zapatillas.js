@@ -15,7 +15,6 @@ const {
 
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/', readAll); 
-  
 
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/:genero', readGenero); 
