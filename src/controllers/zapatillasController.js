@@ -29,11 +29,7 @@ const controller = {
 		});
 		
 	},
-
-
-
-
-
+ 	
 	// Root - Show all products
 	readGenero: (req, res) => {
 
@@ -52,7 +48,12 @@ const controller = {
 			productsFiltrados = products.filter((e)=> {
 				return e.genero == genero;
 			});
-		}
+		}else{
+			productsFiltrados = products.filter((e)=> {
+				
+				return e.marca == genero;
+			});
+		} 
 
 		// Do the magic
 		res.render('productAll', { 
@@ -90,11 +91,11 @@ const controller = {
            res.render( "productDetail",  {productDetail: productDetail} ); 
 		}
 		// si no hay producto...
-/*         else {
+         else {
 			res.status(404).render( "error",  {
 				message: 'Producto no encontrado',
 			} );
-        } */
+        } 
 
 
 

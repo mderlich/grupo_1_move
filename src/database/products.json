@@ -16,7 +16,7 @@
     {
         "id": 2,
         "codigo": "AD_FY7939",
-        "marca": "Adidas",
+        "marca": "adidas",
         "nombre": "Forum Mid",
         "precio": 32999,
         "descuento": 20,
@@ -30,7 +30,7 @@
     {
         "id": 3,
         "codigo": "AD_H04471",
-        "marca": "Adidas",
+        "marca": "adidas",
         "nombre": "Multix",
         "precio": 19999,
         "descuento": 0,
