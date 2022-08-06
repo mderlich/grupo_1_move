@@ -1,8 +1,5 @@
-
 const path = require('path');
 
-
-//Multer : si quiero procesar archivos que viajen a traves de un formulario
 const multer = require('multer');
 
 const storage = multer.diskStorage({

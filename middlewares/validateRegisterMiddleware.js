@@ -1,7 +1,5 @@
 const path = require('path');
 
-//Express validator
-// Hago una destructuracion, puede hacerse con check tmb:
 const { body } = require('express-validator');
 
 const validations = [

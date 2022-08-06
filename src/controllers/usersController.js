@@ -17,7 +17,7 @@ const usersController = {
         // Esto me devuelve un objeto literal con la propiedad errors, y dentro de esto un array con los campos que tuvieron error, 
         //tiene un indice por cada campo que valide, y en cada indice tiene un objeto literal
 
-        //si hay errores (el array no esta vacio, es decir la propiedad errors del objeto):
+        //si hay errores (el array no esta vacio, es decir, existe la propiedad errors del objeto):
         //el mapped() es un metodo de express que toma el array y lo convierte en objeto literal
         if(result.errors.length > 0){
             res.render('register', { 
@@ -82,7 +82,7 @@ const usersController = {
 
     profile: function(req, res) {
 
-        res.render('userProfile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
+        res.render('profile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
     },
 
     logout: function(req, res) {
