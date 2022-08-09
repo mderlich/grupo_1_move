@@ -5,8 +5,7 @@ const User = require('../models/users');
 const bcryptjs = require('bcryptjs');
 
 const usersController = {
-    register: function(req, res) {
-        // res.cookie(); 
+    register: function(req, res) { 
         res.render('register');
     },
 
@@ -64,10 +63,9 @@ const usersController = {
                 req.session.userLogged = userToLogin;
 
                 //Seteo una cookie
-                if(req.body.remember_user){
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}); //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
+                if(req.body.recordarme){
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}) //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
                 }
-
 
                 //Si esta ok la contrasena redirijo al perfil del usuario:
                 return res.redirect('/users/profile');
@@ -81,7 +79,6 @@ const usersController = {
     },
 
     profile: function(req, res) {
-
         res.render('profile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
     },
 

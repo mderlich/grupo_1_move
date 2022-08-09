@@ -12,7 +12,7 @@ const app = express();
 ///*********************express-session require*************************///
 const session = require('express-session');
 
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 
 // ************ Middlewares - (don't touch) ************

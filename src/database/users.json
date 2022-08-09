@@ -14,7 +14,7 @@
   "firstName": "Maximiliano",
   "lastName": "Lizarraga",
   "email": "maxi.lizarraga.91@gmail.com ",
-  "password": "Hola123",
+  "password": "Hola1234",
   "gender": "Masculino",
   "category:": "user",
   "image": " "
@@ -130,5 +130,14 @@
   "email": "prueba2@prueba.com",
   "password": "$2a$10$d0svv2VLT07j8Aegp8rdluff5A0QqrEo2aS0kGtro9QjsxB2LxvfK",
   "profileImage": "1659804473911_img.png"
+ },
+ {
+  "id": 15,
+  "name": "Maximiliano",
+  "last_name": "Lizarraga",
+  "genero": "Masculino",
+  "email": "maxi@dh.com.ar",
+  "password": "$2a$10$q1qmeXdWiwM/B0lSFsrMQ.PAlsREC8CY6t05bn/3.63znDMC.Zs/y",
+  "profileImage": "1660082171054_img.jpg"
  }
 ]
