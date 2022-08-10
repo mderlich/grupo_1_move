@@ -14,8 +14,10 @@
         <style>
             .inline { 
                 display: inline-block; 
-                border-bottom: 1px solid red; 
-                width: 190px;
+                border-bottom: 2px solid #A334FF; 
+                width: 300px;
+                padding: 10px;
+
             }
 
         </style>
@@ -28,15 +30,15 @@
 
                 <form class="datospersona" action="/users/register" method="post" name="registrousuario" enctype="multipart/form-data">
 
-                    <label for="nombre">Nombre</label>
-                    <input name="name" id="nombre">
+                    <label for="nombre">Nombre <hr></label>
+                    <input name="name" id="nombre" >
                     <% if (locals.errors && errors.name) { %>
                         <div style="color: red"> 
                         <%= errors.name.msg%>
                         </div>
                       <% } %>
 
-                    <label for="apellido">Apellido</label>
+                    <label for="apellido">Apellido<hr></label>
                     <input name="last_name" id="apellido">
                     <% if (locals.errors && errors.last_name) { %>
                         <div style="color: red"> 
@@ -44,7 +46,7 @@
                         </div>
                       <% } %>
 
-                    <label for="genero">Género</label>
+                    <label for="genero">Género<hr></label>
                     <input name="genero" id="genero">
                     <% if (locals.errors && errors.genero) { %>
                         <div style="color: red"> 
@@ -52,7 +54,7 @@
                         </div>
                       <% } %>
 
-                    <label name="email">Ingresar email</label>
+                    <label name="email">Ingresar email<hr></label>
                     <input name="email" id="email">
                     <% if (locals.errors && errors.email) { %>
                         <div style="color: red"> 
@@ -60,7 +62,7 @@
                         </div>
                       <% } %>
 
-                    <label for="contraseña">Elegí tu contraseña</label>
+                    <label for="contraseña">Elegí tu contraseña<hr></label>
                     <input type="password" name="password" id="contraseña">
                     <% if (locals.errors && errors.password) { %>
                         <div style="color: red"> 

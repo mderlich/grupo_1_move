@@ -15,15 +15,19 @@ REGISTER
     justify-content: space-between;
     flex-direction: column;
     padding: 10px;
-    width: 95%;
+    width: 70% ;
+    margin-left: 15%;
     }
 
 .mainRegister input{
-    margin-bottom: 10px;
-    padding: 2px
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 35px;
+    border-radius: 5px;
+    
 }
 
-#tipo {
+/* #tipo {
     width: 25%;
 }
 
@@ -41,7 +45,7 @@ REGISTER
     border-bottom: solid #181818 1px;
     justify-content: space-between;
     margin-bottom: 5px;
-}
+} */
 
 #politicas {
     font-weight: bold;
@@ -68,6 +72,17 @@ REGISTER
 
 #botonenvio {
     color: white;
+}
+
+.nombre{
+    margin-top:20px;
+    margin-bottom: 8px;
+    color: #666666;
+    
+}
+
+.hr{
+    background-color: blueviolet;
 }
 
 /* 
@@ -98,11 +113,27 @@ Navegación en desktop
     .todoslosforms {
         display: flex;
         justify-content: space-between;
+
+        color:red ;
+        
     }
 
     .datospersona{
         width: 45%;
+        margin-top:35px;
+        margin-bottom: 10px;
+        color:rgb(0, 0, 0); 
     }
+
+   
+
+    .cajita{
+        border-radius: 3px;
+        margin: auto;
+        width: 100%;
+    }
+
+
 
     .datoscuenta {
         width: 45%;
