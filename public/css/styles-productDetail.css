@@ -223,10 +223,5 @@ main .recomendados .texto {
     text-align: center;
 }
 
-main hr{
-    /* https://css-tricks.com/examples/hrs/ */
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
+
 

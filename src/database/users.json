@@ -139,5 +139,35 @@
   "email": "maxi@dh.com.ar",
   "password": "$2a$10$q1qmeXdWiwM/B0lSFsrMQ.PAlsREC8CY6t05bn/3.63znDMC.Zs/y",
   "profileImage": "1660082171054_img.jpg"
+ },
+ {
+  "id": 16,
+  "name": "Rodrigo",
+  "last_name": "Alvarez",
+  "genero": "Masculino",
+  "email": "rodrione616@gmail.com",
+  "password": "$2a$10$YA5Hy4jWJYt3tkd3PT6XXuX3tfJDP0qhviH2d4M.kdN3x60nDxMGG",
+  "politicas": "on",
+  "profileImage": "1660170620882_img.png"
+ },
+ {
+  "id": 17,
+  "name": "Rodrigo",
+  "last_name": "Alvarez",
+  "genero": "Masculino",
+  "email": "rodrione616@gmail.com",
+  "password": "$2a$10$rEtbORk8cd2UOaBDLRyT2ur2Serwdox9aHMf.SmJR1aqsKkD2aKZa",
+  "politicas": "on",
+  "profileImage": "1660170667816_img.png"
+ },
+ {
+  "id": 18,
+  "name": "Rodrigo",
+  "last_name": "Alvarez",
+  "genero": "Masculino",
+  "email": "rodrione1aa@gmail.com",
+  "password": "$2a$10$ZLG/HGUZvch1cYNHE4EqGOA4S.OIbPKpAViuqsE/8SkQR9SLaYsYu",
+  "politicas": "on",
+  "profileImage": "1660172191340_img.png"
  }
 ]
