@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
-</head>
-<body>
+<html lang="es">
+<%- include('./partials/head') %>
+<style>
+    .error_body{
+        background-color: #000;
+    }
+    .error_body .logo{
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+</style>
+<body class="error_body">
     
-    <h1>Error!</h1>
-    <% if (message) { %>
-        <h2><%= message %></h2>   
-    <% } %> 
+
+    <!-- Logo -->
+    <a href="/">
+        <img src="/images/move.png"  alt="logo-move" class="logo">
+    </a>
+    
+    <h2>No encontramos la web</h2> 
+    <br>  
+    <h2><a href="javascript: history.go(-1)">Click para volver atrás</a></h2> 
+    
 </body>
 </html>

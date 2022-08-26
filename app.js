@@ -54,6 +54,13 @@ app.use('/zapatillas', zapatillasRouter);
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 
+// ERROR 404 :: Importante!
+// Recordemos que el manejo del error 404 tiene que ir al final, luego de definir todas nuestras rutas.
+app.use((req, res, next) => {
+    res.status(404).render('error');
+})
+// .....................................
+
 // ************ PUERTO ************
 // el puerto segun indiquen
 // Modificacion para emplear en Heroku... 'process.env.PORT ||'
