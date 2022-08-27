@@ -65,7 +65,27 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Product = sequelize.define(alias,cols,config);
 
-   
+    Product.associate = function(models) {
+        Product.belongsTo(models.Brand, {
+            as: 'brands',
+            foreingKey: 'id_brand'
+        })
+    
+        Product.belongsTo(models.Color, {
+            as: 'colors',
+            foreingKey: 'id_color'
+        })
+
+        Product.belongsTo(models.Category, {
+            as: 'categories',
+            foreingKey: 'id_category'
+        })
+
+        Product.belongsTo(models.Size, {
+            as: 'sizes',
+            foreingKey: 'id_size'
+        })
+    }
 
     return Product
 };
