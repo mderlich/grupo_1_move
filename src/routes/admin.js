@@ -6,24 +6,35 @@ const multer = require('multer');
 const path = require('path');
 
 
-
 // ************ Multer Settings ************
 // acompaña a la linea de ruta mas adelante...
 // router.post('/', upload.single('image'), store);      
 
 const storage = multer.diskStorage({
+    /* destination... indicamos la carpeta donde se van a guardar...  */
 	destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, "../../public/images"))
+        let folder = path.join(__dirname, "../../public/images/products");
+        cb(null, folder)
 	},
+    /* filename... definimos el nombre del archivo */
 	filename: (req, file, cb) => {
+
+        // Limpiamos el nombre que viene desde el formulario...
+        // ej... "  your string 123 .-_!@  " => "YourString123"
+        let abc = req.body.nombre;
+        let abc2 = abc.replace(/\b\w/g, l => l.toUpperCase())
+        let abc3 = abc2.replace(/[^a-zA-Z0-9]/g, "");
+ 
         // Datos propios del 'file' son...
         // fieldname / originalname / encoding / mimetype / destination / filename / path / size
-		let nombreImagen = "ximg-" + Date.now() + path.extname(file.originalname);
+        // en caso de requerir la fecha en milisegundos... Date.now()
+		let nombreImagen = "zapatillas_" + req.body.marca + "_" + abc3 + path.extname(file.originalname);
         cb(null, nombreImagen)
 	}
 })
 
-var upload = multer({ storage: storage })
+// se utiliza como middleware de la ruta POST que lo utilice
+let upload = multer({ storage })
 
 // /multer fin --------------------------------
 
@@ -37,6 +48,10 @@ const {
     deleteDelete
 } = require('../controllers/adminController');
 
+const { 
+    proppatch 
+} = require('./main');
+
 
 // ************ Rutas Privadas ************
 // ----------------------------------------
@@ -47,10 +62,11 @@ router.get('/', readGet);
 // CREATE // GET 
 router.get('/create', createGet); 
 // CREATE // POST 
-// STORE, falta agregar las sig. linea de midleware
-router.post('/create', createPost); 
-// IMPORTANTE!!! 'image' corresponde al name del input... <input type="file" name="image" id="image" >
-// router.post('/', upload.single('image'), store);        /* <<============= */
+// IMPORTANTE!!! 
+// .'image' corresponde al name del input... <input type="file" name="image" id="image" >
+// .'single' corresponde a que solo sube una sola imagen
+router.post('/create', upload.single('image'), createPost); 
+
 
 // ----------------------------------------
 // EDIT // GET 

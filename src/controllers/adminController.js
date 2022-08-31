@@ -33,26 +33,29 @@ const controller = {
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+        // IMAGEN ======================
+        // 'filename' esta indicado como llega desde el multer en el ruteador de products...
+        // image: req.file.filename
+
 		// Do the magic
 		let nuevoProducto = {
 			// para el id, buscamos el maximo valor y le sumamos 1
 			id: Math.max(...products.map( e => e.id )) + 1,
-            codigo: req.body.codigo,
-			marca: req.body.marca,
+            categoria: 'zapatillas',
+            marca: req.body.marca,
 			nombre: req.body.nombre,
-			precio: parseInt(req.body.precio), 		// <= debe ser numero!
+            image: req.file.filename,               // <= Leer observaciones arriba sobre origen nombre
+			precio: parseInt(req.body.precio), 		    // <= debe ser numero!
 			descuento: parseInt(req.body.descuento),	// <= debe ser numero!
             descripcion: req.body.descripcion,
-			categoria: 'zapatillas',
 			genero: req.body.genero,
             origen: req.body.origen,
+            nroserie: req.body.nroserie,
+            observaciones: req.body.observaciones,
             fechadecarga: req.body.fechadecarga,
-            //ref: req.body.ref,
-            ref: '',
-            image: '',
-            // 'filename' esta indicado como llega desde el multer en el ruteador de products...
-			// filename: 'ximg-1657115263090',
-			// image: req.file.filename
+
+            
+
 
 		}
 
