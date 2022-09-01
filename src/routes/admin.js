@@ -72,7 +72,7 @@ router.post('/create', upload.single('image'), createPost);
 // EDIT // GET 
 router.get('/edit/:id', editGet); 
 // EDIT // PUT 
-router.put('/:id', editPut);     /* <<============= */
+router.put('/:id', upload.single('image'), editPut);     /* <<============= */
 
 // ----------------------------------------
 // DELETE // DELETE 

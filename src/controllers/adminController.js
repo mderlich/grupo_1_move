@@ -36,7 +36,14 @@ const controller = {
         // IMAGEN ======================
         // 'filename' esta indicado como llega desde el multer en el ruteador de products...
         // image: req.file.filename
-
+        // Solo si se adjunta imagen...
+        let image_exist;
+        if(req.file){
+            image_exist = req.file.filename;    // <= Origen del nombre en midleware de la ruta
+        }else {
+            image_exist = '';
+        }
+        
 		// Do the magic
 		let nuevoProducto = {
 			// para el id, buscamos el maximo valor y le sumamos 1
@@ -44,19 +51,16 @@ const controller = {
             categoria: 'zapatillas',
             marca: req.body.marca,
 			nombre: req.body.nombre,
-            image: req.file.filename,               // <= Leer observaciones arriba sobre origen nombre
+            image: image_exist,               // <= Leer observaciones arriba sobre origen nombre
 			precio: parseInt(req.body.precio), 		    // <= debe ser numero!
 			descuento: parseInt(req.body.descuento),	// <= debe ser numero!
             descripcion: req.body.descripcion,
 			genero: req.body.genero,
             origen: req.body.origen,
-            nroserie: req.body.nroserie,
+            nro_serie: req.body.nro_serie,
             observaciones: req.body.observaciones,
-            fechadecarga: req.body.fechadecarga,
-
-            
-
-
+            fecha_creado: req.body.fecha_creado,
+            fecha_modificado: '',
 		}
 
         // anexamos el nuevo dato...
@@ -115,26 +119,27 @@ const controller = {
         // tomamos el :id de la url desde archivo ruta
         const productId = parseInt(req.params.id, 10);
 
+ 
+
         for (let i = 0 ; i < products.length ; i++) {
             if ( products[i].id === productId ) {
+
                 // acá lo encontramos al producto
-                products[i]['codigo'] = req.body.codigo;
                 products[i]['marca'] = req.body.marca;
 				products[i]['nombre'] = req.body.nombre;
+                // Solo si se adjunta imagen...
+                if(req.file){
+                products[i]['image'] = req.file.filename;    // <= Origen del nombre en midleware de la ruta
+                }
 				products[i]['precio'] = parseInt(req.body.precio);
 				products[i]['descuento'] = parseInt(req.body.descuento);
 				products[i]['descripcion'] = req.body.descripcion;
-              /*products[i]['categoria'] = req.body.categoria;*/
                 products[i]['genero'] = req.body.genero;
                 products[i]['origen'] = req.body.origen;
-              /*products[i]['fechadecarga'] = req.body.fechadecarga;*/
-                products[i]['fechademodificacion'] = req.body.fechademodificacion;
-              /*products[i]['ref'] = req.body.ref;*/
-              /*products[i]['image'] = req.body.image;*/
-                // 'filename' esta indicado como llega desde el multer en el ruteador de products...
-				// filename: 'ximg-1657115263090';
-                // image: req.file.filename;
-	
+                products[i]['nro_serie'] = req.body.nro_serie;
+                products[i]['observaciones'] = req.body.observaciones;
+                products[i]['fecha_modificado'] = req.body.fecha_modificado;
+
             }
         }
 

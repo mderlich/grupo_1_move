@@ -88,8 +88,8 @@ form label {
                 <option value="importado">Importado</option>
             </select>
 
-            <label for="nroserie">Numero de Serie</label>
-            <input type="text" name="nroserie" id="nroserie" >
+            <label for="nro_serie">Numero de Serie</label>
+            <input type="text" name="nro_serie" id="nro_serie" >
 
             <label for="observaciones">Observaciones</label>
             <textarea name="observaciones" id="observaciones"></textarea>
@@ -105,8 +105,8 @@ form label {
             today = yyyy + '-' + mm + '-' + dd ;
             // ------------------------------------
             %>
-            <label for="fechadecarga">Fecha de Carga</label>
-            <input type="date" name="fechadecarga" id="fechadecarga" min="2020-01-01" value="<%= today %>">
+            <label for="fecha_creado">Fecha de Carga</label>
+            <input type="date" name="fecha_creado" id="fecha_creado" min="2020-01-01" value="<%= today %>">
 
             <input type="submit" value="INSERTAR">
 

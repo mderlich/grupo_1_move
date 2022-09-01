@@ -43,10 +43,8 @@ form label {
 
         <!-- Desde aqui seguir -->
         <!-- OBS para imagenes incluir... enctype="multipart/form-data" -->
-        <form action="/admin/<%= productDetail.id %>/?_method=PUT" method="POST">
-            
-            <label for="codigo">Código</label>
-            <input type="text" name="codigo" id="codigo" value="<%= productDetail.codigo %>">
+        <form action="/admin/<%= productDetail.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
+        
 
             <% 
             let adidasSelected = '';
@@ -95,7 +93,10 @@ form label {
             <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
             -->
 
-            
+            <label for="image">Imagen</label>
+            <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
+
+
             <% 
             
             let femeninoSelected = '';
@@ -133,6 +134,13 @@ form label {
                 <option value="importado" <%= importadoSelected %>>Importado</option>
             </select>
 
+
+            <label for="nro_serie">Numero de Serie</label>
+            <input type="text" name="nro_serie" id="nro_serie" value="<%= productDetail.nro_serie %>">
+   
+            <label for="observaciones">Observaciones</label>
+            <textarea name="observaciones" id="observaciones"><%= productDetail.observaciones %></textarea>
+
             <% 
             // JS ponemos la fecha del dia
             // https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
@@ -146,7 +154,7 @@ form label {
             %>
            
             <!-- El siguiente campo va oculto -->
-            <input type="hidden" name="fechademodificacion" id="fechademodificacion"  value="<%= today %>" >
+            <input type="hidden" name="fecha_creado" id="fecha_creado"  value="<%= today %>" >
             
             <input type="submit" value="ACTUALIZAR">
 
