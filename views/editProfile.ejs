@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head') %>
+
+<body>
+
+    <%- include('./partials/header')%>
+
+    <main class="mainRegister">
+
+        <h1>Mi perfil</h1>
+
+        <style>
+            .inline { 
+                display: inline-block; 
+                border-bottom: 2px solid #A334FF; 
+                width: 300px;
+                padding: 10px;
+
+            }
+
+        </style>
+       
+
+        <article class="todoslosforms">
+
+                <form class="datospersona" action="/users/editProfile" method="post" name="edicionusuario" enctype="multipart/form-data">
+
+                    <label for="nombre">Nombre <hr></label>
+                    <input name="name" id="nombre" value="<%= user.first_name %>">
+                   
+
+                    <label for="apellido">Apellido<hr></label>
+                    <input name="last_name" id="apellido" value='<%= user.last_name %>''>
+                  
+
+                    <label for="genero">Género<hr></label>
+                    <input name="genero" id="genero" value="<%= user.genero %>">
+                  
+
+                    <label for="contraseña">Elegí tu contraseña<hr></label>
+                    <input type="password" name="password" id="contraseña">
+                   
+                 
+                    <label for="profileImage">Imagen de perfil:</label>
+                    <input type="file" name="profileImage" id="image">
+
+                    <button type= "submit" id="crearcuenta" style="color: #fff;">
+                        Editar
+                    </button>
+            </form>
+        </article>
+    </main>
+   
+    <%- include('./partials/footer')%>
+    
+</body>
+</html>

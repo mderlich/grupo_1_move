@@ -39,7 +39,7 @@ app.use(session({
 
 app.use(cookieParser());
 
-app.use(userLoggedMiddleware); //este middleware tiene que ir desp de session porque la sesion se tiene que inicializar antes
+//app.use(userLoggedMiddleware); //este middleware tiene que ir desp de session porque la sesion se tiene que inicializar antes
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************

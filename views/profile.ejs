@@ -17,14 +17,18 @@
             <div>
                 <h3>Mi perfil</h3>  
 
-                <p><%= user.email %> </p>
+                <p>Nombre : <%= user.first_name %> </p>
+                <p>Apellido : <%= user.last_name %> </p>
+                <p>Email : <%= user.email %> </p>
+                <p>Genero : <%= user.genero %> </p>
 
-                <p>Mis compras</p>
-
+                <a href="/users/editProfile"><button type= "submit" id="crearcuenta" style="color: #fff;">
+                            Editar perfil
+                </button></a>
 
             </div>
 
-            <a class="boton-inicio" href="/users/logout">Logout</a>
+            <a id="crearcuenta" style="color: #fff;" class="boton-inicio" href="/users/logout">Logout</a>
         </div>
     </div>
 </div>

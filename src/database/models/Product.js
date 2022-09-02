@@ -43,19 +43,19 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         id_size: {
-            type: dataTypes.INT,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         id_color: {
-            type: dataTypes.INT,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         id_category: {
-            type: dataTypes.INT,
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         id_brand: {
-            type: dataTypes.INT,
+            type: dataTypes.INTEGER,
             allowNull: false
         }
     };

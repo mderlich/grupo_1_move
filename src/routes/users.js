@@ -27,6 +27,10 @@ router.post('/login', usersController.loginProcess);
 //Muestra el perfil de usuarios:
 router.get('/profile/', authMiddleware, usersController.profile);
 
+//Edicion de usuarios:
+router.get('/editProfile/', authMiddleware, usersController.editProfile);
+router.post('/editProfile/', usersController.updateProfile);
+
 //Logout:
 router.get('/logout/', usersController.logout);
 

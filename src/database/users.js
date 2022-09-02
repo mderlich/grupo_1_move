@@ -1,3 +1,5 @@
+//Este es el modelo que venia del JSON, ELIMINAR:
+
 const fs = require('fs');
 
 

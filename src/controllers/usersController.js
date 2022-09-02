@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator')
 
-const User = require('../database/models/users');
-//const db = require('../database/models');
+//const User = require('../database/models/users');
+const db = require('../database/models');
 
 const bcryptjs = require('bcryptjs');
 
@@ -27,24 +27,56 @@ const usersController = {
         }
 
         //VALIDACION: Antes de crearlo chequeo si ya hay un usuario registrado con ese mail:
-        let userInDb = User.findByField('email', req.body.email);
-        if(userInDb) {
-            res.render('register', { 
-                errors : { email : { msg: 'Este email ya esta registrado'}},
-                oldData: req.body
-            });
-        };
+        let userEmail = req.body.email
+        db.User.findOne({
+            where: {
+                email: userEmail
+            },
+            raw: true
+        })
+        .then((userInDb) => {
+            if(userInDb != null) {
+                res.render('register', { 
+                    errors : { email : { msg: 'Este email ya esta registrado'}},
+                    oldData: req.body
+                })
+            }
+        }) 
+        .then(()=> {
+            db.User.create(
+                {
+                    first_name: req.body.name,
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    gender: req.body.genero,
+                    password: bcryptjs.hashSync(req.body.password, 10), // este password va a pisar el campo con el mismo nombre que viene en el body, que seria la contrasena sin hashear
+                    //profileImage: req.file.filename
+                }
+            )
+            .then(()=> {
+                return res.redirect('/users/login')})            
+            //.catch(error => res.send(error))
+        })
+        
+         //VALIDACION: Antes de crearlo chequeo si ya hay un usuario registrado con ese mail:
+        // let userInDb = User.findByField('email', req.body.email);
+        // if(userInDb) {
+        //     res.render('register', { 
+        //         errors : { email : { msg: 'Este email ya esta registrado'}},
+        //         oldData: req.body
+        //     });
+        // };
 
         //Le agrego la imagen que viene en el req.file, no en el body, y le piso la contrasena por una hasheada:
-        let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10), // este password va a pisar el campo con el mismo nombre que viene en el body, que seria la contrasena sin hashear
-            profileImage: req.file.filename
-        };
+        // let userToCreate = {
+        //     ...req.body,
+        //     password: bcryptjs.hashSync(req.body.password, 10), // este password va a pisar el campo con el mismo nombre que viene en el body, que seria la contrasena sin hashear
+        //     profileImage: req.file.filename
+        // };
 
-        //Creo el usuario, lo guardo en una variable y redirijo al login:
-        let userCreated = User.create(userToCreate);
-        return res.redirect('/users/login'); 
+        // //Creo el usuario, lo guardo en una variable y redirijo al login:
+        // let userCreated = User.create(userToCreate);
+        // return res.redirect('/users/login'); 
         },
         
     login: function(req, res) {
@@ -52,35 +84,68 @@ const usersController = {
     },
 
     loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
 
         //VALIDACIONES: verifico si existe un usuario con ese mail, y luego si la contrasena es correcta:
-        if(userToLogin){
-            let isPasswordOk = bcryptjs.compareSync(req.body.password, userToLogin.password)
-            if(isPasswordOk){
+        //let userToLogin = User.findByField('email', req.body.email);
+        
+        let userEmail = req.body.email
+        db.User.findOne({
+            where: {
+                email: userEmail
+            },
+            raw: true
+        })
+        .then((userToLogin) => {
 
-                //Antes de redirigir me guargo la info del usuario logueado para usarlo en session:
-                delete userToLogin.password; //el password no quiero que quede guardado en session (el delete es un operador que remueve una propiedad de un objeto)
-                req.session.userLogged = userToLogin;
 
-                //Seteo una cookie
-                if(req.body.recordarme){
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}) //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
+            if(userToLogin){
+                let isPasswordOk = bcryptjs.compareSync(req.body.password, userToLogin.password)
+                if(isPasswordOk){
+    
+                    //Antes de redirigir me guargo la info del usuario logueado para usarlo en session:
+                    delete userToLogin.password; //el password no quiero que quede guardado en session (el delete es un operador que remueve una propiedad de un objeto)
+                    req.session.userLogged = userToLogin;
+    
+                    //Seteo una cookie
+                    if(req.body.recordarme){
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}) //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
+                    }
+    
+                    //Si esta ok la contrasena redirijo al perfil del usuario:
+                    return res.redirect('/users/profile');
                 }
-
-                //Si esta ok la contrasena redirijo al perfil del usuario:
-                return res.redirect('/users/profile');
+                //Si la contrasena es incorrecta mando error a la vista:
+                return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
             }
-            //Si la contrasena es incorrecta mando error a la vista:
+    
+            //Si no encuentra el email manda un error a la vista:
             return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
-        }
-
-        //Si no encuentra el email manda un error a la vista:
-        return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
+        }) 
     },
 
     profile: function(req, res) {
         res.render('profile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
+    },
+
+    editProfile: function(req, res){
+        res.render('editProfile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
+    },
+
+    updateProfile: function(req, res){
+        let userId = req.session.userLogged.id;   
+        db.User
+        .update(
+            {
+                first_name: req.body.name,
+                last_name: req.body.last_name,
+                gender: req.body.genero,
+            },
+            {
+                where: {id: userId}
+            })
+        .then(()=> {
+            return res.redirect('/users/profile')})            
+        .catch(error => res.send(error))
     },
 
     logout: function(req, res) {
@@ -88,81 +153,10 @@ const usersController = {
         req.session.destroy(); //el destroy borra todo lo que esta en session
         return res.redirect('/');
     },
-
-
-    // add: function (req, res) {
-    //     let promGenres = Genres.findAll();
-    //     let promActors = Actors.findAll();
-        
-    //     Promise
-    //     .all([promGenres, promActors])
-    //     .then(([allGenres, allActors]) => {
-    //         return res.render(path.resolve(__dirname, '..', 'views',  'moviesAdd'), {allGenres,allActors})})
-    //     .catch(error => res.send(error))
-    // },  
-    // create: function (req,res) {
-    //     Movies
-    //     .create(
-    //         {
-    //             title: req.body.title,
-    //             rating: req.body.rating,
-    //             awards: req.body.awards,
-    //             release_date: req.body.release_date,
-    //             length: req.body.length,
-    //             genre_id: req.body.genre_id
-    //         }
-    //     )
-    //     .then(()=> {
-    //         return res.redirect('/movies')})            
-    //     .catch(error => res.send(error))
-    // },
-    // edit: function(req,res) {
-    //     let movieId = req.params.id;
-    //     let promMovies = Movies.findByPk(movieId,{include: ['genre','actors']});
-    //     let promGenres = Genres.findAll();
-    //     let promActors = Actors.findAll();
-    //     Promise
-    //     .all([promMovies, promGenres, promActors])
-    //     .then(([Movie, allGenres, allActors]) => {
-    //         Movie.release_date = moment(Movie.release_date).format('L');
-    //         return res.render(path.resolve(__dirname, '..', 'views',  'moviesEdit'), {Movie,allGenres,allActors})})
-    //     .catch(error => res.send(error))
-    // },
-    // update: function (req,res) {
-    //     let movieId = req.params.id;
-    //     Movies
-    //     .update(
-    //         {
-    //             title: req.body.title,
-    //             rating: req.body.rating,
-    //             awards: req.body.awards,
-    //             release_date: req.body.release_date,
-    //             length: req.body.length,
-    //             genre_id: req.body.genre_id
-    //         },
-    //         {
-    //             where: {id: movieId}
-    //         })
-    //     .then(()=> {
-    //         return res.redirect('/movies')})            
-    //     .catch(error => res.send(error))
-    // },
-    // delete: function (req,res) {
-    //     let movieId = req.params.id;
-    //     Movies
-    //     .findByPk(movieId)
-    //     .then(Movie => {
-    //         return res.render(path.resolve(__dirname, '..', 'views',  'moviesDelete'), {Movie})})
-    //     .catch(error => res.send(error))
-    // },
-    // destroy: function (req,res) {
-    //     let movieId = req.params.id;
-    //     Movies
-    //     .destroy({where: {id: movieId}, force: true}) // force: true es para asegurar que se ejecute la acción
-    //     .then(()=>{
-    //         return res.redirect('/movies')})
-    //     .catch(error => res.send(error)) 
-    // }
 }
 
 module.exports = usersController;
+
+
+
+
