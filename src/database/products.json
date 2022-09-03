@@ -254,5 +254,21 @@
         "observaciones": "https://www.moov.com.ar/zapatillas-topper-yucca/TO_52181.html",
         "fecha_creado": "2022-01-03",
         "fecha_modificado": ""
+    },
+    {
+        "id": 17,
+        "categoria": "zapatillas",
+        "marca": "converse",
+        "nombre": "333333333",
+        "image": "",
+        "precio": null,
+        "descuento": null,
+        "descripcion": "",
+        "genero": "",
+        "origen": "",
+        "nro_serie": "",
+        "observaciones": "",
+        "fecha_creado": "2022-09-03",
+        "fecha_modificado": ""
     }
 ]

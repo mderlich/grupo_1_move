@@ -46,12 +46,27 @@
 
 
         <% if (productDetail.length > 0) { %>
+
+
+
+
             <!-- con resultados -->
-            <% for(let i=0; i< productDetail.length ; i++) { %>
+            <% for(let i=0; i< productDetail.length ; i++) { 
+                
+                // si hay o no imagen de producto...
+                let productImage;
+                if (productDetail[i].image) {
+                    productImage = "products/" + productDetail[i].image;
+                } else {
+                    productImage = "noimage.jpg";
+                } 
+                // --------------------------------
+
+            %>
                 <a href="/zapatillas/id/<%= productDetail[i].id %>">
                 <div class="imagen_texto">
                     <div class="imagen">
-                        <img src="/images/products/<%= productDetail[i].image %>" alt="<%= productDetail[i].nombre %>">
+                        <img src="/images/<%= productImage %>" alt="<%= productDetail[i].nombre %>">
                         <i class="fas fa-heart"></i>
                     </div>
                     <hr>

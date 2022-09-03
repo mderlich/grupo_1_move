@@ -107,7 +107,15 @@
                     <p><%= products[i].id %></p>
                 </div>
                 <div class="cell">
-                    <p><img src="/images/products/<%= products[i].image %>"></p>
+                    <% 
+                    let productImage;
+                    if (products[i].image) {
+                        productImage = "products/" + products[i].image;
+                    } else {
+                        productImage = "noimage.jpg";
+                    } 
+                    %>
+                    <p><img src="/images/<%= productImage %>"></p>
                 </div>
                 <div class="cell">
                     <p><%= products[i].marca %></p>

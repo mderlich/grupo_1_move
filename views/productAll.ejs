@@ -47,11 +47,22 @@
     
         <div class="recomendados">
 
-            <% for(let i=0; i< productsFiltrados.length ; i++) { %>
+            <% for(let i=0; i< productsFiltrados.length ; i++) { 
+                
+                // si hay o no imagen de producto...
+                let productImage;
+                if (productsFiltrados[i].image) {
+                    productImage = "products/" + productsFiltrados[i].image;
+                } else {
+                    productImage = "noimage.jpg";
+                } 
+                // --------------------------------
+
+            %>
             <a href="/zapatillas/id/<%= productsFiltrados[i].id %>">
             <div class="imagen_texto">
                 <div class="imagen">
-                    <img src="/images/products/<%= productsFiltrados[i].image %>" alt="<%= productsFiltrados[i].nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productsFiltrados[i].nombre %>">
                     <i class="fas fa-heart"></i>
                 </div>
                 <hr>

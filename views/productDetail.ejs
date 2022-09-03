@@ -12,13 +12,25 @@
         <div class="zapatillasDetail">
 
             <div class="zapatillasDetail_izq">
-                <img src="/images/products/<%= productDetail.image %>" alt="<%= productDetail.nombre %>">
+
+                <% 
+                // si hay o no imagen de producto...
+                let productImage;
+                if (productDetail.image) {
+                    productImage = "products/" + productDetail.image;
+                } else {
+                    productImage = "noimage.jpg";
+                } 
+                // --------------------------------
+                %>
+
+                <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
 
                 <div class="imagenes_galeria">
-                    <img src="/images/products/<%= productDetail.image %>" alt="<%= productDetail.nombre %>">
-                    <img src="/images/products/<%= productDetail.image %>" alt="<%= productDetail.nombre %>">
-                    <img src="/images/products/<%= productDetail.image %>" alt="<%= productDetail.nombre %>">
-                    <img src="/images/products/<%= productDetail.image %>" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
                 </div>
             </div>
 
