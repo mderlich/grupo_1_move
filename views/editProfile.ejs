@@ -25,7 +25,7 @@
 
         <article class="todoslosforms">
 
-                <form class="datospersona" action="/users/editProfile" method="post" name="edicionusuario" enctype="multipart/form-data">
+                <form class="datospersona" action="/users/editProfile/<%= user.id %>" method="post" name="edicionusuario" enctype="multipart/form-data">
 
                     <label for="nombre">Nombre <hr></label>
                     <input name="name" id="nombre" value="<%= user.first_name %>">

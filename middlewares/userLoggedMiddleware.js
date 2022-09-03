@@ -14,16 +14,20 @@ function userLoggedMiddleware(req, res, next) {
 		raw: true
 	})
 	.then((userFromCookie) => {
+		res.JSON(userFromCookie)})
+	.then((userJSON) => {
 		//si vino un usuario a traves de la cookie se lo paso a session:
-		if (userFromCookie != null) {
-			req.session.userLogged = userFromCookie;
+		if (userJSON != null) {
+			req.session.userLogged = userJSON;
 		};
 
 		if (req.session.userLogged) {
 			res.locals.isLogged = true;
 			res.locals.userLogged = req.session.userLogged; //le paso a locals los datos del usuario loggeado
 		};
-	}) 
+	}
+		
+	) 
 
 	next();
 }

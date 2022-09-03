@@ -28,8 +28,8 @@ router.post('/login', usersController.loginProcess);
 router.get('/profile/', authMiddleware, usersController.profile);
 
 //Edicion de usuarios:
-router.get('/editProfile/', authMiddleware, usersController.editProfile);
-router.post('/editProfile/', usersController.updateProfile);
+router.get('/editProfile/:id', authMiddleware, usersController.editProfile);
+router.post('/editProfile/:id', usersController.updateProfile);
 
 //Logout:
 router.get('/logout/', usersController.logout);

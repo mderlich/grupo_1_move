@@ -2,7 +2,7 @@ const db = require('./src/database/models')
 
 db.User.findOne({
     where: {
-        email: ''
+        email: 'estefi@gmail.com'
     },
     raw: true
 })

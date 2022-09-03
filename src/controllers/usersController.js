@@ -129,15 +129,18 @@ const usersController = {
 
     editProfile: function(req, res){
         res.render('editProfile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
+      
     },
 
     updateProfile: function(req, res){
-        let userId = req.session.userLogged.id;   
+        let userId = req.params.id; 
         db.User
         .update(
             {
                 first_name: req.body.name,
                 last_name: req.body.last_name,
+                email: req.body.email,
+                password: req.body.password,
                 gender: req.body.genero,
             },
             {
