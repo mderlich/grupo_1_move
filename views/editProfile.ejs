@@ -25,18 +25,20 @@
 
         <article class="todoslosforms">
 
-                <form class="datospersona" action="/users/editProfile/<%= user.id %>" method="post" name="edicionusuario" enctype="multipart/form-data">
+                <form class="datospersona" action="/users/editProfile/<%=user.id %>" method="post" name="edicionusuario">
+
+                    
 
                     <label for="nombre">Nombre <hr></label>
-                    <input name="name" id="nombre" value="<%= user.first_name %>">
+                    <input name="name" id="nombre" value="<%=user.first_name%>">
                    
 
                     <label for="apellido">Apellido<hr></label>
-                    <input name="last_name" id="apellido" value='<%= user.last_name %>''>
+                    <input name="last_name" id="apellido" value="<%=user.last_name%>">
                   
 
                     <label for="genero">Género<hr></label>
-                    <input name="genero" id="genero" value="<%= user.genero %>">
+                    <input name="genero" id="genero" value="<%=user.gender%>">
                   
 
                     <label for="contraseña">Elegí tu contraseña<hr></label>

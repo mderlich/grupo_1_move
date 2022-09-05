@@ -127,15 +127,16 @@ const usersController = {
         res.render('profile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
     },
 
-    editProfile: function(req, res){
-        res.render('editProfile', { user: req.session.userLogged  }); //mando a la vista el nombre del usuario loggeado
+    editProfile: function(req, res){ 
+        let userId =  req.params.id;
+        res.render('editProfile', { user: userId }); //mando a la vista el nombre del usuario loggeado
       
     },
 
     updateProfile: function(req, res){
         let userId = req.params.id; 
-        db.User
-        .update(
+        
+        db.User.update(
             {
                 first_name: req.body.name,
                 last_name: req.body.last_name,
