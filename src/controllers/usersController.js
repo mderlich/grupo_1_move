@@ -129,12 +129,12 @@ const usersController = {
 
     editProfile: function(req, res){ 
         let userId =  req.params.id;
-        res.render('editProfile', { user: userId }); //mando a la vista el nombre del usuario loggeado
+        res.render('editProfile', { user: req.session.userLogged }); //mando a la vista el nombre del usuario loggeado
       
     },
 
     updateProfile: function(req, res){
-        let userId = req.params.id; 
+        let userId = req.session.userLogged; 
         
         db.User.update(
             {
@@ -145,7 +145,7 @@ const usersController = {
                 gender: req.body.genero,
             },
             {
-                where: {id: userId}
+                where: {id: req.params.id}
             })
         .then(()=> {
             return res.redirect('/users/profile')})            
