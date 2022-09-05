@@ -40,8 +40,17 @@ form label {
         <!-- "enctype" es indispensable para subir imagenes -->
         <form action="/admin/create" method="POST" enctype="multipart/form-data">
     
+            <!-- Errores... si los hay los listamos aca -->
+            <% 
+            if(locals.errors){
+                errors.forEach(error => {
+            %>
+                <p style="color: tomato;"><%= error.msg %></p>
+            <% 
+                })
+            }
+            %>
             
-
             <label for="marca">Marca</label>
             <select id="marca" name="marca">
                 <option value="">Seleccione...</option>

@@ -24,19 +24,18 @@ const controller = {
     // CREATE // GET ************
     createGet: (req, res) => {
 
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-        res.render( 'admin/productCreate');
+        res.render('admin/productCreate');
 
     },
 
     // CREATE // POST ************
     createPost: (req, res) => {
 
+        // ERRORES... chequeamos si los hay
         let errors = validationResult(req);
+
         if(errors){
-            res.send(errors);
+            res.render('admin/productCreate', { errors: errors.array() });
         }else{
         // ---------------------------------------
         const productsFilePath = path.join(__dirname, '../database/products.json');

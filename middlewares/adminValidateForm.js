@@ -1,31 +1,32 @@
 
 // util para las validaciones del formulario...
-const { body } = require('express-validator');
+const { check } = require('express-validator');
 
 
 // Validaciones del formulario...
 const validateForm = [
     // Verifica que el campo no esté vacío
-    body('marca')
+    check('marca')
         .notEmpty().withMessage('MARCA // No puede estar vacio'),
     // Verifica la longitud de los datos
-    body('nombre')
+    check('nombre')
         .notEmpty().withMessage('NOMBRE // No puede estar vacio').bail()
         .isLength({ min: 5, max: 30 }).withMessage('NOMBRE // debe tener entre 5 y 30 caracteres'),
     // Verifica que sea un número entero
-    body('precio')
+    check('precio')
         .isInt().withMessage('PRECIO // Debe ser un numero entero'),
-    body('descuento')
+    check('descuento')
         .isInt().withMessage('DESCUENTO // Debe ser un numero entero'),
-    body('descripcion')
+    check('descripcion')
         .notEmpty().withMessage('DESCRIPCION // No puede estar vacio'),
-    body('genero')
+    check('genero')
         .notEmpty().withMessage('GENERO // No puede estar vacio'),
-    body('origen')
+    check('origen')
         .notEmpty().withMessage('ORIGEN // No puede estar vacio'),
     // nro_serie */
 
 ]
+
 
 
 module.exports = validateForm;
