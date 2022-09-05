@@ -27,7 +27,7 @@ filename: (req, file, cb) => {
       // Datos propios del 'file' son...
       // fieldname / originalname / encoding / mimetype / destination / filename / path / size
       // en caso de requerir la fecha en milisegundos... Date.now()
-  let nombreImagen = "zapatillas_" + req.body.marca + "_" + abc3 + path.extname(file.originalname);
+      let nombreImagen = "zapatillas_" + req.body.marca + "_" + abc3 + path.extname(file.originalname);
       cb(null, nombreImagen)
 }
 })

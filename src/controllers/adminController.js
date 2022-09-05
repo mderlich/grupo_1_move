@@ -2,6 +2,10 @@
 const fs = require('fs');
 const path = require('path');
 
+// util para las validaciones del formulario...
+const { validationResult } = require('express-validator');
+
+
 
 const controller = {
 
@@ -30,6 +34,11 @@ const controller = {
     // CREATE // POST ************
     createPost: (req, res) => {
 
+        let errors = validationResult(req);
+        if(errors){
+            res.send(errors);
+        }else{
+        // ---------------------------------------
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -71,6 +80,9 @@ const controller = {
 		let productsGuardar = JSON.stringify(products,null,4);
 		fs.writeFileSync(productsFilePath,productsGuardar);
 		res.redirect('/admin');
+        // ---------------------------------------
+
+        }
 
 	},
 

@@ -4,10 +4,9 @@ const router = express.Router();
 
 
 
-    
 // ************ Middlewares Require ************
+const validateForm = require('../../middlewares/adminValidateForm');
 const upload = require('../../middlewares/adminMulter');
-
 
 
 // ************ Controller Require ************
@@ -20,9 +19,7 @@ const {
     deleteDelete
 } = require('../controllers/adminController');
 
-const { 
-    proppatch 
-} = require('./main');
+
 
 
 // ************ Rutas Privadas ************
@@ -37,7 +34,7 @@ router.get('/create', createGet);
 // IMPORTANTE!!! 
 // .'image' corresponde al name del input... <input type="file" name="image" id="image" >
 // .'single' corresponde a que solo sube una sola imagen
-router.post('/create', upload.single('image'), createPost); 
+router.post('/create', validateForm, upload.single('image'), createPost); 
 
 
 // ----------------------------------------

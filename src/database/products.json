@@ -270,5 +270,21 @@
         "observaciones": "",
         "fecha_creado": "2022-09-03",
         "fecha_modificado": ""
+    },
+    {
+        "id": 18,
+        "categoria": "zapatillas",
+        "marca": "adidas",
+        "nombre": "",
+        "image": "",
+        "precio": null,
+        "descuento": null,
+        "descripcion": "",
+        "genero": "",
+        "origen": "",
+        "nro_serie": "",
+        "observaciones": "",
+        "fecha_creado": "2022-09-04",
+        "fecha_modificado": ""
     }
 ]
