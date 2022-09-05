@@ -20,7 +20,7 @@ const usersController = {
         //si hay errores (el array no esta vacio, es decir, existe la propiedad errors del objeto):
         //el mapped() es un metodo de express que toma el array y lo convierte en objeto literal
         if(result.errors.length > 0){
-            res.render('register', { 
+           return res.render('register', { 
                 errors : result.mapped(),
                 oldData: req.body //Para mantener la info que estaba bien y no dio error, desp la paso a la vista
             });
@@ -36,7 +36,7 @@ const usersController = {
         })
         .then((userInDb) => {
             if(userInDb != null) {
-                res.render('register', { 
+               return res.render('register', { 
                     errors : { email : { msg: 'Este email ya esta registrado'}},
                     oldData: req.body
                 })
@@ -50,12 +50,12 @@ const usersController = {
                     email: req.body.email,
                     gender: req.body.genero,
                     password: bcryptjs.hashSync(req.body.password, 10), // este password va a pisar el campo con el mismo nombre que viene en el body, que seria la contrasena sin hashear
-                    //profileImage: req.file.filename
+                    /* profileImage: req.file.filename */
                 }
             )
             .then(()=> {
-                return res.redirect('/users/login')})            
-            //.catch(error => res.send(error))
+                return res.redirect('/users/login')})      
+            .catch(error => res.send(error))
         })
         
          //VALIDACION: Antes de crearlo chequeo si ya hay un usuario registrado con ese mail:

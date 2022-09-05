@@ -31,7 +31,7 @@
                 <form class="datospersona" action="/users/register" method="post" name="registrousuario" enctype="multipart/form-data">
 
                     <label for="nombre">Nombre <hr></label>
-                    <input name="name" id="nombre" >
+                    <input name="name" id="nombre" value="<%= (locals.oldData && oldData.name) ? oldData.name : '' %>">
                     <% if (locals.errors && errors.name) { %>
                         <div style="color: red"> 
                         <%= errors.name.msg%>
@@ -81,7 +81,7 @@
                     </div>
     
                     <label for="profileImage">Imagen de perfil:</label>
-                    <input type="file" name="profileImage" id="image">
+                    <input type="file" name="profileImage" id="image" >
                     <% if (locals.errors && errors.profileImage) { %>
                       <div style="color: red"> 
                       <%= errors.profileImage.msg%>
