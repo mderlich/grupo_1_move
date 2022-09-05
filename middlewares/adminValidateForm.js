@@ -18,12 +18,27 @@ const validateForm = [
     check('descuento')
         .isInt().withMessage('DESCUENTO // Debe ser un numero entero'),
     check('descripcion')
-        .notEmpty().withMessage('DESCRIPCION // No puede estar vacio'),
+        .notEmpty().withMessage('DESCRIPCION // No puede estar vacio').bail()
+        .isLength({ min: 5, max: 200 }).withMessage('NOMBRE // debe tener entre 5 y 200 caracteres'),
     check('genero')
         .notEmpty().withMessage('GENERO // No puede estar vacio'),
     check('origen')
         .notEmpty().withMessage('ORIGEN // No puede estar vacio'),
     // nro_serie */
+    // ERROR IMAGEN (customizado)
+    check('image').custom( (value, {req}) => {
+        let file = req.file;
+        let acceptedExtensions = ['.jpg', '.png', '.gif'];
+        if(!file){
+            throw new Error ('IMAGEN // Tienes que subir una imagen');
+        }else {
+            let fileExtension = path.extname(file.originalname);
+            if(!acceptedExtensions.includes(fileExtension)){
+            throw new Error ('IMAGEN // Extensiones permitidas son...' + acceptedExtensions.join(', '));
+            }
+        }
+            return true;
+        })
 
 ]
 

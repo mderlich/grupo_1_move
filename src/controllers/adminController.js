@@ -14,6 +14,8 @@ const controller = {
 
         const productsFilePath = path.join(__dirname, '../database/products.json');
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        // ordenamos los array para que los nuevos ingresos figuren arriba (id mayor... id menor)
+        products.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
 
  		res.render('admin/productRead', { 
 			products: products
@@ -34,8 +36,12 @@ const controller = {
         // ERRORES... chequeamos si los hay
         let errors = validationResult(req);
 
-        if(errors){
-            res.render('admin/productCreate', { errors: errors.array() });
+        
+        if(!errors.isEmpty()){
+            res.render('admin/productCreate', { 
+                errors: errors.array(),
+                old: req.body
+            });
         }else{
         // ---------------------------------------
         const productsFilePath = path.join(__dirname, '../database/products.json');

@@ -50,58 +50,63 @@ form label {
                 })
             }
             %>
+
+            
             
             <label for="marca">Marca</label>
             <select id="marca" name="marca">
                 <option value="">Seleccione...</option>
-                <option value="adidas">Adidas</option>
-                <option value="converse">Converse</option>
-                <option value="nike">Nike</option>
-                <option value="puma">Puma</option>
-                <option value="reebok">Reebok</option>
-                <option value="topper">Topper</option>
-                <option value="vans">Vans</option>             
+                <% 
+                let marcas = ['adidas', 'converse', 'nike', 'puma', 'reebok', 'topper', 'vans']; 
+                
+                for (let marca of marcas){%>
+
+                <option value="<%= marca %>" <%= ( locals.old && old.marca === marca ) ? 'selected' : '' %>><%= marca.toUpperCase(); %></option>
+                
+                <% 
+                }
+                %>
             </select>
 
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" value="<%= (locals.old && old.nombre) ? old.nombre : '' %>">
+
 
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio">
+            <input type="number" name="precio" id="precio" value="<%= (locals.old && old.precio) ? old.precio : '' %>">
 
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" >
+            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" value="<%= (locals.old && old.descuento) ? old.descuento : '' %>">
 
             <label for="descripcion">Descripción</label>
-            <textarea name="descripcion" id="descripcion"></textarea>
+            <textarea name="descripcion" id="descripcion"><%= (locals.old && old.descripcion) ? old.descripcion : '' %></textarea>
             
             <label for="image">Imagen</label>
             <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
 
-            <!-- este se podria enviar oculto, pero lo insertamos desde el controlador
+            <!-- OBS... este se podria enviar oculto, pero lo insertamos desde el controlador -->
             <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
-            -->
 
             <label for="genero">Genero</label>
             <select id="genero" name="genero">
                 <option value="">Seleccione...</option>
-                <option value="femenino">Femenino</option>
-                <option value="masculino">Masculino</option>
-                <option value="unisex">Unisex</option>
+                <option value="femenino" <%= ( locals.old && old.genero === 'femenino' ) ? 'selected' : '' %>>Femenino</option>
+                <option value="masculino" <%= ( locals.old && old.genero === 'masculino' ) ? 'selected' : '' %>>Masculino</option>
+                <option value="unisex" <%= ( locals.old && old.genero === 'unisex' ) ? 'selected' : '' %>>Unisex</option>
             </select>
 
             <label for="origen">Origen</label>
             <select id="origen" name="origen">
                 <option value="">Seleccione...</option>
-                <option value="nacional">Nacional</option>
-                <option value="importado">Importado</option>
+                <option value="nacional" <%= ( locals.old && old.origen === 'nacional' ) ? 'selected' : '' %>>Nacional</option>
+                <option value="importado" <%= ( locals.old && old.origen === 'importado' ) ? 'selected' : '' %>>Importado</option>
             </select>
 
             <label for="nro_serie">Numero de Serie</label>
-            <input type="text" name="nro_serie" id="nro_serie" >
+            <input type="text" name="nro_serie" id="nro_serie" value="<%= (locals.old && old.nro_serie) ? old.nro_serie : '' %>">
 
             <label for="observaciones">Observaciones</label>
-            <textarea name="observaciones" id="observaciones"></textarea>
+            <textarea name="observaciones" id="observaciones"><%= (locals.old && old.observaciones) ? old.observaciones : '' %></textarea>
 
             <% 
             // JS ponemos la fecha del dia
