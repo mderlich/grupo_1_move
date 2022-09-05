@@ -133,21 +133,21 @@ const usersController = {
       
     },
 
-    updateProfile: function(req, res){
-        let userId = req.session.userLogged; 
-        
-        db.User.update(
+    updateProfile: function(req, res){ 
+        const userToLogin = 
             {
                 first_name: req.body.name,
                 last_name: req.body.last_name,
-                email: req.body.email,
-                password: req.body.password,
                 gender: req.body.genero,
-            },
+            }
+        db.User.update(
+            userToLogin,
             {
                 where: {id: req.params.id}
             })
         .then(()=> {
+            req.session.userLogged = userToLogin
+            console.log(userToLogin)
             return res.redirect('/users/profile')})            
         .catch(error => res.send(error))
     },
