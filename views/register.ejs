@@ -39,7 +39,7 @@
                       <% } %>
 
                     <label for="apellido">Apellido<hr></label>
-                    <input name="last_name" id="apellido">
+                    <input name="last_name" id="apellido" value="<%= (locals.oldData && oldData.last_name) ? oldData.last_name : '' %>">
                     <% if (locals.errors && errors.last_name) { %>
                         <div style="color: red"> 
                         <%= errors.last_name.msg%>
@@ -47,7 +47,7 @@
                       <% } %>
 
                     <label for="genero">Género<hr></label>
-                    <input name="genero" id="genero">
+                    <input name="genero" id="genero" value="<%= (locals.oldData && oldData.genero) ? oldData.genero : '' %>">
                     <% if (locals.errors && errors.genero) { %>
                         <div style="color: red"> 
                         <%= errors.genero.msg%>
@@ -55,7 +55,7 @@
                       <% } %>
 
                     <label name="email">Ingresar email<hr></label>
-                    <input name="email" id="email">
+                    <input name="email" id="email" value="<%= (locals.oldData && oldData.email) ? oldData.email : '' %>">
                     <% if (locals.errors && errors.email) { %>
                         <div style="color: red"> 
                         <%= errors.email.msg%>
@@ -63,7 +63,7 @@
                       <% } %>
 
                     <label for="contraseña">Elegí tu contraseña<hr></label>
-                    <input type="password" name="password" id="contraseña">
+                    <input type="password" name="password" id="contraseña" value="<%= (locals.oldData && oldData.password) ? oldData.password : '' %>">
                     <% if (locals.errors && errors.password) { %>
                         <div style="color: red"> 
                         <%= errors.password.msg%>
