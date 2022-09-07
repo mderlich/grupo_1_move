@@ -99,27 +99,35 @@ const usersController = {
 
 
             if(userToLogin){
+
                 let isPasswordOk = bcryptjs.compareSync(req.body.password, userToLogin.password)
+
+                // si el password es correcto...
                 if(isPasswordOk){
     
                     //Antes de redirigir me guargo la info del usuario logueado para usarlo en session:
-                    delete userToLogin.password; //el password no quiero que quede guardado en session (el delete es un operador que remueve una propiedad de un objeto)
+                    //el password no quiero que quede guardado en session
+                    // (el delete es un operador que remueve una propiedad de un objeto)
+                    delete userToLogin.password; 
                     req.session.userLogged = userToLogin;
     
-                    //Seteo una cookie
+                    // Si quiere recordar logueo guardamos en cookie
                     if(req.body.recordarme){
-                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}) //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
+                        //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}) 
                     }
     
                     //Si esta ok la contrasena redirijo al perfil del usuario:
                     return res.redirect('/users/profile');
                 }
+
                 //Si la contrasena es incorrecta mando error a la vista:
-                return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
+                return res.render('login', { errors: { email : {msg: 'ERROR // password incorrecto'}}})
+
             }
     
             //Si no encuentra el email manda un error a la vista:
-            return res.render('login', { errors: { email : {msg: 'Las credenciales son inválidas'}}})
+            return res.render('login', { errors: { email : {msg: 'ERROR // email inexistente'}}})
         }) 
     },
 

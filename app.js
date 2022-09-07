@@ -11,7 +11,6 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
 ///*********************express-session require*************************///
 const session = require('express-session');
-
 const cookieParser = require('cookie-parser');
 
 
