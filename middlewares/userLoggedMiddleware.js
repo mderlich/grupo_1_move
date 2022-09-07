@@ -2,9 +2,11 @@
 const db = require('../src/database/models');
 
 function userLoggedMiddleware(req, res, next) {
+	
 	res.locals.isLogged = false; 
 
-	let emailInCookie = req.cookies.userEmail; //solicito el mail que se guardo en la cookie
+	//solicito el mail que se guardo en la cookie
+	let emailInCookie = req.cookies.userEmail; 
 	//let userFromCookie = User.findByField('email', emailInCookie); // con ese mail busco el usuario
 
 	db.User.findOne({
@@ -23,7 +25,8 @@ function userLoggedMiddleware(req, res, next) {
 
 		if (req.session.userLogged) {
 			res.locals.isLogged = true;
-			res.locals.userLogged = req.session.userLogged; //le paso a locals los datos del usuario loggeado
+			//le paso a locals los datos del usuario loggeado
+			res.locals.userLogged = req.session.userLogged; 
 		};
 	}
 		

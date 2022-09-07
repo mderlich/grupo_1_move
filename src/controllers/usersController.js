@@ -161,8 +161,11 @@ const usersController = {
     },
 
     logout: function(req, res) {
-        res.clearCookie('userEmail'); //tengo que borrar la cookie porque si no voy a seguir loggeado aunque haga logout, porque la cookie le va a seguir pasando el usuario a session hasta que pase el tiempo seteado y se destruya
-        req.session.destroy(); //el destroy borra todo lo que esta en session
+        // tengo que borrar la cookie porque si no voy a seguir loggeado aunque haga logout
+        // porque la cookie le va a seguir pasando el usuario a session hasta que pase el tiempo seteado y se destruya
+        res.clearCookie('userEmail'); 
+        // el destroy borra todo lo que esta en session
+        req.session.destroy(); 
         return res.redirect('/');
     },
 }
