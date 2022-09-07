@@ -63,14 +63,23 @@ header a {
     /* limitamos y centramos para tamaños mayores */
     max-width: 1200px;
     margin: auto;
+    /* 
+    background-color: grey; */
+
 }
 
 .mainheader_left{
     display: flex;
     align-items: center;
+    /* 
+    background-color: aqua; */
 
 }
 
+.mainheader_left a:hover{
+    color: #F7EF79;
+    
+}
 .mainheader_left nav{
     display: none;
 }
@@ -98,15 +107,21 @@ nav li{
     display: flex;
     justify-content: space-between;
     align-items: center;
+/* 
+    background-color: tomato; */
+
 
 }
 
 .mainheader_right .iconos {
-    width: 100px;
     display: flex;
     justify-content: space-between;
+    /* con las sig. dos modificamos espacio de iconos a la derecha */
     margin-left:  25px;
-
+    width: 120px;
+    /* 
+    background-color: greenyellow; 
+    */
 }
 
 
@@ -146,49 +161,59 @@ nav li{
 
 /****************** DROPDOW (inicio) **********************/
 /* fuente...
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover 
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown
 */
 
+
 .dropbtn {
-    background-color:#181818;
+    display: block;
     color: white;
-    padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-  }
+}
+
   
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #181818;
-  }
-  
-  .dropdown {
-    position: relative;
+.dropdown {/* 
+    position: relative; */
     display: inline-block;
-  }
+}
   
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width:100%;
     background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-  }
+}
   
-
-
-
-  .dropdown-content a {
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
   
-  .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;}
+/* MEDIA 768 PX 
+Navegación en desktop
+-------------------------------- */
+@media (min-width: 768px) {
+
+    .dropbtn {display: none;}
+
+    /* lo siguiente necesario por si hace resize */
+    .dropdown-content {display: none;}
+
+}
 
 /****************** DROPDOW (final) **********************/

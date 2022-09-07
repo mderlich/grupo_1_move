@@ -4,6 +4,10 @@ Aqui iran las funciones de JavaScripts
 console.log("Hola desde el navegador")
 
 
+/****************** DROPDOW (inicio) **********************/
+/* fuente...
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown
+*/
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -23,4 +27,17 @@ function myFunction() {
       }
     }
   }
+
+  
+
+// img cambio de menu x -...
+let texto = document.querySelector('#dropdown_burguer');
+                
+texto.addEventListener('click', function(){
+    //alert("holaaaaaa");
+    texto.classList.toggle("fa-bars");
+    texto.classList.toggle("fa-minus");
+});
+  
+/****************** DROPDOW (final) **********************/
 

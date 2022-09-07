@@ -1,19 +1,20 @@
 <header>
 
     <div class="mainheader" >
+
         <div class="mainheader_left" >
             <!-- Logo -->
             <a href="/">
                 <img src="/images/move.png"  alt="logo-move" class="logo">
             </a>
             <!-- 'nav' está destinado sólo para el bloque principal de enlaces de navegación -->
-            <nav>
+            <nav >
                 <ul>
                     <li><a href="/zapatillas">Todas</a></li>
                     <li><a href="/zapatillas/mujeres">Mujeres</a></li>
                     <li><a href="/zapatillas/hombres">Hombres</a></li>
                     <li><a href="/zapatillas/unisex">Unisex</a></li>
-                    <li><a href="/admin" style="color: yellow;">(Admin)</a></li>
+                    <li><a href="/admin" style="color: violet;"><strong>(Admin)</strong></a></li>
                 </ul>
             </nav>
         </div>
@@ -31,21 +32,31 @@
 
             <!-- Iconos -->
             <div class="iconos">
-            <a href="/carrito"><i class="fas fa-shopping-cart"></i></a>
-            <a href="/favoritos"><i class="fas fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fas fa-bars"></i></a>
-            </div>
-        </div>
+                <a href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+                <a href="/favoritos"><i class="fas fa-solid fa-heart"></i></a>
+                <a href="/users/login"><i class="fas fa-user"></i></a>
+                <!-- icono custom // solo visible en movil  -->
+                <!-- dropdown // se vincula con... header.css...funciones.js -->
+                <div class="dropdown">
+                <i onclick="myFunction()" id="dropdown_burguer" class="fas fa-bars dropbtn"></i>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="/zapatillas">Todas</a>
+                    <a href="/zapatillas/mujeres">Mujeres</a>
+                    <a href="/zapatillas/hombres">Hombres</a>
+                    <a href="/zapatillas/unisex">Unisex</a>
+                    <a href="/admin" style="color: violet;"> <strong>(Admin)</strong> </a>
+                </div>
+                </div>
 
-        <div class="dropdown">
-            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-            <div id="myDropdown" class="dropdown-content">
-            <a href="/users/login">Login</a>
-            <a href="/users/register">Register</a>
-            <a href="#contact">Contact</a>
+
+                
             </div>
+
         </div>
     
     </div>
         
-    </header>
+</header>
+
+
+    
