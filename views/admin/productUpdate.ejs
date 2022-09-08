@@ -45,6 +45,17 @@ form label {
         <!-- OBS para imagenes incluir... enctype="multipart/form-data" -->
         <form action="/admin/<%= productDetail.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
         
+<!-- Errores... si los hay los listamos aca -->
+            <% 
+            if(locals.errors){
+                errors.forEach(error => {
+            %>
+                <p style="color: tomato;"><%= error.msg %></p>
+            <% 
+                })
+            }
+            %>
+
 
             <% 
             let adidasSelected = '';

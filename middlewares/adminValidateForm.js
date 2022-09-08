@@ -19,7 +19,7 @@ const validateForm = [
         .isInt().withMessage('DESCUENTO // Debe ser un numero entero'),
     check('descripcion')
         .notEmpty().withMessage('DESCRIPCION // No puede estar vacio').bail()
-        .isLength({ min: 5, max: 200 }).withMessage('NOMBRE // debe tener entre 5 y 200 caracteres'),
+        .isLength({ min: 20, max: 200 }).withMessage('NOMBRE // debe tener entre 20 y 200 caracteres'),
     check('genero')
         .notEmpty().withMessage('GENERO // No puede estar vacio'),
     check('origen')
@@ -28,7 +28,7 @@ const validateForm = [
     // ERROR IMAGEN (customizado)
     check('image').custom( (value, {req}) => {
         let file = req.file;
-        let acceptedExtensions = ['.jpg', '.png', '.gif'];
+        let acceptedExtensions = ['.jpg', '.png', '.gif','.jpeg'];
         if(!file){
             throw new Error ('IMAGEN // Tienes que subir una imagen');
         }else {

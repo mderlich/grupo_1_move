@@ -41,7 +41,7 @@ router.post('/create', upload.single('image'), validateForm, createPost);
 // EDIT // GET 
 router.get('/edit/:id', editGet); 
 // EDIT // PUT 
-router.put('/:id', upload.single('image'), editPut);     /* <<============= */
+router.put('/:id', upload.single('image'),validateForm ,editPut);     /* <<============= */
 
 // ----------------------------------------
 // DELETE // DELETE 

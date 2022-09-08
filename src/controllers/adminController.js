@@ -129,7 +129,17 @@ const controller = {
     // EDIT // GET ************
     editPut: (req, res) => {
 
+        //  // ERRORES... chequeamos si los hay
+        //  let errors = validationResult(req);
 
+        //  if(!errors.isEmpty()){
+        //      res.render('admin/productEdit/19', { 
+        //          errors: errors.array(),
+        //          old: req.body
+        //      });
+        //  }else{
+         // ---------------------------------------
+         
 		const productsFilePath = path.join(__dirname, '../database/products.json');
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -158,6 +168,7 @@ const controller = {
                 products[i]['fecha_modificado'] = req.body.fecha_modificado;
 
             }
+            
         }
 
 
@@ -167,7 +178,7 @@ const controller = {
 		res.redirect('/admin');
 
 
-
+         
     },
 
     // EDIT // GET ************

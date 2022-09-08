@@ -258,17 +258,17 @@
     {
         "id": 19,
         "categoria": "zapatillas",
-        "marca": "converse",
-        "nombre": "aaaaaaaw",
+        "marca": "adidas",
+        "nombre": "",
         "image": "",
-        "precio": 456,
-        "descuento": 10,
+        "precio": null,
+        "descuento": null,
         "descripcion": "asffas",
         "genero": "masculino",
         "origen": "importado",
         "nro_serie": "",
         "observaciones": "afeaeffa",
         "fecha_creado": "2022-09-05",
-        "fecha_modificado": ""
+        "fecha_modificado": "2022-09-07"
     }
 ]
