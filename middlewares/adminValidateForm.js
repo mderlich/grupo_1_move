@@ -19,7 +19,7 @@ const validateForm = [
         .isInt().withMessage('DESCUENTO // Debe ser un numero entero'),
     check('descripcion')
         .notEmpty().withMessage('DESCRIPCION // No puede estar vacio').bail()
-        .isLength({ min: 20, max: 200 }).withMessage('NOMBRE // debe tener entre 20 y 200 caracteres'),
+        .isLength({ min: 20, max: 600 }).withMessage('NOMBRE // debe tener entre 20 y 600 caracteres'),
     check('genero')
         .notEmpty().withMessage('GENERO // No puede estar vacio'),
     check('origen')

@@ -1,17 +1,29 @@
 module.exports = (sequelize, dataTypes) => {
+
+    // ALIAS /////////////////////////
     let alias = 'Product'; 
+    
+    // COLUMNAS /////////////////////////
     let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
+        id_brand: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
         name: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(50),
             allowNull: false
         },
         description: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(600),
+            allowNull: false
+        },
+        image: {
+            type: dataTypes.STRING(50),
             allowNull: false
         },
         price: {
@@ -23,69 +35,40 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         gender: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(20),
             allowNull: false
         },
         origin: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-        },
-        created_at: {
-            type: dataTypes.DATE,
-            allowNull: false
-        },
-        updated_at: {
-            type: dataTypes.DATE,
+            type: dataTypes.STRING(20),
             allowNull: false
         },
         observations: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-        },
-        id_size: {
-            type: dataTypes.INTEGER,
-            allowNull: false
-        },
-        id_color: {
-            type: dataTypes.INTEGER,
-            allowNull: false
-        },
-        id_category: {
-            type: dataTypes.INTEGER,
-            allowNull: false
-        },
-        id_brand: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING(500),
             allowNull: false
         }
+ 
     };
+
+    // CONFIGURACION /////////////////////////
     let config = {
         tableName: 'products',
         timestamps: true,
     }
+
+    // x3 /////////////////////////
     const Product = sequelize.define(alias,cols,config);
 
+    // ASOCIACIONES /////////////////////////
     Product.associate = function(models) {
+
         Product.belongsTo(models.Brand, {
             as: 'brands',
             foreingKey: 'id_brand'
         })
-    
-        Product.belongsTo(models.Color, {
-            as: 'colors',
-            foreingKey: 'id_color'
-        })
-
-        Product.belongsTo(models.Category, {
-            as: 'categories',
-            foreingKey: 'id_category'
-        })
-
-        Product.belongsTo(models.Size, {
-            as: 'sizes',
-            foreingKey: 'id_size'
-        })
+        
     }
 
+    // RETURN /////////////////////////
     return Product
+
 };

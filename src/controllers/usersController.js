@@ -10,7 +10,11 @@ const usersController = {
         res.render('register');
     },
 
-    processRegister: (req, res) => {
+
+
+    
+
+    processRegister: async function (req, res) {
 
         //Hago la validacion de lo que viene en el request:
         const result = validationResult(req);
@@ -28,35 +32,39 @@ const usersController = {
 
         //VALIDACION: Antes de crearlo chequeo si ya hay un usuario registrado con ese mail:
         let userEmail = req.body.email
-        db.User.findOne({
+
+        const userExist = await db.User.findOne({
             where: {
                 email: userEmail
             },
             raw: true
         })
-        .then((userInDb) => {
-            if(userInDb != null) {
-               return res.render('register', { 
-                    errors : { email : { msg: 'Este email ya esta registrado'}},
-                    oldData: req.body
-                })
+
+        if(userExist) {
+            return res.render('register', { 
+                errors : { email : { msg: 'Este email ya esta registrado'}},
+                oldData: req.body
+            })
+        }
+
+
+        await db.User.create(
+            {
+                first_name: req.body.name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: bcryptjs.hashSync(req.body.password, 10), // password hasheado
+                gender: req.body.genero,
+                image: req.file.filename,
+                role: 'user'
             }
-        }) 
-        .then(()=> {
-            db.User.create(
-                {
-                    first_name: req.body.name,
-                    last_name: req.body.last_name,
-                    email: req.body.email,
-                    gender: req.body.genero,
-                    password: bcryptjs.hashSync(req.body.password, 10), // este password va a pisar el campo con el mismo nombre que viene en el body, que seria la contrasena sin hashear
-                    /* profileImage: req.file.filename */
-                }
-            )
-            .then(()=> {
-                return res.redirect('/users/login')})      
-            .catch(error => res.send(error))
-        })
+        )
+        
+        
+
+        return res.redirect('/users/login')
+                     
+
         
          //VALIDACION: Antes de crearlo chequeo si ya hay un usuario registrado con ese mail:
         // let userInDb = User.findByField('email', req.body.email);
