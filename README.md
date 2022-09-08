@@ -24,6 +24,15 @@ https://www.sportline.com.ar/
 6- PROYECTO EN LINEA ( HEROKU ): https://grupo1move.herokuapp.com/
 ( git heroku... https://git.heroku.com/grupo1move.git )
 
+## OBSERVACIONES DB
+
+phpmyadmin
+.cree una nueva base de datos llamada 'move_db'
+.dentro de ella importe 'move_db.sql'
+
+config.js ( /database/config/config.js )
+En caso de ser necesario indique aqui su user/pass/puerto para conectar
+
 // =================================================
 SPRINT 1/2 como se repartio...
 
