@@ -1,7 +1,7 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-const logDBMiddleware =require('../../middlewares/logDBMiddleware');
+const logDBMiddleware =require('../middlewares/logDBMiddleware');
 
 // ************ Controller Require ************
 const {

@@ -5,8 +5,8 @@ const router = express.Router();
 
 
 // ************ Middlewares Require ************
-const upload = require('../../middlewares/adminMulter');
-const validateForm = require('../../middlewares/adminValidateForm');
+const upload = require('../middlewares/adminMulter');
+const validateForm = require('../middlewares/adminValidateForm');
 
 
 // ************ Controller Require ************

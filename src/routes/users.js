@@ -5,10 +5,10 @@ const router = express.Router();
 const usersController = require('../controllers/usersController');
 
 //Middlewares a nivel de rutas
-const uploadFile = require('../../middlewares/multerMiddleware');
-const validations = require('../../middlewares/validateRegisterMiddleware');
-const guestMiddleware = require('../../middlewares/guestMiddleware');
-const authMiddleware = require('../../middlewares/authMiddleware');
+const uploadFile = require('../middlewares/multerMiddleware');
+const validations = require('../middlewares/validateRegisterMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
 //RUTEO:

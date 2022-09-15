@@ -6,7 +6,7 @@ const methodOverride =  require('method-override');
  //Requerimos el logMiddleware//   
 //const logMiddleware = require('./middlewares/logMiddleware');
 
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 // ************ express() - (don't touch) ************
 const app = express();
 ///*********************express-session require*************************///

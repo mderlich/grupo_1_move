@@ -1,5 +1,5 @@
 //const User = require('../src/database/models/users');
-const db = require('../src/database/models');
+const db = require('../database/models');
 
 function userLoggedMiddleware(req, res, next) {
 	
