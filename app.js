@@ -40,6 +40,11 @@ app.use(cookieParser());
 
 //app.use(userLoggedMiddleware); //este middleware tiene que ir desp de session porque la sesion se tiene que inicializar antes
 
+// ************ Middlewares Require ************
+/* Aplica para todas las rutas "admin"... /admin... /admin/create... etc */
+const adminAuth = require('./src/middlewares/adminAuth');
+
+
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 const mainRouter = require('./src/routes/main'); // Rutas main
@@ -50,7 +55,7 @@ const usersRouter = require('./src/routes/users'); // Rutas users
 
 app.use('/', mainRouter);
 app.use('/zapatillas', zapatillasRouter);
-app.use('/admin', adminRouter);
+app.use('/admin', adminAuth, adminRouter);
 app.use('/users', usersRouter);
 
 // ERROR 404 :: Importante!

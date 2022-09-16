@@ -118,6 +118,8 @@ const usersController = {
                     // (el delete es un operador que remueve una propiedad de un objeto)
                     delete userToLogin.password; 
                     req.session.userLogged = userToLogin;
+                    /* Guardamos el rol que tiene el usuario (util para "ADMIN") */
+                    req.session.userRole = userToLogin.role;
     
                     // Si quiere recordar logueo guardamos en cookie
                     if(req.body.recordarme){
