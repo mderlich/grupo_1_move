@@ -5,6 +5,8 @@ async function userLoggedMiddleware(req, res, next) {
 	
 	// por defecto arranca en "false"
 	res.locals.isLogged = false; 
+	res.locals.isAdmin = false;
+
 
 	/* COOKIE (inicio)====================================== */
 	//solicito el mail que se guardo en la cookie
@@ -24,25 +26,42 @@ async function userLoggedMiddleware(req, res, next) {
 
 			delete userFromCookie.password; // le sacamos el password por las dudas
 			req.session.userLogged = userFromCookie;
+			req.session.userRole = userFromCookie.role;
 		} 
 	}
-	/* COOKIE (fin)====================================== */
-
 	/* 	
 	else{
 		res.send("no hay cookies");
 	} 
 	*/
+	/* COOKIE (fin)====================================== */
 
-	// Si existe la session...
+
+	
+	// ----------------------------------------------------
+	// SESSION // Si existe la session...
 	// caso 1... por login (session)
 	// caso 2... por login + recordame (cookie + session)
 	if(req.session.userLogged){
-		//res.send("esta");
+
 		res.locals.isLogged = true;
+		//la sig linea no la utilice, aunque en el video la indicaron
 		//res.locals.userLogged = req.session.userLogged; 
 	}
+	// ----------------------------------------------------
 
+	// ----------------------------------------------------
+	// SESSION // Role "admin" chequear...
+	// caso 1... por login (session)
+	// caso 2... por login + recordame (cookie + session)
+	if( req.session.userLogged && req.session.userRole == "admin" ){
+
+		res.locals.isAdmin = true;
+
+	}
+	// ----------------------------------------------------
+
+	
 
 
 	next();
