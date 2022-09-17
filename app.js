@@ -36,9 +36,13 @@ app.use(session({
     saveUninitialized: true
 }));
 
+
 app.use(cookieParser());
 
-//app.use(userLoggedMiddleware); //este middleware tiene que ir desp de session porque la sesion se tiene que inicializar antes
+
+// userLoggedMiddleware... 
+// tiene que ir desp de session porque la sesion se tiene que inicializar antes
+app.use(userLoggedMiddleware);
 
 // ************ Middlewares Require ************
 /* Aplica para todas las rutas "admin"... /admin... /admin/create... etc */

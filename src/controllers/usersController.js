@@ -124,6 +124,7 @@ const usersController = {
                     // Si quiere recordar logueo guardamos en cookie
                     if(req.body.recordarme){
                         //primero le paso el nombre, desp lo que quiero que me guarde y desp la duracion
+                        // "cookie" (sin ese) para creacion!
                         res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) *2}) 
                     }
     

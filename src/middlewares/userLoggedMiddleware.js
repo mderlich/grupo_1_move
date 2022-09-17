@@ -1,38 +1,53 @@
-//const User = require('../src/database/models/users');
+
 const db = require('../database/models');
 
-function userLoggedMiddleware(req, res, next) {
+async function userLoggedMiddleware(req, res, next) {
 	
+	// por defecto arranca en "false"
 	res.locals.isLogged = false; 
 
+	/* COOKIE (inicio)====================================== */
 	//solicito el mail que se guardo en la cookie
 	let emailInCookie = req.cookies.userEmail; 
-	//let userFromCookie = User.findByField('email', emailInCookie); // con ese mail busco el usuario
+	// ¿Hay cookies?
+	// ¿Hay cookies?
+	if(emailInCookie){
+		//res.send("hay cookies");
+        const userFromCookie = await db.User.findOne({
+            where: {
+                email: emailInCookie
+            }
+        })
 
-	db.User.findOne({
-		where: {
-			email: emailInCookie
-		},
-		raw: true
-	})
-	.then((userFromCookie) => {
-		res.JSON(userFromCookie)})
-	.then((userJSON) => {
-		//si vino un usuario a traves de la cookie se lo paso a session:
-		if (userJSON != null) {
-			req.session.userLogged = userJSON;
-		};
+		// si hay resultados en la db que coinciden...
+		if(userFromCookie){
 
-		if (req.session.userLogged) {
-			res.locals.isLogged = true;
-			//le paso a locals los datos del usuario loggeado
-			res.locals.userLogged = req.session.userLogged; 
-		};
+			delete userFromCookie.password; // le sacamos el password por las dudas
+			req.session.userLogged = userFromCookie;
+		} 
 	}
-		
-	) 
+	/* COOKIE (fin)====================================== */
+
+	/* 	
+	else{
+		res.send("no hay cookies");
+	} 
+	*/
+
+	// Si existe la session...
+	// caso 1... por login (session)
+	// caso 2... por login + recordame (cookie + session)
+	if(req.session.userLogged){
+		//res.send("esta");
+		res.locals.isLogged = true;
+		//res.locals.userLogged = req.session.userLogged; 
+	}
+
+
 
 	next();
+	/* -------------------- */
+	
 }
 
 module.exports = userLoggedMiddleware;
