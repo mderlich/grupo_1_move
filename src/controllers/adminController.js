@@ -1,27 +1,32 @@
 // ************ Require's ************
+/* los sig require eran utilizados par ael products.json
 const fs = require('fs');
-const path = require('path');
+const path = require('path'); 
+*/
 
 // util para las validaciones del formulario...
 const { validationResult } = require('express-validator');
 
+// para base de datos...
+const db = require('../database/models');
 
 
+/* CONTROLLER ********************************* */
+/* ******************************************** */
 const controller = {
 
     // REGISTER ************
-    readGet: (req, res) => {
-
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    readGet: async function(req, res) {
+        
         // ordenamos los array para que los nuevos ingresos figuren arriba (id mayor... id menor)
-        products.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
+        const products = await db.Product.findAll()
 
- 		res.render('admin/productRead', { 
-			products: products
-		}); 
+        res.render('admin/productRead', { products });
 
     },
+
+
+    
 
     // CREATE // GET ************
     createGet: (req, res) => {

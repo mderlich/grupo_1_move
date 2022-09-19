@@ -1,18 +1,17 @@
 const { validationResult } = require('express-validator')
 
-//const User = require('../database/models/users');
+// para base de datos...
 const db = require('../database/models');
 
+// para el encriptado de password...
 const bcryptjs = require('bcryptjs');
 
+
 const usersController = {
+
     register: function(req, res) { 
         res.render('register');
-    },
-
-
-
-    
+    },   
 
     processRegister: async function (req, res) {
 

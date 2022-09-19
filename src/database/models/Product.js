@@ -52,7 +52,7 @@ module.exports = (sequelize, dataTypes) => {
     // CONFIGURACION /////////////////////////
     let config = {
         tableName: 'products',
-        timestamps: true,
+        timestamps: false,
     }
 
     // x3 /////////////////////////
@@ -63,7 +63,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Product.belongsTo(models.Brand, {
             as: 'brands',
-            foreingKey: 'id_brand'
+            foreignKey: 'id_brand'
         })
         
     }
