@@ -19,9 +19,12 @@ const controller = {
     readGet: async function(req, res) {
         
         // ordenamos los array para que los nuevos ingresos figuren arriba (id mayor... id menor)
-        const products = await db.Product.findAll()
+        const productsAll = await db.Product.findAll();
+        const brandsAll = await db.Brand.findAll();
 
-        res.render('admin/productRead', { products });
+        let [ products, brands ] = await Promise.all([ productsAll , brandsAll ]);
+
+        res.render('admin/productRead', { products, brands });
 
     },
 
