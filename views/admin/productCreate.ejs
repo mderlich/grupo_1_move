@@ -56,17 +56,17 @@ form label {
             <label for="marca">Marca</label>
             <select id="marca" name="marca">
                 <option value="">Seleccione...</option>
-                <% 
-                let marcas = ['adidas', 'converse', 'nike', 'puma', 'reebok', 'topper', 'vans']; 
-                
-                for (let marca of marcas){%>
-
-                <option value="<%= marca %>" <%= ( locals.old && old.marca === marca ) ? 'selected' : '' %>><%= marca.toUpperCase(); %></option>
-                
+                <%    
+                for( let i = 0; i < brands.length; i++ ) { 
+                %>
+                <option value="<%= brands[i].id %>" <%= ( locals.old && old.marca == brands[i].id ) ? 'selected' : '' %>>
+                    <%= brands[i].name.toUpperCase(); %>
+                </option>
                 <% 
                 }
                 %>
             </select>
+            
 
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" value="<%= (locals.old && old.nombre) ? old.nombre : '' %>">
@@ -81,8 +81,7 @@ form label {
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion"><%= (locals.old && old.descripcion) ? old.descripcion : '' %></textarea>
             
-            <label for="image">Imagen</label>
-            <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
+
 
             <!-- OBS... este se podria enviar oculto, pero lo insertamos desde el controlador -->
             <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
@@ -102,6 +101,9 @@ form label {
                 <option value="importado" <%= ( locals.old && old.origen === 'importado' ) ? 'selected' : '' %>>Importado</option>
             </select>
 
+            <label for="image">Imagen</label>
+            <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
+            
             <label for="observaciones">Observaciones</label>
             <textarea name="observaciones" id="observaciones"><%= (locals.old && old.observaciones) ? old.observaciones : '' %></textarea>
 
@@ -117,7 +119,7 @@ form label {
             // ------------------------------------
             %>
             <label for="fecha_creado">Fecha de Carga</label>
-            <input type="date" name="fecha_creado" id="fecha_creado" min="2020-01-01" value="<%= today %>">
+            <input type="date" name="fecha_creado" id="fecha_creado" min="2020-01-01" value="<%= today %>" readonly>
 
             <input type="submit" value="INSERTAR">
 

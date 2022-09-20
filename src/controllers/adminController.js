@@ -1,8 +1,5 @@
 // ************ Require's ************
-/* los sig require eran utilizados par ael products.json
-const fs = require('fs');
-const path = require('path'); 
-*/
+/* const path = require('path');  */
 
 // util para las validaciones del formulario...
 const { validationResult } = require('express-validator');
@@ -19,7 +16,7 @@ const controller = {
     readGet: async function(req, res) {
         
         // ordenamos los array para que los nuevos ingresos figuren arriba (id mayor... id menor)
-        const productsAll = await db.Product.findAll();
+        const productsAll = await db.Product.findAll({ order: [['id', 'DESC']] });
         const brandsAll = await db.Brand.findAll();
 
         let [ products, brands ] = await Promise.all([ productsAll , brandsAll ]);
@@ -32,66 +29,51 @@ const controller = {
     
 
     // CREATE // GET ************
-    createGet: (req, res) => {
+    createGet: async function(req, res) {
 
-        res.render('admin/productCreate');
+        const brands = await db.Brand.findAll();
+
+        res.render('admin/productCreate', { brands });
 
     },
 
     // CREATE // POST ************
-    createPost: (req, res) => {
+    createPost: async function(req, res) {
 
         // ERRORES... chequeamos si los hay
+        /* (validacion por backend) */
         let errors = validationResult(req);
 
-        
+        const brands = await db.Brand.findAll();
+
+        /* si hay errores... */
         if(!errors.isEmpty()){
             res.render('admin/productCreate', { 
                 errors: errors.array(),
-                old: req.body
+                old: req.body,
+                brands
             });
-        }else{
+        } 
+        /* si no hubo errores, continuamos... */
         // ---------------------------------------
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-        // IMAGEN ======================
-        // 'filename' esta indicado como llega desde el multer en el ruteador de products...
-        // image: req.file.filename
-        // Solo si se adjunta imagen...
-        let image_exist;
-        if(req.file){
-            image_exist = req.file.filename;    // <= Origen del nombre en midleware de la ruta
-        }else {
-            image_exist = '';
-        }
+        else{       
         
-		// Do the magic
-		let nuevoProducto = {
-			// para el id, buscamos el maximo valor y le sumamos 1
-			id: Math.max(...products.map( e => e.id )) + 1,
-            categoria: 'zapatillas',
-            marca: req.body.marca,
-			nombre: req.body.nombre,
-            image: image_exist,               // <= Leer observaciones arriba sobre origen nombre
-			precio: parseInt(req.body.precio), 		    // <= debe ser numero!
-			descuento: parseInt(req.body.descuento),	// <= debe ser numero!
-            descripcion: req.body.descripcion,
-			genero: req.body.genero,
-            origen: req.body.origen,
-            nro_serie: req.body.nro_serie,
-            observaciones: req.body.observaciones,
-            fecha_creado: req.body.fecha_creado,
-            fecha_modificado: '',
-		}
-
-        // anexamos el nuevo dato...
-		products.push(nuevoProducto);
-
-		// JSON STRINGIFY...
-		// las ultimas dos lineas son necesarias para que sea legible 'null, 4);'
-		let productsGuardar = JSON.stringify(products,null,4);
-		fs.writeFileSync(productsFilePath,productsGuardar);
+        await db.Product.create(
+            {
+                id_brand: req.body.marca,
+                name: req.body.nombre,
+                description: req.body.descripcion,
+                price: parseInt(req.body.precio), 		    // <= debe ser numero!
+                discount: parseInt(req.body.descuento),	// <= debe ser numero!
+                gender: req.body.genero,
+                origin: req.body.origen,
+                image: req.file.filename,    // <= Origen del nombre en midleware de la ruta
+                observations: req.body.observaciones,
+                fecha_creado: req.body.fecha_creado,
+            }
+        )
+        
+        
 		res.redirect('/admin');
         // ---------------------------------------
 
@@ -102,8 +84,7 @@ const controller = {
     // EDIT // GET ************
     editGet: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        
 
 		// Do the magic
         const productId = parseInt(req.params.id, 10);
@@ -148,8 +129,7 @@ const controller = {
         //  }else{
          // ---------------------------------------
          
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+         
 
         // tomamos el :id de la url desde archivo ruta
         const productId = parseInt(req.params.id, 10);
@@ -180,9 +160,8 @@ const controller = {
         }
 
 
-		// guardamos los datos...
-		let productsGuardar = JSON.stringify(products,null,4);
-		fs.writeFileSync(productsFilePath,productsGuardar);
+
+        
 		res.redirect('/admin');
 
 
@@ -192,8 +171,7 @@ const controller = {
     // EDIT // GET ************
     deleteDelete: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        
 		
         // tomamos el :id de la url desde archivo ruta
 		const productId = parseInt(req.params.id, 10);
@@ -201,9 +179,8 @@ const controller = {
 		// filtramos los que tengan id distinto al que buscamos...
 		const productsFinal = products.filter(prod => prod.id != productId);    
 
-		// guardamos...
-		let productsGuardar = JSON.stringify(productsFinal,null,4);
-		fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),productsGuardar);
+
+        
 		res.redirect('/admin');
 
     },
