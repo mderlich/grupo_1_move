@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<%- include('./partials/head', {title: 'Zapatillas / ' + productDetail.nombre}) %>
+<%- include('./partials/head', {title: 'Zapatillas / ' + productDetail.name}) %>
 
 <body>
 
@@ -24,21 +24,21 @@
                 // --------------------------------
                 %>
 
-                <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
+                <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
 
                 <div class="imagenes_galeria">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
                 </div>
             </div>
 
             <div class="zapatillasDetail_der">
                 <!-- titulo -->
-                <h1><%= productDetail.nombre %></h1>
+                <h1><%= productDetail.name %></h1>
                 <!-- precio -->
-                <h2>$ <%= productDetail.precio %></h2>
+                <h2>$ <%= productDetail.price %></h2>
                 <!-- cuotas -->
                 <div class="detalles_zapatillas">
                     <i class="fas fa-credit-card"></i>
@@ -52,7 +52,7 @@
                 <!-- stock -->
                 <div class="detalles_zapatillas_alerta">
                     <i class="fas fa-exclamation-triangle"></i>
-                ¡Solo quedan 3 en stock!
+                    ¡Solo quedan 3 en stock!
                 </div>
                 <!-- talles -->
                 <br> 
@@ -76,15 +76,15 @@
         <div class="informacion">
             <p>
             <span class="info_negrita">Descripcion:</span>
-            <%= productDetail.descripcion %>
+            <%= productDetail.description %>
             </p>
             <ul>
-                <li><span class="info_negrita">Genero: </span><%= productDetail.genero %></li>
+                <li><span class="info_negrita">Genero: </span><%= productDetail.gender %></li>
                 <li><span class="info_negrita">Adecuado para: </span>Todo el dia</li>
                 <li><span class="info_negrita">Caña: </span>Baja</li>
                 <li><span class="info_negrita">Ajuste: </span>Con cordones</li>
-                <li><span class="info_negrita">Origen: </span><%= productDetail.origen %></li>
-                <li><span class="info_negrita">Marca: </span><%= productDetail.marca %></li>
+                <li><span class="info_negrita">Origen: </span><%= productDetail.origin %></li>
+                <li><span class="info_negrita">Marca: </span><%= brandDetail.name %></li>
                 <li><span class="info_negrita">Material: </span>Cuero</li>
             </ul>
         

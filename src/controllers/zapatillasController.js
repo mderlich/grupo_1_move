@@ -1,7 +1,7 @@
 // ************ Require's ************
 // para base de datos...
 const db = require('../database/models');
-
+const Op = db.Sequelize.Op;
 
 /* 
 // De aqui se retiro y envio dentro de cada funcion porque sino no lo tomaba bien al .json
@@ -90,28 +90,22 @@ const controller = {
 	
 
 	// Detail - Detail from one product
-	readId: (req, res) => {
+	readId: async function(req, res) {
 
-	
-		
 		// Do the magic
         const productId = parseInt(req.params.id, 10);
-        let productDetail; 
 
-        for (let i = 0; i < products.length; i++) {
-            if ( products[i].id === productId ) {
-                // acá lo encontramos al producto
-                productDetail = products[i];
-            }
-        }
+		let productFind = await db.Product.findByPk(productId)
+		const brandFind = await db.Brand.findByPk(productFind.id_brand);
 
-		
+        let [ productDetail, brandDetail ] = await Promise.all([ productFind , brandFind ]);
+
         // si existe...
         if (productDetail){
-           res.render( "productDetail",  {productDetail: productDetail} ); 
+           res.render( "productDetail",  {productDetail, brandDetail} ); 
 		}
 		// si no hay producto...
-         else {
+        else {
 			res.status(404).render( "error",  {
 				message: 'Producto no encontrado',
 			} );
@@ -121,6 +115,32 @@ const controller = {
 
 	},
 
+
+	
+    // SEARCH ************
+	search: async function(req, res) {
+
+
+		
+        // pasamos a minuscula, lo que nos envia por formulario
+        // 'keywords' es el name del input del buscador del header.ejs
+ 		let buscado = req.query.keywords.toLowerCase();
+
+		
+		let resultados = await db.Product.findAll({
+			where: {
+			  name: {[Op.Like]:'%dida%'}
+			}
+		})
+
+		res.send(resultados)
+
+ 		res.render('productResultados', { 
+			productDetail: resultados 
+		});
+
+        
+	},
 
 
 
