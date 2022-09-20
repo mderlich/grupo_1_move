@@ -28,20 +28,19 @@
         
     </style>
      
+     <%
+        let tituloBusqueda = genero;
+        if (genero == 'mujer') { tituloBusqueda = 'mujeres'} 
+        if (genero == 'hombre') { tituloBusqueda = 'hombres'} 
+     %>
     <div class="portada">
-        <% if (genero == '') { %><h1>(TODAS)</h1><% } %>
-        <% if (genero == 'mujer') { %><h1>(MUJERES)</h1><% } %>
-        <% if (genero == 'hombre') { %><h1>(HOMBRES)</h1><% } %>
-        <% if (genero == 'unisex') { %><h1>(UNISEX)</h1><% } %>
+        <h1>(<%= tituloBusqueda.toUpperCase() %>)</h1>
     </div>
 
     <main> 
         
         <h1>ZAPATILLAS</h1>
-        <% if (genero == '') { %><h2>(TODAS)</h2><% } %>
-        <% if (genero == 'mujer') { %><h2>(MUJERES)</h2><% } %>
-        <% if (genero == 'hombre') { %><h2>(HOMBRES)</h2><% } %>
-        <% if (genero == 'unisex') { %><h2>(UNISEX)</h2><% } %>
+        <h2>(<%= tituloBusqueda.toUpperCase() %>)</h2>
 
         
     
@@ -62,13 +61,13 @@
             <a href="/zapatillas/id/<%= productsFiltrados[i].id %>">
             <div class="imagen_texto">
                 <div class="imagen">
-                    <img src="/images/<%= productImage %>" alt="<%= productsFiltrados[i].nombre %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productsFiltrados[i].name %>">
                     <i class="fas fa-heart"></i>
                 </div>
                 <hr>
-                <div class="texto"><%= productsFiltrados[i].nombre %>
+                <div class="texto"><%= productsFiltrados[i].name %>
                 <br><br>
-                <h4>$<%= productsFiltrados[i].precio %></h4> </div>
+                <h4>$<%= productsFiltrados[i].price %></h4> </div>
             </div>
             </a>
             <% } %>

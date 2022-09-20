@@ -9,8 +9,6 @@ const {
     readAll,
     readGenero,
     readId,
-    detailApiAll,
-    detailApi,    
 } = require('../controllers/zapatillasController');
 
 /* ZAPATILLAS SEGUN GENERO */
@@ -24,15 +22,7 @@ router.get('/:genero', readGenero);
 router.get('/id/:id/', readId); 
 
 
-// De aqui en adelante todavia esta pendiente de aplicar
-// ------------------------------------------------------
 
-/*** API // TODOS LOS PRODUCTOS ***/ 
-router.get('/api', detailApiAll); 
-
-
-/*** GET ONE PRODUCT ***/ 
-router.get('/api/:id', detailApi); 
 
 
 

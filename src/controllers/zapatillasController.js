@@ -1,7 +1,6 @@
 // ************ Require's ************
-// fs requerido para JSON
-const fs = require('fs');
-const path = require('path');
+// para base de datos...
+const db = require('../database/models');
 
 
 /* 
@@ -15,26 +14,27 @@ const controller = {
 
 	
 	// Root - Show all products
-	readAll: (req, res) => {
+	readAll: async function(req, res) {
 
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 		
-		let genero = '';
+		let genero = 'todas';
+
+		// ordenamos los array para que los nuevos ingresos figuren arriba (id mayor... id menor)
+		const productsAll = await db.Product.findAll({ order: [['id', 'DESC']] });
 
 		// Do the magic
 		res.render('productAll', { 
 			genero: genero,
-			productsFiltrados: products
+			productsFiltrados: productsAll
 		});
 		
 	},
  	
 	// Root - Show all products
-	readGenero: (req, res) => {
+	readGenero: async function(req, res) {
 
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 		
 		/* Obtenemos desde la ruta... /:genero */
 		/* debe ser 'let' sino no podemos modificarlo luego  */
@@ -45,19 +45,40 @@ const controller = {
 		if( genero == 'hombres' ){ genero = 'hombre'; }
 
 		if ( genero == 'mujer' || genero == 'hombre' || genero == 'unisex' ){
-			productsFiltrados = products.filter((e)=> {
-				return e.genero == genero;
+			
+			productsFiltrados = await db.Product.findAll({
+				where: {
+					gender: genero
+				}
 			});
+
 		}else{
-			productsFiltrados = products.filter((e)=> {
-				
-				return e.marca == genero;
-			});
+			
+			let idMarca = await db.Brand.findOne({
+				where: {
+				  name: genero
+				}
+			})
+
+			/* si no existe la marca le enviamos pagina de error */
+			if(!idMarca){
+				return res.status(404).render( "error",  {
+					message: 'Producto no encontrado',
+				} );
+			}
+
+ 			productsFiltrados = await db.Product.findAll({
+				where: {
+					id_brand: idMarca.id
+				}
+			}); 
+
+
+
 		} 
 
 		// Do the magic
 		res.render('productAll', { 
-			products: products,
 			genero: genero,
 			productsFiltrados: productsFiltrados
 		});
@@ -71,8 +92,7 @@ const controller = {
 	// Detail - Detail from one product
 	readId: (req, res) => {
 
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+	
 		
 		// Do the magic
         const productId = parseInt(req.params.id, 10);
@@ -102,51 +122,6 @@ const controller = {
 	},
 
 
-	// De aqui en adelante todavia esta pendiente de aplicar
-	// ------------------------------------------------------
-
-	detailApiAll: (req, res) => {
-
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		// Do the magic
-		res.status(201).send(products); 
-	},
-
-
-	// Detail - Detail from one product
-	detailApi: (req, res) => {
-
-		const productsFilePath = path.join(__dirname, '../database/products.json');
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		// Do the magic
-        const productId = parseInt(req.params.id, 10);
-        let productDetail; 
-
-        for (let i = 0; i < products.length; i++) {
-            if ( products[i].id === productId ) {
-                // acá lo encontramos al producto
-                productDetail = products[i];
-            }
-        }
-
-		
-        // si existe...
-        if (productDetail){
-			res.status(201).send(productDetail); 
-		}
-		// si no hay producto...
-        else {
-			res.status(404).render( "error",  {
-				message: 'Producto no encontrado',
-			} );
-        }
-
-
-
-	},
 
 
 
