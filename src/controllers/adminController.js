@@ -1,6 +1,3 @@
-// ************ Require's ************
-/* const path = require('path');  */
-
 // util para las validaciones del formulario...
 const { validationResult } = require('express-validator');
 
@@ -60,7 +57,7 @@ const controller = {
         
         await db.Product.create(
             {
-                id_brand: req.body.marca,
+                id_brand: parseInt(req.body.marca),
                 name: req.body.nombre,
                 description: req.body.descripcion,
                 price: parseInt(req.body.precio), 		    // <= debe ser numero!
@@ -69,7 +66,7 @@ const controller = {
                 origin: req.body.origen,
                 image: req.file.filename,    // <= Origen del nombre en midleware de la ruta
                 observations: req.body.observaciones,
-                fecha_creado: req.body.fecha_creado,
+                create_at: req.body.fecha_creado,
             }
         )
         
@@ -82,20 +79,12 @@ const controller = {
 	},
 
     // EDIT // GET ************
-    editGet: (req, res) => {
-
-        
+    editGet: async function(req, res) {
 
 		// Do the magic
         const productId = parseInt(req.params.id, 10);
-        let productDetail; 
 
-        for (let i = 0; i < products.length; i++) {
-            if ( products[i].id === productId ) {
-                // acá lo encontramos al producto
-                productDetail = products[i];
-            }
-        }
+        let productDetail = await db.Product.findByPk(productId)
 
         // si existe...
         if (productDetail){
@@ -169,17 +158,14 @@ const controller = {
     },
 
     // EDIT // GET ************
-    deleteDelete: (req, res) => {
-
-        
+    deleteDelete: async function(req, res) {
 		
         // tomamos el :id de la url desde archivo ruta
 		const productId = parseInt(req.params.id, 10);
 
-		// filtramos los que tengan id distinto al que buscamos...
-		const productsFinal = products.filter(prod => prod.id != productId);    
-
-
+        await db.Product.destroy({
+            where: {id: productId}
+        });
         
 		res.redirect('/admin');
 

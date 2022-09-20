@@ -45,6 +45,14 @@ module.exports = (sequelize, dataTypes) => {
         observations: {
             type: dataTypes.STRING(500),
             allowNull: false
+        },
+        create_at: {
+            type: dataTypes.DATE,
+            allowNull: false
+        },
+        update_at: {
+            type: dataTypes.DATE,
+            allowNull: false
         }
  
     };
