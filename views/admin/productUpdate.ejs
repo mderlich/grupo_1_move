@@ -30,7 +30,7 @@ form label {
     
         <h1>ADMIN / EDICION</h1>
         <h3>Estás editando:</h3>
-        <h3><i><%= productDetail.nombre %></i></h3>
+        <h3><i><%= productDetail.name %></i></h3>
         <br>
 
         <div class="admin_nav">
@@ -57,98 +57,70 @@ form label {
             %>
 
 
-            <% 
-            let adidasSelected = '';
-            let conversedSelected = '';
-            let nikeSelected = '';
-            let pumaSelected = '';
-            let reebokSelected = '';
-            let topperSelected = '';
-            let vansSelected = '';
-
-            if (productDetail.marca == "adidas") { adidasSelected = 'selected'; } 
-            if (productDetail.marca == "converse") { conversedSelected = 'selected'; } 
-            if (productDetail.marca == "nike") { nikeSelected = 'selected'; } 
-            if (productDetail.marca == "puma") { pumaSelected = 'selected'; } 
-            if (productDetail.marca == "reebok") { reebokSelected = 'selected'; } 
-            if (productDetail.marca == "topper") { topperSelected = 'selected'; } 
-            if (productDetail.marca == "vans") { vansSelected = 'selected'; } 
-            
-            %>
-
             <label for="marca">Marca</label>
             <select id="marca" name="marca">
                 <option value="">Seleccione...</option>
-                <option value="adidas" <%= adidasSelected %>>Adidas</option>
-                <option value="converse"<%= conversedSelected %>>Converse</option>
-                <option value="nike"<%= nikeSelected %>>Nike</option>
-                <option value="puma" <%= pumaSelected %>>Puma</option>
-                <option value="reebok" <%= reebokSelected %>>Reebok</option>
-                <option value="topper" <%= topperSelected %>>Topper</option>
-                <option value="vans" <%= vansSelected %>>Vans</option>             
+                <%    
+                for( let i = 0; i < brands.length; i++ ) { 
+                %>
+                <option value="<%= brands[i].id %>" 
+                    <%= ( productDetail.id_brand == brands[i].id ) ? 'selected' : '' %>
+                    <%= ( locals.old && old.marca == brands[i].id ) ? 'selected' : '' %>>
+                    <%= brands[i].name.toUpperCase() %>
+                </option>
+                <% 
+                }
+                %>
             </select>
 
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" value="<%= productDetail.nombre %>">
+            <input type="text" name="nombre" id="nombre" value="<%= productDetail.name %>">
 
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio" value="<%= productDetail.precio %>">
+            <input type="number" name="precio" id="precio" value="<%= productDetail.price %>">
 
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" value="<%= productDetail.descuento %>">
+            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" value="<%= productDetail.discount %>">
 
             <label for="descripcion">Descripción</label>
-            <textarea name="descripcion" id="descripcion"><%= productDetail.descripcion %></textarea>
+            <textarea name="descripcion" id="descripcion"><%= productDetail.description %></textarea>
             
-            <!-- este se podria enviar oculto, pero lo insertamos desde el controlador
-            <input type="hidden" name="categoria" id="categoria"  value="zapatillas" >
-            -->
-
-            <label for="image">Imagen</label>
-            <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
-
-
-            <% 
-            
-            let femeninoSelected = '';
-            let masculinoSelected = '';
-            let unisexSelected = '';
-
-            if (productDetail.genero == "femenino") { femeninoSelected = 'selected'; } 
-            if (productDetail.genero == "masculino") { masculinoSelected = 'selected'; } 
-            if (productDetail.genero == "unisex") { unisexSelected = 'selected'; } 
-
-            %>
-
             <label for="genero">Genero</label>
             <select id="genero" name="genero">
                 <option value="">Seleccione...</option>
-                <option value="femenino" <%= femeninoSelected %>>Femenino</option>
-                <option value="masculino" <%= masculinoSelected %>>Masculino</option>
-                <option value="unisex" <%= unisexSelected %>>Unisex</option>
+                <%    
+                    const gender = ['femenino', 'masculino', 'unisex'];
+                    for (let x of gender) {
+                %>
+                    <option value="<%= x %>" <%= ( x == productDetail.gender ) ? 'selected' : '' %>>
+                    <%= x.toUpperCase() %>
+                    </option>                     
+                <%     
+                    }
+                %>
             </select>
-
-            <% 
-            
-            let nacionalSelected = '';
-            let importadoSelected = '';
-        
-            if (productDetail.origen == "nacional") { nacionalSelected = 'selected'; } 
-            if (productDetail.origen == "importado") { importadoSelected = 'selected'; } 
-
-            %>
 
             <label for="origen">Origen</label>
             <select id="origen" name="origen">
-                <option value="">Seleccione...</option>
-                <option value="nacional" <%= nacionalSelected %>>Nacional</option>
-                <option value="importado" <%= importadoSelected %>>Importado</option>
+               <option value="">Seleccione...</option>
+                <%    
+                    const origin = ['nacional', 'importado'];
+                    for (let x of origin) {
+                %>
+                    <option value="<%= x %>" <%= ( x == productDetail.origin ) ? 'selected' : '' %>>
+                    <%= x.toUpperCase() %>
+                    </option>                     
+                <%     
+                    }
+                %>
             </select>
 
+            <label for="image">Imagen</label>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .gif">
+            <input type="hidden" name="imgFilename"  value="<%= productDetail.image %>" >
 
-   
             <label for="observaciones">Observaciones</label>
-            <textarea name="observaciones" id="observaciones"><%= productDetail.observaciones %></textarea>
+            <textarea name="observaciones" id="observaciones"><%= productDetail.observations %></textarea>
 
             <% 
             // JS ponemos la fecha del dia

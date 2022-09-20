@@ -55,18 +55,22 @@ const controller = {
         // ---------------------------------------
         else{       
         
+            let rbNombre = req.body.nombre;
+            let rbNombreMayuscula = rbNombre.replace(/\b\w/g, l => l.toUpperCase());
+
         await db.Product.create(
             {
+                image: req.file.filename,    // <= Origen del nombre en midleware de la ruta
+                name: rbNombreMayuscula,
                 id_brand: parseInt(req.body.marca),
-                name: req.body.nombre,
-                description: req.body.descripcion,
                 price: parseInt(req.body.precio), 		    // <= debe ser numero!
                 discount: parseInt(req.body.descuento),	// <= debe ser numero!
+                description: req.body.descripcion,
                 gender: req.body.genero,
                 origin: req.body.origen,
-                image: req.file.filename,    // <= Origen del nombre en midleware de la ruta
                 observations: req.body.observaciones,
                 create_at: req.body.fecha_creado,
+                update_at: req.body.fecha_creado,
             }
         )
         
@@ -84,13 +88,16 @@ const controller = {
 		// Do the magic
         const productId = parseInt(req.params.id, 10);
 
-        let productDetail = await db.Product.findByPk(productId)
+        let productFind = await db.Product.findByPk(productId)
+        let brandsAll = await db.Brand.findAll();
+
+        let [ productDetail, brands ] = await Promise.all([ productFind , brandsAll ]);
 
         // si existe...
         if (productDetail){
 			// enviamos la vista con el producto encontrado
 			res.render('admin/productUpdate', { 
-				productDetail: productDetail
+				productDetail, brands
 			});
 		}
 		// si no existe el producto, mandamos error...
@@ -105,7 +112,7 @@ const controller = {
     },
 
     // EDIT // GET ************
-    editPut: (req, res) => {
+    editPut: async function(req, res) {
 
         //  // ERRORES... chequeamos si los hay
         //  let errors = validationResult(req);
@@ -119,36 +126,39 @@ const controller = {
          // ---------------------------------------
          
          
-
         // tomamos el :id de la url desde archivo ruta
         const productId = parseInt(req.params.id, 10);
 
- 
-
-        for (let i = 0 ; i < products.length ; i++) {
-            if ( products[i].id === productId ) {
-
-                // acá lo encontramos al producto
-                products[i]['marca'] = req.body.marca;
-				products[i]['nombre'] = req.body.nombre;
-                // Solo si se adjunta imagen...
-                if(req.file){
-                products[i]['image'] = req.file.filename;    // <= Origen del nombre en midleware de la ruta
-                }
-				products[i]['precio'] = parseInt(req.body.precio);
-				products[i]['descuento'] = parseInt(req.body.descuento);
-				products[i]['descripcion'] = req.body.descripcion;
-                products[i]['genero'] = req.body.genero;
-                products[i]['origen'] = req.body.origen;
-                products[i]['nro_serie'] = req.body.nro_serie;
-                products[i]['observaciones'] = req.body.observaciones;
-                products[i]['fecha_modificado'] = req.body.fecha_modificado;
-
-            }
-            
+        // Actualizara el nombre de imagen solo si se actualizo
+        let imageName;
+        if(req.file){
+            imageName = req.file.filename;    // <= Origen del nombre en midleware de la ruta
+        } else{
+            // el nombre se sube por campo oculto
+            imageName = req.body.imgFilename;
         }
+        // ----------------------------------
 
+        let rbNombre = req.body.nombre;
+        let rbNombreMayuscula = rbNombre.replace(/\b\w/g, l => l.toUpperCase());
 
+        await db.Product.update(
+            {
+            
+            image: imageName,  
+            name: rbNombreMayuscula,
+            id_brand: parseInt(req.body.marca),         // <= debe ser numero!
+            price: parseInt(req.body.precio), 		    // <= debe ser numero!
+            discount: parseInt(req.body.descuento),	    // <= debe ser numero!
+            description: req.body.descripcion,
+            gender: req.body.genero,
+            origin: req.body.origen,
+            observations: req.body.observaciones,
+            update_at: req.body.fecha_modificado,
+
+            },
+            {where: {id: productId} }
+        );
 
         
 		res.redirect('/admin');

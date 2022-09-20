@@ -89,20 +89,35 @@ form label {
             <label for="genero">Genero</label>
             <select id="genero" name="genero">
                 <option value="">Seleccione...</option>
-                <option value="femenino" <%= ( locals.old && old.genero === 'femenino' ) ? 'selected' : '' %>>Femenino</option>
-                <option value="masculino" <%= ( locals.old && old.genero === 'masculino' ) ? 'selected' : '' %>>Masculino</option>
-                <option value="unisex" <%= ( locals.old && old.genero === 'unisex' ) ? 'selected' : '' %>>Unisex</option>
+                <%    
+                    const gender = ['femenino', 'masculino', 'unisex'];
+                    for (let x of gender) {
+                %>
+                    <option value="<%= x %>" <%= ( locals.old && old.genero === x ) ? 'selected' : '' %>>
+                    <%= x.toUpperCase() %>
+                    </option>                     
+                <%     
+                    }
+                %>
             </select>
 
             <label for="origen">Origen</label>
             <select id="origen" name="origen">
-                <option value="">Seleccione...</option>
-                <option value="nacional" <%= ( locals.old && old.origen === 'nacional' ) ? 'selected' : '' %>>Nacional</option>
-                <option value="importado" <%= ( locals.old && old.origen === 'importado' ) ? 'selected' : '' %>>Importado</option>
+                    <option value="">Seleccione...</option>
+                <%    
+                    const origin = ['nacional', 'importado'];
+                    for (let x of origin) {
+                %>
+                    <option value="<%= x %>" <%= ( locals.old && old.origen === x ) ? 'selected' : '' %>>
+                    <%= x.toUpperCase() %>
+                    </option>                     
+                <%     
+                    }
+                %>
             </select>
 
             <label for="image">Imagen</label>
-            <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .gif">
             
             <label for="observaciones">Observaciones</label>
             <textarea name="observaciones" id="observaciones"><%= (locals.old && old.observaciones) ? old.observaciones : '' %></textarea>
