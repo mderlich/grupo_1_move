@@ -62,6 +62,15 @@ app.use('/zapatillas', zapatillasRouter);
 app.use('/admin', adminAuth, adminRouter);
 app.use('/users', usersRouter);
 
+//// ------ RUTAS API ------/////
+
+const productsApiRouter = require('./src/routes/api/products')
+const usersApiRouter = require('./src/routes/api/users')
+
+app.use('/api/products', productsApiRouter);
+app.use('/api/users', usersApiRouter);
+
+
 // ERROR 404 :: Importante!
 // Recordemos que el manejo del error 404 tiene que ir al final, luego de definir todas nuestras rutas.
 app.use((req, res, next) => {
