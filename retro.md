@@ -67,3 +67,29 @@ Retrospectiva sprint 5
 4. Hacer menos: dejar de subestimar errores o problemas.
 
 5. Dejar de hacer: dejar para ultimo momento la revision del trabajo final.
+
+Retrospectiva sprint 6
+//////////////////////////////////////////////////////
+
+1. Comenzar a hacer: consultar fortalezas de cada uno en cada tema para poder ayudarnos a comprender algunos temas entre todos.
+
+2. Hacer más: Actualizar continuamente tablero Trello.
+
+3. Continuar haciendo: La forma de trabajo en pares nos favorece a todos logramos mejor evolucion en el proyecto y en nuestros conocimientos.
+
+4. Hacer menos: Continuamos dejando algunos minimos problemas al final del sprint que luego nos cuesta solucionarlos.
+
+5. Dejar de hacer: Actualmente no tenemos nada para agregar.
+
+Retrospectiva sprint 7
+//////////////////////////////////////////////////////
+
+1. Comenzar a hacer: Reunirnos para organizar sprint.
+
+2. Hacer más: Animarnos a gestionar individualmente, proponer ideas y cambios ya que en varias oportunidades nos favorecieron.
+
+3. Continuar haciendo: Nuestra mayor virtud es el equipo, realmente disfrutamos trabajar juntos y queremos seguir en este camino.
+
+4. Hacer menos: Bloquearnos con un problema puntual y no continuar con lo demas.
+
+5. Dejar de hacer: Estamos contentos con el trabajo realizado hasta el momento.
