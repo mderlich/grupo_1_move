@@ -11,15 +11,20 @@ const productsApiController = {
             id: product.id,
             name: product.name,
             description: product.description,
+            brand: product.id_brand,
             relation: "", //falta esto
             detail: 'http://localhost:3000/api/products/'+ product.id, 
+           // image: 'http://localhost:3000/api/products/'+ product.image
           } 
         })
         res.json({
-          status: 200,
-          count: products.length,
-          countByCategory: "", //falta completar esto
-          products: productsApi,
+          meta : {
+            status: 200,
+            count: products.length,
+            countByBrand: "", //falta completar esto
+          },
+          productsApi
+          
         });
     },
     productsDetails: async (req,res)=>{
@@ -28,14 +33,23 @@ const productsApiController = {
           where: {id : req.params.id},
         })
         res.json({
-          status:200,
-          data:{
+          meta : {
+            status:200
+          },
+          data: {
             ...oneProduct.dataValues, //la promesa me devuelve un objeto del cual solo me interesa la propiedad dataValues
             relation: '', //falta completar esto
             urlImage: 'http://localhost:3000/images/products/' + oneProduct.dataValues.image
           }
         });
     },
+    getBrands: async (req, res) => {
+      let brands = await db.Brand.findAll();
+      res.json({
+      brands,
+      count: brands.length
+    })
+    }
 }
 
 module.exports = productsApiController;

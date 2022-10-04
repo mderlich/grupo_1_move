@@ -12,6 +12,8 @@ const app = express();
 ///*********************express-session require*************************///
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+var cors = require('cors')
+
 
 
 // ************ Middlewares - (don't touch) ************
@@ -35,7 +37,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
+app.use(cors())
 
 app.use(cookieParser());
 
