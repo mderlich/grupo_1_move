@@ -36,13 +36,20 @@
     
         <div class="mainheader_right" >
 
+            <style>
+                .inputSearch:focus {
+  background-color: #9966CC;
+}
+            </style>
             <!-- Buscador -->
-            <form  action="zapatillas/search" method="GET" >
+            <!-- va con barrita inicial indicando ruta absoluta, caso contrario da error buscando desde ciertos lados -->
+            <!-- https://www.w3schools.com/html/html_filepaths.asp -->
+            <form  action="/zapatillas/search" method="GET" autocomplete="off">
                 <button type="submit" class="buscador_lupa">
                     <i class="fas fa-search"></i>
                 </button> 
                 <!-- el sig name se usa para el controlador del buscador -->
-                <input type="text" name="keywords">
+                <input type="text" name="keywords" class="inputSearch">
             </form>
 
             <!-- Iconos -->

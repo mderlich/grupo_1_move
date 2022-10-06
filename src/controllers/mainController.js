@@ -1,6 +1,5 @@
 // ************ Require's ************
-const fs = require('fs');
-const path = require('path');
+
 
 
 
@@ -20,12 +19,37 @@ const controller = {
 	},
 
     
+    // SEARCH ************
+	search: async function(req, res) {
+
+
+		
+        // pasamos a minuscula, lo que nos envia por formulario
+        // 'keywords' es el name del input del buscador del header.ejs
+ 		let buscado = req.query.keywords.toLowerCase();
+
+		
+ 		let resultados = await db.Product.findAll({
+			where: {
+			  description: {[Op.like]:'%'+buscado+'%'}
+			}
+		});
+
+		// si existe...
+		if (resultados){
+
+				res.render( "productResultados",  {productDetail: resultados} ); 
+
+				
+		}
+
+
+        
+	},
 
     // FORGET PASWORD ************
     forgetpw: (req, res) => {
 
-        const productsFilePath = path.join(__dirname, '../database/products.json');
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         res.render( 'forgetpw');
     
