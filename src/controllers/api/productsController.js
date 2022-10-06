@@ -4,6 +4,12 @@ const Op = db.Sequelize.Op;
 const productsApiController = {
     list: async (req, res) => {
        
+        // let brandsArray = [];    
+        // let brands = await db.Brand.findAll();
+        // for(let i = 0; i < brands.length ; i++) {
+        //   brandsArray.push({brands[i].name : 0})
+        // }
+
         let products = await db.Product.findAll();
         let productsApi = products.map( (product) => {  //recorro los productos y a cada uno le agrego el detail con una url
           
@@ -17,14 +23,13 @@ const productsApiController = {
            // image: 'http://localhost:3000/api/products/'+ product.image
           } 
         })
+      
         res.json({
-          meta : {
-            status: 200,
-            count: products.length,
-            countByBrand: "", //falta completar esto
-          },
+          //brandsArray,
+          count: products.length,
+          countByBrand: "", //falta esto
           productsApi
-          
+       
         });
     },
     productsDetails: async (req,res)=>{
@@ -50,6 +55,7 @@ const productsApiController = {
       count: brands.length
     })
     }
+  
 }
 
 module.exports = productsApiController;
