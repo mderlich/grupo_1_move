@@ -28,7 +28,7 @@
 
         <article class="todoslosforms">
 
-                <form class="datospersona" action="/users/register" method="post" name="registrousuario" enctype="multipart/form-data">
+                <form class="datospersona" action="/users/register" method="post" name="registrousuario" enctype="multipart/form-data" autocomplete="off">
 
                     <label for="nombre">Nombre <hr></label>
                     <input name="name" id="nombre" value="<%= (locals.oldData && oldData.name) ? oldData.name : '' %>">

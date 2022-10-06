@@ -71,6 +71,7 @@ header a {
 .mainheader_left{
     display: flex;
     align-items: center;
+    font-weight: bold;
     /* 
     background-color: aqua; */
 
@@ -128,6 +129,20 @@ nav li{
 .mainheader_right form{
     display: none;
 }
+
+.mainheader_right form input:hover{
+    background-color: #9966CC;
+}
+.mainheader_right form input:focus{
+    background-color: #9966CC;
+}
+
+.iconos i:hover{
+    color: #F7EF79;
+
+}
+
+
 
 .mainheader_right button{
     position: absolute;
