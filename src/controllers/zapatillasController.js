@@ -3,6 +3,7 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
+
 /* 
 // De aqui se retiro y envio dentro de cada funcion porque sino no lo tomaba bien al .json
 const productsFilePath = path.join(__dirname, '../database/products.json');
@@ -127,17 +128,20 @@ const controller = {
  		let buscado = req.query.keywords.toLowerCase();
 
 		
-		let resultados = await db.Product.findAll({
+ 		let resultados = await db.Product.findAll({
 			where: {
-			  name: {[Op.Like]:'%dida%'}
+			  description: {[Op.like]:'%'+buscado+'%'}
 			}
-		})
-
-		res.send(resultados)
-
- 		res.render('productResultados', { 
-			productDetail: resultados 
 		});
+
+		// si existe...
+		if (resultados){
+
+				res.render( "productResultados",  {productDetail: resultados} ); 
+
+				
+		}
+
 
         
 	},

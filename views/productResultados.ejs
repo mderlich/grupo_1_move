@@ -66,13 +66,13 @@
                 <a href="/zapatillas/id/<%= productDetail[i].id %>">
                 <div class="imagen_texto">
                     <div class="imagen">
-                        <img src="/images/<%= productImage %>" alt="<%= productDetail[i].nombre %>">
+                        <img src="/images/<%= productImage %>" alt="<%= productDetail[i].name %>">
                         <i class="fas fa-heart"></i>
                     </div>
                     <hr>
-                    <div class="texto"><%= productDetail[i].nombre %>
+                    <div class="texto"><%= productDetail[i].name %>
                     <br><br>
-                    <h4>$<%= productDetail[i].precio %></h4> </div>
+                    <h4>$<%= productDetail[i].price %></h4> </div>
                 </div>
                 </a>
             <% } %>
