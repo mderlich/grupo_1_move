@@ -183,8 +183,10 @@ main .recomendados{
     margin: auto;
     justify-content: space-around;
     max-width: 1200px;
-    margin-top: 25px;
-    margin-bottom: 30px;
+    gap: 60px 20px;
+    
+/*     margin-top: 25px;
+    margin-bottom: 30px; */
 }
 
 main .recomendados img{

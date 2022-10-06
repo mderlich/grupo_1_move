@@ -22,7 +22,10 @@ const controller = {
 		let genero = 'todas';
 
 		// ordenamos los array para que los nuevos ingresos figuren arriba (id mayor... id menor)
-		const productsAll = await db.Product.findAll({ order: [['id', 'DESC']] });
+		const productsAll = await db.Product.findAll({ 
+			order: [['id', 'DESC']] ,
+			include: [{association: "brands"}]
+		});
 
 		// Do the magic
 		res.render('productAll', { 
@@ -48,17 +51,15 @@ const controller = {
 		if ( genero == 'mujer' || genero == 'hombre' || genero == 'unisex' ){
 			
 			productsFiltrados = await db.Product.findAll({
-				where: {
-					gender: genero
-				}
+				where: { gender: genero },
+				include: [{association: "brands"}]
 			});
+
 
 		}else{
 			
 			let idMarca = await db.Brand.findOne({
-				where: {
-				  name: genero
-				}
+				where: { name: genero }
 			})
 
 			/* si no existe la marca le enviamos pagina de error */
@@ -69,9 +70,9 @@ const controller = {
 			}
 
  			productsFiltrados = await db.Product.findAll({
-				where: {
-					id_brand: idMarca.id
-				}
+				where: { id_brand: idMarca.id },
+				include: [{association: "brands"}]
+
 			}); 
 
 
