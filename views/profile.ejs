@@ -24,33 +24,113 @@
         }
         /* ----------------------- */
     </style>
+
+
+
+<style>
+
+    .userContenedor{
+    
+            background-color: #E5CBFF;
+        width: 200px;
+        margin: auto;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+    
+    .user_info{
+        display: flex;
+        
+        padding: 10px;
+
+    }
+    .user_infoleft{
+        width: 100px;
+        text-align: left;
+    }
+    .user_inforight{
+        justify-content: center;
+        text-align: left;
+        width: 100%;
+
+}
+
+    .contenedorBotones{
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        margin-bottom: 30px;
+
+    }
+    
+    .botonPerfil{
+        background-color: black;
+        color: #FFF;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold; 
+    }
+     .botonPerfil:hover{
+     cursor: pointer;
+     }
+    
+
+        
+
+</style>
+
 <div class="container" style="margin-top: 40px;">
-    <div>
-        <div>
+
             <h2>Hi <%= user.first_name %> <%= user.last_name %></h2>
+            <br>
             <% // Si es admin, le añadimos la clase con borde de color 
             let imgBorder;
             (locals.isLogged && locals.isAdmin) ? imgBorder = "imgBorder" : imgBorder = "";
             %>
             <div class="imgUser <%= imgBorder %>"><!-- Div con img background --></div>
             <br>
-            <div>
-                <h3>Mi perfil</h3>  
 
-                <p>Nombre : <%= user.first_name %> </p>
-                <p>Apellido : <%= user.last_name %> </p>
-                <p>Email : <%= user.email %> </p>
-                <p>Genero : <%= user.gender %> </p>
 
-                <a href="/users/editProfile/<%=user.id %>"><button type= "submit" id="crearcuenta" style="color: #fff;">
-                            Editar perfil
-                </button></a>
 
-            </div>
 
-            <a id="crearcuenta" style="color: #fff;" class="boton-inicio" href="/users/logout">Logout</a>
-        </div>
-    </div>
+
+
+
+            
+                <div class="userContenedor">
+                    <div class="user_info">
+                        <div class="user_infoleft">Nombre:</div><div class="user_inforight">
+                            <%= user.first_name %>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                        <div class="user_infoleft">Apellido:</div><div class="user_inforight">
+                            <%= user.last_name %>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                        <div class="user_infoleft">Email:</div><div class="user_inforight">
+                            <%= user.email %>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                        <div class="user_infoleft">Genero:</div><div class="user_inforight">
+                            <%= user.gender %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contenedorBotones">
+                    <a href="/users/editProfile/<%=user.id %>" >
+                        <button class="botonPerfil" >Editar perfil</button>
+                    </a>
+                    <a href="/users/logout">
+                        <button class="botonPerfil" >Logout</button>
+                    </a>    
+                </div>
+            
+
 </div>
 
 
