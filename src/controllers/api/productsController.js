@@ -4,13 +4,36 @@ const Op = db.Sequelize.Op;
 const productsApiController = {
     list: async (req, res) => {
        
-        // let brandsArray = [];    
-        // let brands = await db.Brand.findAll();
-        // for(let i = 0; i < brands.length ; i++) {
-        //   brandsArray.push({brands[i].name : 0})
-        // }
+      let countByBrands = {};
+      let brandsArray = [];
 
-        let products = await db.Product.findAll();
+      const brands = await db.Brand.findAll();
+      brands.forEach(brand => {
+          brandsArray.push(brand.name);
+      });
+
+      const products = await db.Product.findAll({
+          include: [{association: "brands"}] 
+      });
+
+      console.log("\n** Productos **");
+      for (let i=0; i<brandsArray.length; i++) {
+          let count = 0;
+          for (let j=0; j<products.length; j++) {
+              if (products[j].brands.name == brandsArray[i]) {
+                  let marca = products[j].brands.name;
+                  count += 1;
+                  countByBrands[marca] = count;
+              }
+          }
+      }
+
+      console.log(countByBrands);
+            // return res.send("Hola")
+
+
+
+
         let productsApi = products.map( (product) => {  //recorro los productos y a cada uno le agrego el detail con una url
           
           return {

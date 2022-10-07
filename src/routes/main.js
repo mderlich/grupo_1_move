@@ -7,7 +7,7 @@ const logDBMiddleware =require('../middlewares/logDBMiddleware');
 const {
     index,
     forgetpw,
-    carrito
+    carrito,
 } = require('../controllers/mainController');
 
 

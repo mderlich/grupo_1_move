@@ -61,7 +61,7 @@ const controller = {
 		res.render('productCart');
 
 	},
-  
+
 
 };
 
