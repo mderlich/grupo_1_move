@@ -90,7 +90,7 @@ form label {
             <select id="genero" name="genero">
                 <option value="">Seleccione...</option>
                 <%    
-                    const gender = ['femenino', 'masculino', 'unisex'];
+                    const gender = ['mujer', 'hombre', 'unisex'];
                     for (let x of gender) {
                 %>
                     <option value="<%= x %>" <%= ( locals.old && old.genero === x ) ? 'selected' : '' %>>
