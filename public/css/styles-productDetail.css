@@ -265,3 +265,12 @@ main .recomendados .texto {
     font-weight: bold;
     transform: rotate(-33deg);
 }
+
+.tachado{
+    text-decoration:line-through;
+    color: #666666;
+    font-size: smaller;
+}
+.textoRojo{
+    color: #EB2026;
+}

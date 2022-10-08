@@ -114,7 +114,22 @@
                     <%= productsFiltrados[i].brands.name.toUpperCase() + ' // '+ productsFiltrados[i].name %>
                     </strong> 
                     <br><br>
+                    <% 
+                    if(productsFiltrados[i].discount > 0){
+                        let valorDto = productsFiltrados[i].price * ( productsFiltrados[i].discount / 100 );
+                        let precioFinal = productsFiltrados[i].price - valorDto;
+                    %> 
+                    <h3 >
+                        <span class="tachado">$<%= productsFiltrados[i].price.toLocaleString() %></span> 
+                        <span class="textoRojo">$<%= precioFinal.toLocaleString() %></span> 
+                    </h3> 
+                    <% 
+                    }else{
+                    %>
                     <h3>$<%= productsFiltrados[i].price.toLocaleString() %></h3> 
+                    <% 
+                    }
+                    %>
                 </div>
 
                 <button class="buttonAnadir">Añadir </button>
