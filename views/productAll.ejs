@@ -57,53 +57,20 @@
         <h1>ZAPATILLAS</h1>
         <h2>(<%= tituloBusqueda.toUpperCase() %>)</h2>
         <br><br>
-  
-        <style>
-            /* https://csswolf.com/how-to-make-a-realistic-button-press-effect-in-css/ */
-        .buttonAnadir {
-            padding: 10px;
-            width: 100%;
-            border-radius: 10px;
-            background: #A334FF;
-            color: #fff;
-            border: 1px solid black;
-            box-shadow: 0 8px #bbb; 
-        }
+
         
-        .buttonAnadir:hover {
-            box-shadow: 0 3px #999;
-            transform: translateY(5px);
-            cursor: pointer;
-        }
-        
-        .active-fav{
-            color: tomato;
-        }
-        
-        </style>
 
 
 
-
-<% 
-/*
-ref...  https://www.javascripttutorial.net/es6/javascript-for-of/
-Hacemos un array de los id de productos favoritos
-luego en cada aparicion, preguntamos si esta incluido
-Lo incluye a 16... arrayFav.includes(16) 
-*/
-let arrayFav = [];
-for (const {id_product} of fav) {
-    arrayFav.push(id_product);
-}
-%>
-
-
-<br>
-
-<br>
- 
-
+        <% 
+        /*
+        LIKE CORAZONES
+        ref...  https://www.javascripttutorial.net/es6/javascript-for-of/
+        Hacemos un array de los id de productos favoritos
+        luego en cada aparicion, preguntamos si esta incluido
+        Lo incluye a 16... arrayFav.includes(16) 
+        */
+        %>
 
 
 

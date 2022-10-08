@@ -27,15 +27,23 @@ const controller = {
 			include: [{association: "brands"}]
 		});
 
-		/* ID del usuario */
+		/* LIKE CORAZON */
 		let fav = "";
+		let arrayFav = [];
+
 		if(req.session.userLogged){
+
 			const userJson = req.session.userLogged;
 			let userId = userJson.id;
 	
 			fav = await db.Fav.findAll({
 				where: { id_user: userId }
 			});
+
+			for (const {id_product} of fav) {
+				arrayFav.push(id_product);
+			}
+
 		}
 
 
@@ -43,7 +51,7 @@ const controller = {
 		res.render('productAll', { 
 			genero: genero,
 			productsFiltrados: productsAll,
-			fav: fav
+			arrayFav: arrayFav
 		});
 		
 	},
@@ -165,7 +173,40 @@ const controller = {
     // FAVORITAS ************
 	favoritasGet: async function(req, res) {
 	
-		res.render( "productFavoritas" ); 
+		
+		/* LIKE CORAZON */
+		let fav = "";
+		let arrayFav = [];
+
+		if(req.session.userLogged){
+
+			const userJson = req.session.userLogged;
+			let userId = userJson.id;
+	
+			fav = await db.Fav.findAll({
+				where: { id_user: userId }
+			});
+
+			for (const {id_product} of fav) {
+				arrayFav.push(id_product);
+			}
+
+		}
+
+		// REF lo de traer el array de id
+		// https://stackoverflow.com/questions/59167685/how-to-return-sequelize-findallarray-in-the-original-order-of-the-array
+		const productsAll = await db.Product.findAll({ 
+			order: [['id', 'DESC']] ,
+			where: { id: arrayFav }, // arrayFav = [3, 1, 2];
+			include: [{association: "brands"}]
+		});
+
+		// Do the magic
+		res.render('productFavoritas', { 
+			productsFiltrados: productsAll,
+			arrayFav: arrayFav
+		});
+
         
 	},
 
