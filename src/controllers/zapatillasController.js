@@ -96,14 +96,34 @@ const controller = {
 
 			}); 
 
-
-
 		} 
+
+		
+		/* LIKE CORAZON */
+		let fav = "";
+		let arrayFav = [];
+
+		if(req.session.userLogged){
+
+			const userJson = req.session.userLogged;
+			let userId = userJson.id;
+	
+			fav = await db.Fav.findAll({
+				where: { id_user: userId }
+			});
+
+			for (const {id_product} of fav) {
+				arrayFav.push(id_product);
+			}
+
+		}
+
 
 		// Do the magic
 		res.render('productAll', { 
 			genero: genero,
-			productsFiltrados: productsFiltrados
+			productsFiltrados: productsFiltrados,
+			arrayFav: arrayFav
 		});
 		
 	},
