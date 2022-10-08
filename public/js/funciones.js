@@ -62,13 +62,12 @@ async function like(id){
     
     const btn = document.querySelector('#heart' + id);
     
-    alert(data);
 
-/*     if(data == 'ok'){
+    if(data == 'ok'){
     btn.classList.add('active-fav');
     }else{
     btn.classList.remove('active-fav');
-    }  */
+    } 
     
 }
 

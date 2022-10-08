@@ -23,9 +23,9 @@ const favMiddleware = require('../middlewares/favMiddleware');
 router.get('/search', search); 
 
 /* favoritas... */
-router.post('/favoritas/:id', favoritasPost); 
+router.post('/favoritas/:id', favMiddleware, favoritasPost); 
 // router.get('/favoritas', favMiddleware, favoritas); 
-router.get('/favoritas', favoritasGet); 
+router.get('/favoritas', favMiddleware, favoritasGet); 
 
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/', readAll); 

@@ -221,23 +221,39 @@ const controller = {
 		/* ID del producto */
 		let productId = req.params.id;
      
-		await db.Fav.create(
-            {
+		// vemos si existe...
+		let favExist = await db.Fav.findOne({
+			where: {
                 id_user: userId,
                 id_product: productId,
-            }
-        ) 
+			}
+		})
 
-
-		res.send("ok");
-
-		/*    
-		if (rta){
-			res.send("ok");
-		}else{
+		// si existe, lo borramos...
+		if(favExist){
+			await db.Fav.destroy({
+				where: {
+					id_user: userId,
+					id_product: productId,
+				}
+			});
 			res.send("oops");
 		}
-*/
+		// si no existe lo creamos...
+		else{
+			await db.Fav.create(
+				{
+					id_user: userId,
+					id_product: productId,
+				}
+			) 	
+			res.send("ok");
+		}
+
+
+		
+
+
 
 /* ------------------------------------- */
 
