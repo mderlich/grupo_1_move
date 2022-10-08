@@ -68,13 +68,19 @@ module.exports = (sequelize, dataTypes) => {
 
     // ASOCIACIONES /////////////////////////
     Product.associate = function(models) {
-
         Product.belongsTo(models.Brand, {
-            as: 'brands',
-            foreignKey: 'id_brand'
+            foreignKey: 'id_brand',
+            as: 'brands'
         })
-        
     }
+
+/*       Product.associate = function(models) {
+        Product.hasMany(models.Fav, { //  Es el valor de alias en el modelo
+            foreignKey: "id_product",
+            as: "favs" // El nombre del modelo pero en plural
+        })
+    }   */
+
 
     // RETURN /////////////////////////
     return Product

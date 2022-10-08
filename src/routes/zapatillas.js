@@ -7,14 +7,25 @@ const router = express.Router();
 // ************ Controller Require ************
 const {
     search,
+    favoritasGet,
+    favoritasPost,
     readAll,
     readGenero,
     readId,
 } = require('../controllers/zapatillasController');
 
 
+// ************ Middlewares Require ************
+const favMiddleware = require('../middlewares/favMiddleware');
+
+
 /* ruta del buscador... */
 router.get('/search', search); 
+
+/* favoritas... */
+router.post('/favoritas/:id', favoritasPost); 
+// router.get('/favoritas', favMiddleware, favoritas); 
+router.get('/favoritas', favoritasGet); 
 
 /* ZAPATILLAS SEGUN GENERO */
 router.get('/', readAll); 

@@ -1,8 +1,3 @@
-/* 
-Aqui iran las funciones de JavaScripts
-*/
-console.log("Hola desde el navegador")
-
 
 /****************** DROPDOW (inicio) **********************/
 /* fuente...
@@ -41,3 +36,40 @@ texto.addEventListener('click', function(){
   
 /****************** DROPDOW (final) **********************/
 
+
+
+
+/****************** LIKE CORAZON (inicio) **********************/
+/* 
+The simplest solution simply is:
+onclick="event.preventDefault(); like('<%= productsFiltrados[i].id %>');"
+*/
+
+async function like(id){
+
+  
+    const url = '/zapatillas/favoritas/' + id;
+    
+    const options = {
+    method: 'POST',
+    body: ''
+    }
+    
+    const response = await fetch(url, options);
+    const data = await response.text(); 
+    
+
+    
+    const btn = document.querySelector('#heart' + id);
+    
+    alert(data);
+
+/*     if(data == 'ok'){
+    btn.classList.add('active-fav');
+    }else{
+    btn.classList.remove('active-fav');
+    }  */
+    
+}
+
+/****************** LIKE CORAZON (final) **********************/

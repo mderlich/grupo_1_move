@@ -53,7 +53,12 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias,cols,config);
 
     // ASOCIACIONES /////////////////////////
-    /* Ninguna por ahora */
+    User.associate = function(models) {
+        User.hasMany(models.Fav, { //  Es el valor de alias en el modelo
+            foreignKey: "id_user",
+            as: "favs" // El nombre del modelo pero en plural
+        })
+    } 
 
     // RETURN /////////////////////////
     return User

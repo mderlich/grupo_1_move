@@ -27,12 +27,10 @@ module.exports = (sequelize, dataTypes) => {
 
     // ASOCIACIONES /////////////////////////
     Brand.associate = function(models) {
-
         Brand.hasMany(models.Product, { //  Es el valor de alias en el modelo
-            as: "products", // El nombre del modelo pero en plural
-            foreignKey: "id_brand"
+            foreignKey: "id_brand",
+            as: "products" // El nombre del modelo pero en plural
         })
-        
     }
 
     // RETURN /////////////////////////

@@ -76,7 +76,36 @@
             cursor: pointer;
         }
         
+        .active-fav{
+            color: tomato;
+        }
+        
         </style>
+
+
+
+
+<% 
+/*
+ref...  https://www.javascripttutorial.net/es6/javascript-for-of/
+Hacemos un array de los id de productos favoritos
+luego en cada aparicion, preguntamos si esta incluido
+Lo incluye a 16... arrayFav.includes(16) 
+*/
+let arrayFav = [];
+for (const {id_product} of fav) {
+    arrayFav.push(id_product);
+}
+%>
+
+
+<br>
+
+<br>
+ 
+
+
+
 
         <!-- estilos en... styles-productDetail.css -->
         <div class="recomendados">
@@ -97,16 +126,20 @@
             <div class="imagen_texto">
                 <div class="imagen">
                     <img src="/images/<%= productImage %>" alt="<%= productsFiltrados[i].name %>">
-                    <i class="fas fa-heart"></i>
+                    
+                        <div onclick="event.preventDefault(); like('<%= productsFiltrados[i].id %>');">
+                            <i class="fas fa-heart <%= arrayFav.includes(productsFiltrados[i].id) ? 'active-fav' : ''  %>" id="heart<%= productsFiltrados[i].id %>"></i>
+                        </div>
+                        
                 </div>
                 <hr>
-
+                
                 <div class="texto"> 
                     <strong>
                     <%= productsFiltrados[i].brands.name.toUpperCase() + ' // '+ productsFiltrados[i].name %>
                     </strong> 
                     <br><br>
-                    <h3>$<%= productsFiltrados[i].price %></h3> 
+                    <h3>$<%= productsFiltrados[i].price.toLocaleString() %></h3> 
                 </div>
 
                 <button class="buttonAnadir">Añadir </button>

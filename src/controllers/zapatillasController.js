@@ -27,10 +27,23 @@ const controller = {
 			include: [{association: "brands"}]
 		});
 
+		/* ID del usuario */
+		let fav = "";
+		if(req.session.userLogged){
+			const userJson = req.session.userLogged;
+			let userId = userJson.id;
+	
+			fav = await db.Fav.findAll({
+				where: { id_user: userId }
+			});
+		}
+
+
 		// Do the magic
 		res.render('productAll', { 
 			genero: genero,
-			productsFiltrados: productsAll
+			productsFiltrados: productsAll,
+			fav: fav
 		});
 		
 	},
@@ -148,6 +161,58 @@ const controller = {
 	},
 
 
+	
+    // FAVORITAS ************
+	favoritasGet: async function(req, res) {
+	
+		res.render( "productFavoritas" ); 
+        
+	},
+
+	// FAVORITAS ************
+	favoritasPost: async function(req, res) {
+
+
+		/* ID del usuario */
+		const userJson = req.session.userLogged;
+		let userId = userJson.id;
+
+		/* ID del producto */
+		let productId = req.params.id;
+     
+		await db.Fav.create(
+            {
+                id_user: userId,
+                id_product: productId,
+            }
+        ) 
+
+
+		res.send("ok");
+
+		/*    
+		if (rta){
+			res.send("ok");
+		}else{
+			res.send("oops");
+		}
+*/
+
+/* ------------------------------------- */
+
+/*
+		let result;
+		
+		if(random == 0){
+			result = "oops";
+		}else{
+			result = "ok";
+		}
+		
+		return result; 
+		*/
+		
+	},
 
 
 

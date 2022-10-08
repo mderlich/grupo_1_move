@@ -38,7 +38,7 @@
                 <!-- titulo -->
                 <h1><%= productDetail.name %></h1>
                 <!-- precio -->
-                <h2>$ <%= productDetail.price %></h2>
+                <h2>$ <%= productDetail.price.toLocaleString() %></h2>
                 <!-- cuotas -->
                 <div class="detalles_zapatillas">
                     <i class="fas fa-credit-card"></i>
@@ -91,8 +91,6 @@
         </div>
         
         
-        <h2>Recomendados para vos</h2>
-        <%- include('./partials/productDetailBox')%>
         
 
     </main>
