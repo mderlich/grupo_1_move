@@ -72,6 +72,9 @@
                     <% if (locals.isLogged && locals.isAdmin) { %>
                     <a href="/admin" style="color: violet;"><strong>(Admin)</strong></a>
                     <% } %>
+                    <% if (locals.isLogged ) { %>
+                    <a href="/users/logout" ><strong>(Salir)</strong></a>
+                    <% } %>
 
                 </div>
                 </div>
