@@ -24,13 +24,25 @@
                 // --------------------------------
                 %>
 
-                <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
+<div class="imgDetail">
+    
+                <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>" class="imgBig">
 
+                <% 
+                if(productDetail.discount > 0){
+                %> 
+                <img src="/images/dto.png"  alt="descuento" class="imgDescuento2" >
+                <span class="txtDescuento2"><%= productDetail.discount + '%' %></span>
+                <% 
+                }
+                %>
+
+</div>
                 <div class="imagenes_galeria">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
-                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>" class="imgSmall">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>" class="imgSmall"> 
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>" class="imgSmall">
+                    <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>" class="imgSmall">
                 </div>
             </div>
             
@@ -38,11 +50,36 @@
                 <!-- titulo -->
                 <h1><%= brandDetail.name.toUpperCase() + ' // '+ productDetail.name %></h1>
                 <!-- precio -->
+                <% 
+                if(productDetail.discount > 0){
+                    let valorDto = productDetail.price * ( productDetail.discount / 100 );
+                    let precioFinal = productDetail.price - valorDto;
+                %> 
+                <h2>
+                    <span class="tachado">$<%= productDetail.price.toLocaleString() %></span> 
+                    <span class="textoRojo">$<%= precioFinal.toLocaleString() %></span> 
+                </h2> 
+                <% 
+                }else{
+                %>
                 <h2>$ <%= productDetail.price.toLocaleString() %></h2>
+                <% 
+                }
+                %>
 
                 <!-- cuotas -->
                 <% 
-                let priceCuotas = productDetail.price / 6;
+                let priceCuotas;
+
+                let valorDto = productDetail.price * ( productDetail.discount / 100 );
+                let precioFinal = productDetail.price - valorDto;
+                
+                if(productDetail.discount > 0){
+                    priceCuotas = precioFinal / 6;
+                }
+                else{
+                    priceCuotas = productDetail.price / 6;
+                }
                     priceCuotas = priceCuotas.toFixed(2);
                     priceCuotas = Number(priceCuotas)
                     priceCuotas = priceCuotas.toLocaleString();

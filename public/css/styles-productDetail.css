@@ -66,7 +66,7 @@ MAIN
 
     
 }
-.zapatillasDetail_izq img{
+.imgBig, .imgSmall{
     display:block;
     margin:auto;
     width: 100%;
@@ -255,6 +255,8 @@ main .recomendados .texto {
     width: 100px;
 }
 
+
+
 .txtDescuento{
     z-index: 1;
     position: absolute;
@@ -273,4 +275,27 @@ main .recomendados .texto {
 }
 .textoRojo{
     color: #EB2026;
+}
+
+/* PRODUCTO DETALLE */
+
+
+.imgDetail{
+    position: relative;
+}
+.imgDescuento2{
+    position: absolute;
+    left: -30px;
+    bottom: -30px;
+    width: 100px;
+}
+.txtDescuento2{
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    bottom: 6px;
+    color: #fff;
+    font-size:  30px;
+    font-weight: bold;
+    transform: rotate(-33deg);
 }
