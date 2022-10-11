@@ -148,7 +148,8 @@ function addCarrito(){
     } */
 
     if (localStorage) {
-        var cart;
+        let cart;
+        
 
         // si no existe lo creamos vacio
         if (!localStorage['cart']) cart = [];
@@ -157,13 +158,15 @@ function addCarrito(){
 
         if (!(cart instanceof Array)) cart = [];
         cart.push(zapatillaId + "_" + zapatillaTalle);
-
+        
+        //conteo items array
+        localStorage.setItem('cartConteo', cart.length);
+        //lo guardamos nuevamente como cadena de texto
         localStorage.setItem('cart', JSON.stringify(cart));
     } 
 
-    /* localStorage.setItem("lastname", "Smith");
-    localStorage.getItem("lastname"); */
-    document.getElementById("demo").innerHTML = localStorage.getItem("cart");
+    cargarCarrito();
+
 
 }
 
@@ -184,11 +187,10 @@ function addCarrito(){
 
                 </div>
                 
-                <div class="boton_alcarrito" onclick="addCarrito()">AÑADIR AL CARRITO</div>
+                <div class="boton_alcarrito" onclick="addCarrito();">AÑADIR AL CARRITO</div>
                 
-                <p id="demo">
-                    Click me to change my HTML content (innerHTML).
-                </p>
+
+                
 
             </div>
 

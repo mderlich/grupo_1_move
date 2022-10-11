@@ -1,3 +1,57 @@
+<style>
+.carrito{
+position: relative;
+background-color: blueviolet;
+}
+.circuloRojo{
+position: absolute;
+width: 20px;
+border-radius: 50%;
+background-color: tomato;
+top: -10px;
+left: 15px;
+display: none;
+
+}
+
+
+
+</style>
+
+<script>
+    
+    /* print carrito */
+    const cuerpoDelDocumento = document.body;
+    cuerpoDelDocumento.onload = cargarCarrito;
+
+    function cargarCarrito(){
+
+        // select... class="circuloRojo"
+        let element = document.getElementById('circuloRojo');
+        
+        if (localStorage) {
+
+            /* ********************************** */
+            /* Actualizamos el carrito */
+            // add... circuloRojoDisplay
+            element.style.display = "block";
+            // add... inner text el value del carro
+            element.innerText = localStorage.getItem("cartConteo");
+            /* ********************************** */
+
+            let demo = document.getElementById("demo");
+            
+            demo.innerHTML = localStorage.getItem("cart");
+
+
+        } 
+        else{
+            element.style.display = "none";
+        }
+    }
+</script>
+
+
 <header>
 
     <div class="mainheader" >
@@ -40,7 +94,12 @@
 
             <!-- Iconos -->
             <div class="iconos">
-                <a href="/carrito"><i class="fas fa-shopping-cart "></i></a>
+                <a href="/carrito">
+                    <div class="carrito">
+                        <i class="fas fa-shopping-cart "></i>
+                        <div class="circuloRojo" id="circuloRojo">3</div>
+                    </div>
+                </a>
                 <a href="/zapatillas/favoritas"><i class="fas fa-solid fa-heart "></i></a>
 
                 <!-- Icono perfil (inicio) -->
@@ -88,6 +147,7 @@
     </div>
         
 </header>
+
 
 
     
