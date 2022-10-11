@@ -112,18 +112,84 @@
                     <i class="fas fa-exclamation-triangle"></i>
                     ¡Solo quedan 3 en stock!
                 </div>
+
+<style>
+    .destacado{
+        background-color: #21D2FE;
+    }
+</style>
+<script>
+function selectTalle(id){
+
+    
+    // obtenemos array de todos...
+    // recorremos el array y limpiamos el destacado a todos...
+    let elementDestacado = document.querySelectorAll('.circulo_talles');
+    for (let i = 0; i < elementDestacado.length; i++) {
+        elementDestacado[i].classList.remove("destacado");
+    }
+
+    /* destacamos al especifico indicado */
+    let element = document.getElementById(id);
+    element.classList.add("destacado");
+
+
+
+}
+
+function addCarrito(){
+    let zapatillaTalle = document.getElementsByClassName("destacado")[0].innerText;
+    let zapatillaId = document.getElementsByClassName("destacado")[0].id;
+    // el id viene... 1544 con el talle al final y como el talle son dos caract lo borramos
+    zapatillaId = zapatillaId.slice(0, -2);
+/*     if( element ) {
+        alert( element );
+        localStorage.setItem("carrito", element);
+    } */
+
+    if (localStorage) {
+        var cart;
+
+        // si no existe lo creamos vacio
+        if (!localStorage['cart']) cart = [];
+        // si existe aplicamos JSON.parse
+        else cart = JSON.parse(localStorage['cart']);     
+
+        if (!(cart instanceof Array)) cart = [];
+        cart.push(zapatillaId + "_" + zapatillaTalle);
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+    } 
+
+    /* localStorage.setItem("lastname", "Smith");
+    localStorage.getItem("lastname"); */
+    document.getElementById("demo").innerHTML = localStorage.getItem("cart");
+
+}
+
+
+</script> 
+
                 <!-- talles -->
                 <br> 
                 <span class="info_negrita">Talles:</span>
                 <div class="talles">
                 
-                    <div class="circulo_talles">37</div>
-                    <div class="circulo_talles">39</div>
-                    <div class="circulo_talles">44</div>
+                    <div id="<%= productDetail.id %>37" class="circulo_talles" onclick="selectTalle(<%= productDetail.id %>37)">37</div>
+                    <div id="<%= productDetail.id %>39" class="circulo_talles" onclick="selectTalle(<%= productDetail.id %>39)">39</div>
+                    <div id="<%= productDetail.id %>44" class="circulo_talles" onclick="selectTalle(<%= productDetail.id %>44)">44</div>
+
+
+                    
+
                 </div>
                 
-                <div class="boton_alcarrito">AÑADIR AL CARRITO</div>
+                <div class="boton_alcarrito" onclick="addCarrito()">AÑADIR AL CARRITO</div>
                 
+                <p id="demo">
+                    Click me to change my HTML content (innerHTML).
+                </p>
+
             </div>
 
         </div>
@@ -149,7 +215,7 @@
         
         </div>
         
-        
+
         
 
     </main>

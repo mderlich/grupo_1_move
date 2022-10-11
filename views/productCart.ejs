@@ -8,40 +8,294 @@
     <%- include('./partials/header')%>
 
     <main>
-    <!-- **************************************** -->
+ 
     <style>
+        /* ************** */
+        /* FLEXBOX */
+        /* ************** */
+
         .contInfoResumen{
             display: flex;
             flex-wrap: wrap;
-            background-color: aqua;
             max-width: 1200px;
-            margin: auto;
             margin-top: 30px;
-            justify-content: space-between;
+            align-items: flex-start;
+            
+            
         }
 
+        .izqInfo{
+            margin: auto;
+        }
         .derResumen{
             display: flex;
             flex-direction: column;
+            background-color: aquamarine;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
+    /* ************** */
+    /* RESUMEN */
+    /* ************** */
+    .der_resumen{
+        border-bottom: 2px solid black;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    .der_row{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+    }
+
+    .botonComprar{
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .botonSeguirViendo{
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+
+    }
+
+    /* ************** */
+    /* TABLA */
+    /* ref... 
+       https://www.cssscript.com/pure-html5css-responsive-table-solution/ */
+    /* ************** */
+ 
+    td, th { padding: 8px; padding: .5rem;
+    }
+    
+    th {
+      text-align: left;
+      font-weight: 300;
+      font-size: 20px;
+      font-size: 1.25rem;
+    }
+    
+    td { font-family: 'Avenir Next', 'Segoe UI', 'Lucida Grande', sans-serif; }
+    
+    .table {
+      width: 100%;
+      padding: 16px;
+      padding: 1rem;
+    }
+    
+    .table__heading { border-bottom: 2px solid #FFC842; }
+     @media (max-width: 32rem) {
+     .table__heading {
+    display: none;
+    }
+     .table__content {
+     display: block;
+     padding: .5rem 0;
+    }
+     .table__row {
+     margin: .25rem 1rem;
+     padding: .5rem 0;
+     display: block;
+     border-bottom: 2px solid #FFC842;
+    }
+     .table__content:before {
+     content: attr(data-heading);
+     display: inline-block;
+     width: 5rem;
+     margin-right: .5rem;
+     color: #999;
+     font-size: .75rem;
+     font-weight: 700;
+     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+    }
+    }
+
+
+    .hideRow{
+        display: none;
+    }
     </style>
-    <!-- **************************************** -->
+
+
+<script>
+    function plusValue(id)
+    {
+        var value = parseInt(document.getElementById('number' + id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById('number' + id).value = value;
+    }
+
+    function minusValue(id)
+    {
+        var value = parseInt(document.getElementById('number' + id).value, 10);
+        if(value > 1){
+            value = isNaN(value) ? 0 : value;
+            value--;
+            document.getElementById('number' + id).value = value;
+        }
+
+    }
+
+    function deleteRow(id)
+    {
+        var element = document.getElementById('row' + id);
+        element.classList.add("hideRow");
+
+    }
+
+
+    /* Vaciar el carrito */
+    function deleteCarrito(){
+            localStorage.removeItem('cart');
+            
+    }
+
+    /* print carrito */
+    const cuerpoDelDocumento = document.body;
+    cuerpoDelDocumento.onload = cargarCarrito;
+
+    function cargarCarrito(){
+        if (localStorage) {
+            document.getElementById("demo").innerHTML = localStorage.getItem("cart");
+        } 
+    }
+
+</script>
+
+<div id="demo"></div>
 
     <div class="contInfoResumen">
 
         <div class="izqInfo">
-            Izquierda
+            <!-- ******************************* -->
+            
+    <table class="table">
+        <tr>
+          <th class="table__heading">Producto</th>
+          <th class="table__heading">Precio</th>
+          <th class="table__heading">Cantidad</th>
+          <th class="table__heading">Subtotal</th>
+          <th class="table__heading">Del</th>
+
+        </tr>
+
+        <tr class="table__row" id="row1">
+          <td class="table__content" data-heading="Name">Gizmo1</td>
+          <td class="table__content" data-heading="Type">Robot</td>
+          <td class="table__content" data-heading="Grade">
+
+                <button onclick="minusValue(1)" >-</button>
+                <input type="text" id="number1" value="0"/>
+                <button onclick="plusValue(1)" >+</button>
+
+
+          </td>
+          <td class="table__content" data-heading="Grade">A+</td>
+        
+          <td class="table__content" data-heading="Grade">
+            <button onclick="deleteRow(1)" >x</button>
+          </td>
+
+        </tr>
+
+        <tr class="table__row" id="row2">
+            <td class="table__content" data-heading="Name">Gizmo2</td>
+            <td class="table__content" data-heading="Type">Robot</td>
+            <td class="table__content" data-heading="Grade">
+
+                <button onclick="minusValue(2)" >-</button>
+                <input type="text" id="number2" value="0"/>
+                <button onclick="plusValue(2)" >+</button>
+
+            </td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Borrar">
+                <button onclick="deleteRow(2)" >x</button>
+            </td>
+          
+        </tr>
+
+          <tr class="table__row">
+            <td class="table__content" data-heading="Name">Gizmo</td>
+            <td class="table__content" data-heading="Type">Robot</td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Borrar">A+</td>
+
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__content" data-heading="Name">Gizmo</td>
+            <td class="table__content" data-heading="Type">Robot</td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Borrar">A+</td>
+
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__content" data-heading="Name">Gizmo</td>
+            <td class="table__content" data-heading="Type">Robot</td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Borrar">A+</td>
+
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__content" data-heading="Name"></td>
+            <td class="table__content" data-heading="Type"></td>
+            <td class="table__content" data-heading="Grade"></td>
+            <td class="table__content" data-heading="Grade"></td>
+
+            <td class="table__content" data-heading="Borrar"  >
+                <a href="" onclick="deleteCarrito()">(vaciar carrito)</a>    
+            </td>
+          </tr>
+
+          
+      </table>
+
+
+
+            <!-- ******************************* -->
         </div>
 
         <div class="derResumen">
-            Derecha
-            <div>RESUMEN DEL PEDIDO</div>
-            <div>Subtotal</div>
-            <div>$16.999,00</div>
-            <div>$16.999,00</div>
-            <div>COMPRAR</div>
-            <div>SEGUIR VIENDO</div>
+            
+            <div class="der_resumen">
+                RESUMEN DEL PEDIDO
+            </div>
+            
+            <div class="der_row">
+                <div>Total:</div>
+                <div>$16.999,00</div>
+            </div>
+           
+            <a href="">
+                <button class="botonComprar">COMPRAR</button>
+            </a>
+            <a href="/zapatillas">
+                <button class="botonSeguirViendo">SEGUIR VIENDO</button>
+            </a>
 
+            
         </div>
 
     </div>
