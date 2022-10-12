@@ -1,29 +1,30 @@
 # GRUPO 1 // MOVE
 
-1- Temática del sitio: tienda online de venta de calzado deportivo.
+* **Temática del sitio**: tienda online de venta de calzado deportivo.
 
-2- Público objetivo: el negocio está enfocado a público en general pero con énfasis en los jóvenes.
+* **Público objetivo**: el negocio está enfocado a público en general pero con énfasis en los jóvenes.
 
-3- Presentación de los integrantes: 
+* **Presentación de los integrantes**: (Leer mas adelante)
 
-4- Referencias:
+* **Referencias**:
 https://ar.puma.com
-https://moov.com.ar
-https://dexter.com.ar
-https://solodeportes.com.ar
-https://www.sportline.com.ar/
+<br>https://moov.com.ar
+<br>https://dexter.com.ar
+<br>https://solodeportes.com.ar
+<br>https://www.sportline.com.ar/
 
+* **Tablero de Trello**: 
+https://trello.com/b/loBoMovR/tareas-move
 
-5- TABLERO DE TRELLO: https://trello.com/b/loBoMovR/tareas-move
+* **Proyecto en linea**: 
+https://grupo1move.herokuapp.com/
 
-6- PROYECTO EN LINEA ( HEROKU ): https://grupo1move.herokuapp.com/
-( git heroku... https://git.heroku.com/grupo1move.git )
 
 
 
 ## INTEGRANTES
 
-![This is a alt text.](/public/images/grupo_1_move.png "This is a sample image.")
+![Integrantes del grupo](/public/images/grupo_1_move.png "Integrantes del grupo")
 
 Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 
@@ -40,7 +41,7 @@ Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 
 ## SPRINTS (Resumen de entregables)
 
-![This is a alt text.](/public/images/sprints.png "This is a sample image.")
+![Sprints](/public/images/sprints.png "Sprints")
 
 * **SPRINT 1 // Introducción y wireframing**
 * **SPRINT 2 // HTML + CSS**
@@ -133,7 +134,7 @@ En cuanto a **React** se realizo un dashboard que consume los datos de las API y
 
 * **Basde de datos // SQL**: La base de datos se llama 'move_db.sql' y se encuentra en la carpeta ( /src/database/move_db.sql ) Puede realizar la carga del archivo listo para arrancar.
 
-* **Basde de datos // CONFIG.JS**: En caso que requiera especificar user/pass/puerto para conectar a la base de datos, esta se encuentra en el archivo 'config.js' en la carpeta  ( /src/database/config/config.js )
+* **Basde de datos // CONFIG.JS**: En caso que requiera especificar user/pass/puerto para conectar a la base de datos, esta se encuentra en el archivo 'config.js' y se encuentra en la carpeta  ( /src/database/config/config.js )
 
 * **Basde de datos // USER/PASS**: Por defecto se adjunta un usuario ( user@move.com / #Qwerty1234) y un administrador ( admin@move.com / #Qwerty1234). Sus user/pass son los indicados.
 
