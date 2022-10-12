@@ -79,7 +79,7 @@ Reutilizacion de secciones compartidas como...
 
 ### SPRINT 4 // JSON + Métodos HTTP
 Se sumo dinamismo con el funcionamiento de los formularios para trabajar con productos y usuarios en formato JSON. Para ambos se realizo el CRUD respectivo...
-* **(C)**reate (Creación)
+* **C**reate (Creación)
 * **(R)**ead (Lectura)
 * **(U)**pdate (Actualizacion/Edicion)
 * **(D)**elete (Eliminacion)
