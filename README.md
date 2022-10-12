@@ -63,18 +63,18 @@ Se presento un boceto gráfico (wireframe) de las principales secciones a implem
 
 ### SPRINT 2 // HTML + CSS
 Con HTML y CSS replicamos todos los bocetos del sprint anterior.
+<br>
 Vale destacar que todos ellos se adaptan a formato escritorio o movil (diseño responsive)
-* Home
-* Detalle de producto
-* Carrito de compras
-* Formulario de registro
-* Formulario de login
+
 
 
 ### SPRINT 3 // Template Engines
 Generacion de plantillas para contenido dinámico con EJS.
+<br>
 Reutilizacion de secciones compartidas como...
-.header, navbar, footer.
+* Header
+* Navbar
+* Footer
 
 
 ### SPRINT 4 // JSON + Métodos HTTP
