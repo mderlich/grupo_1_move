@@ -5,11 +5,6 @@
 2- Público objetivo: el negocio está enfocado a público en general pero con énfasis en los jóvenes.
 
 3- Presentación de los integrantes: 
-- Matias Derlich: tengo 36 años, vivo en Comodoro Rivadavia, Chubut Argentina y me gusta todo lo vinculado a las nuevas tecnologias.
-- Maximiliano Lizarraga: tengo 30 años, vivo en Capital Federal y me gusta hacer deportes y estoy iniciandome en el mundo de la programacion.
-- Estefania Pottassa: tengo 30 años, vivo en Rosario, Santa Fe, soy contadora, me encantan el cine y las series. Esta es mi primera experiencia en programación.
-- Rodrigo Fernando alvarez: tengo 25 años! Vivo en provincia, Gregorio de laferrere, Soy tecnico en refrigeracion y diseñador de interiores, me apasiona todo lo que tenga que ver con la tecnología hice cursos de reparacion de pc!
-- Hola sol Meli, tengo 29 años, soy de Medellin - Colombia,  profesional en Derecho,  y amo la tecnología.
 
 4- Referencias:
 https://ar.puma.com
@@ -41,3 +36,25 @@ DETALLE PRODUCTO >> Matias Derlich
 CARRITO DE COMPRAS >> Estefania Pottassa
 FORMULARIO REGISTRO >> Maximiliano Lizarraga / Melisa Sanchez
 FORMULARIO LOGIN >> Maximiliano Lizarraga / Melisa Sanchez
+
+
+## INTEGRANTES
+
+![This is a alt text.](/public/images/grupo_1_move.png "This is a sample image.")
+
+Los integrantes del grupo de arriba/abajo e izquierda/derecha son...
+
+* Estefania Pottassa: "Tengo 30 años, vivo en Rosario, Santa Fe, soy contadora, me encantan el cine y las series. Esta es mi primera experiencia en programación."
+
+* Maximiliano Lizarraga: "Tengo 30 años, vivo en Capital Federal y me gusta hacer deportes y estoy iniciandome en el mundo de la programacion."
+
+* Rodrigo Fernando Alvarez: "Tengo 25 años! Vivo en provincia de BSAS, Gregorio de Laferrere, soy tecnico en refrigeracion y diseñador de interiores, me apasiona todo lo que tenga que ver con la tecnología, hice cursos de reparacion de pc!"
+
+* Matias Derlich: "Tengo 36 años, vivo en Comodoro Rivadavia (Chubut) ingeniero mecanico y me gusta todo lo vinculado a las nuevas tecnologias."
+
+* Melisa // "Tengo 29 años, soy de Medellin (Colombia), profesional en Derecho, y amo la tecnología"
+
+
+## SPRINTS
+
+![This is a alt text.](/public/images/sprints.png "This is a sample image.")
