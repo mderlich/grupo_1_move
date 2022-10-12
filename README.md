@@ -12,12 +12,13 @@
 <br>https://moov.com.ar
 
 
-* **Tablero de Trello**: 
-https://trello.com/b/loBoMovR/tareas-move
-
 * **Github**: (Proyecto + Dashboard) 
 <br>https://github.com/estefaniapottassa/grupo_1_move
 <br>https://github.com/estefaniapottassa/dashboard_move
+
+
+* **Tablero de Trello**: 
+https://trello.com/b/loBoMovR/tareas-move
 
 * **Proyecto en linea**: 
 https://grupo1move.herokuapp.com/
