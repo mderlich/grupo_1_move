@@ -42,17 +42,17 @@ FORMULARIO LOGIN >> Maximiliano Lizarraga / Melisa Sanchez
 
 ![This is a alt text.](/public/images/grupo_1_move.png "This is a sample image.")
 
-Los integrantes del grupo de arriba/abajo e izquierda/derecha son...
+Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 
-* Estefania Pottassa: "Tengo 30 años, vivo en Rosario, Santa Fe, soy contadora, me encantan el cine y las series. Esta es mi primera experiencia en programación."
+* *Estefania Pottassa*: _"Tengo 30 años, vivo en Rosario, Santa Fe, soy contadora, me encantan el cine y las series. Esta es mi primera experiencia en programación."_
 
-* Maximiliano Lizarraga: "Tengo 30 años, vivo en Capital Federal y me gusta hacer deportes y estoy iniciandome en el mundo de la programacion."
+* *Maximiliano Lizarraga*: _"Tengo 30 años, vivo en Capital Federal y me gusta hacer deportes y estoy iniciandome en el mundo de la programacion."_
 
-* Rodrigo Fernando Alvarez: "Tengo 25 años! Vivo en provincia de BSAS, Gregorio de Laferrere, soy tecnico en refrigeracion y diseñador de interiores, me apasiona todo lo que tenga que ver con la tecnología, hice cursos de reparacion de pc!"
+* *Rodrigo Fernando Alvarez*: _"Tengo 25 años! Vivo en provincia de BSAS, Gregorio de Laferrere, soy tecnico en refrigeracion y diseñador de interiores, me apasiona todo lo que tenga que ver con la tecnología, hice cursos de reparacion de pc!"_
 
-* Matias Derlich: "Tengo 36 años, vivo en Comodoro Rivadavia (Chubut) ingeniero mecanico y me gusta todo lo vinculado a las nuevas tecnologias."
+* *Matias Derlich*: _"Tengo 36 años, vivo en Comodoro Rivadavia (Chubut) ingeniero mecanico y me gusta todo lo vinculado a las nuevas tecnologias."_
 
-* Melisa // "Tengo 29 años, soy de Medellin (Colombia), profesional en Derecho, y amo la tecnología"
+* *Melissa Sánchez*: _"Tengo 29 años, soy de Medellin (Colombia), profesional en Derecho, y amo la tecnología"_
 
 
 ## SPRINTS
