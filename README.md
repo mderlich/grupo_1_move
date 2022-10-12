@@ -10,9 +10,7 @@
 <br>https://ar.puma.com
 <br>https://indy.com.ar/
 <br>https://moov.com.ar
-<br>https://dexter.com.ar
-<br>https://solodeportes.com.ar
-<br>https://sportline.com.ar/
+
 
 * **Tablero de Trello**: 
 https://trello.com/b/loBoMovR/tareas-move
