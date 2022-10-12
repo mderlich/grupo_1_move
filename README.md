@@ -23,7 +23,7 @@ https://grupo1move.herokuapp.com/
 
 ## INTEGRANTES
 
-![Integrantes del grupo](/public/images/grupo_1_move.png "Integrantes del grupo")
+![Integrantes del grupo](/public/images/readme/grupo_1_move.png "Integrantes del grupo")
 
 Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 
@@ -40,12 +40,21 @@ Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 
 ## TECNOLOGIAS UTILIZADAS
 
-![Tecnologias](/public/images/tecnologias.png "Tecnologias")
+![Tecnologias](/public/images/readme/tecnologias.png "Tecnologias")
+
+
+## IMAGENES DEL SITIO
+
+![Imagenes del sitio](/public/images/readme/view1.png "Imagenes del sitio")
+
+<br>
+
+![Imagenes del sitio](/public/images/readme/view2.png "Imagenes del sitio")
 
 
 ## SPRINTS (Resumen de entregables)
 
-![Sprints](/public/images/sprints.png "Sprints")
+![Sprints](/public/images/readme/sprints.png "Sprints")
 
 * **SPRINT 1 // Introducción y wireframing**
 * **SPRINT 2 // HTML + CSS**
