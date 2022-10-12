@@ -78,34 +78,33 @@ Reutilizacion de secciones compartidas como...
 
 
 ### SPRINT 4 // JSON + Métodos HTTP
-Se sumo dinamismo con el funcionamiento de los formularios para trabajar con productos y usuarios en formato JSON.
-<br>
-Para ambos se realizo el CRUD respectivo...
-* (C)reate (Creación)
-* (R)ead (Lectura)
-* (U)pdate (Actualizacion/Edicion)
-* (D)elete (Eliminacion)
+Se sumo dinamismo con el funcionamiento de los formularios para trabajar con productos y usuarios en formato JSON. Para ambos se realizo el CRUD respectivo...
+* **(C)**reate (Creación)
+* **(R)**ead (Lectura)
+* **(U)**pdate (Actualizacion/Edicion)
+* **(D)**elete (Eliminacion)
 
 
 ### SPRINT 5 // Middlewares y autenticación
 En esta etapa nos enfocamos en los usuarios, con el registro, login (+recordar session) y logout 
 <br>
 Tambien trabajamos en las rutas y acceso en tres niveles...
-* contenido publico (para todos)
+* contenido publico (de acceso para todos)
 * contenido privado (solo usuarios registrados)
-* contenido privado (solo administradores / CRUD productos)
+* contenido privado (solo administradores)
 
 
 ### SPRINT 6 // Bases de datos
 Migramos el contenido de los JSON a SQL.
+<br>
 En este sprint trabajamos con MySQL por un lado y Sequelize por el otro.
-
+<br>
 Tanto para usuarios como productos se realizo...
-○ Creación de la base de datos y de todas sus tablas
-○ Tipos de datos de los campos y sus restricciones
-○ Relaciones entre las diferentes tablas
-○ Archivos SQL listos para ejecutar y poblar tablas con datos iniciales
-○ Modelos con sus relaciones
+* Creación de la base de datos y de todas sus tablas
+* Tipos de datos de los campos y sus restricciones
+* Relaciones entre las diferentes tablas
+* Archivos SQL listos para ejecutar y poblar tablas con datos iniciales
+
 
 
 ### SPRINT 7 // Validaciones (Back + Front)
