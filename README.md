@@ -101,36 +101,37 @@ En este sprint trabajamos con MySQL por un lado y Sequelize por el otro.
 <br>
 Tanto para usuarios como productos se realizo...
 * Creación de la base de datos y de todas sus tablas
-* Tipos de datos de los campos y sus restricciones
+* Tipos de datos de todos los campos y sus restricciones
 * Relaciones entre las diferentes tablas
 * Archivos SQL listos para ejecutar y poblar tablas con datos iniciales
 
 
 
 ### SPRINT 7 // Validaciones (Back + Front)
-En este sprint validamos todos los formularios de...
-.usuarios (registro/login)
-.productos (creacion y modificacion)
+En este sprint incorporamos las validaciones de todos los formularios de...
+* Usuarios (registro/login/edicion)
+* Productos (creacion y edicion)
 
 tanto desde...
-.desde el frontend (JavaScript)
-.desde el backend (Express Validator)
+* el frontend (JavaScript)
+* el backend (Express Validator)
 
 
 ### SPRINT 8 // APIs + React
-En la primera parte van a estar armando una API de usuarios y de productos que exponga los
-datos más importantes de su aplicación en formato JSON.
-.Endpoints de usuarios
-...api/users/
-...api/users/:id
-.Endpoints de productos
-...api/products/
-...api/products/:id
+Se realizo una API de usuarios y otra de productos que exponen los datos más importantes de la aplicación en formato JSON.
+
+**Endpoints de usuarios**
+* api/users/
+* api/users/:id
+
+**Endpoints de productos**
+* api/products/
+* api/products/:id
 
 
-En la segunda parte van a estar armando un dashboard hecho en React que consuma los datos
-de la API y muestre de manera resumida las principales métricas de su negocio.
-.Dashboard con indicadores principales
+En cuanto a React se realizo un dashboard que consume los datos de las API y muestre de manera resumida las principales métricas del negocio.
+
+* Dashboard con indicadores principales
 
 
 
