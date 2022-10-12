@@ -1,4 +1,4 @@
-# GRUPO 1 // MOVE
+# GRUPO 1 // MOVE (Calzado deportivo)
 
 * **Temática del sitio**: tienda online de venta de calzado deportivo.
 
