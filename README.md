@@ -132,9 +132,12 @@ En cuanto a **React** se realizo un dashboard que consume los datos de las API y
 ## OBSERVACIONES 
 
 * **Basde de datos**: 
+<br>
 ...SQL // La base de datos se llama 'move_db.sql' y se encuentra en la carpeta ( /src/database/move_db.sql )
 Puede realizar la carga del archivo listo para arrancar.
+<br>
 ...CONFIG.JS // En caso que requiera especificar user/pass/puerto para conectar a la base de datos, esta se encuentra en el archivo 'config.js' en la carpeta  ( /src/database/config/config.js )
+<br>
 ...USER/PASS // Por defecto se adjunta un usuario ( user@move.com / #Qwerty1234) y un administrador ( admin@move.com / #Qwerty1234). Sus user/pass son los indicados.
 
 
