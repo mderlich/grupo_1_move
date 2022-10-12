@@ -51,27 +51,31 @@ Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 * **SPRINT 7 // Validaciones (Back + Front)**
 * **SPRINT 8 // APIs + React**
 
+
 ### SPRINT 1 // Introducción y wireframing
 Se determino la temática del sitio, logo, colores y tipografías
-Se presento un boceto gráfico (wireframe) de las principales secciones a implementar
-○ Home
-○ Detalle de producto
-○ Carrito de compras
-○ Formulario de registro/login
+Se presento un boceto gráfico (wireframe) de las principales secciones a implementar, entre ellas...
+* Home
+* Detalle de producto
+* Carrito de compras
+* Formulario de registro/login
+
 
 ### SPRINT 2 // HTML + CSS
 Con HTML y CSS replicamos todos los bocetos del sprint anterior.
-IMPORTANTE! se priorizo sean sitios que se adapten a formato escritorio o movil (responsive)
-○ Home => index.html
-○ Detalle de producto => productDetail.html
-○ Carrito de compras => productCart.html
-○ Formulario de registro => register.html
-○ Formulario de login => login.html
+Vale destacar que todos ellos se adaptan a formato escritorio o movil (diseño responsive)
+* Home
+* Detalle de producto
+* Carrito de compras
+* Formulario de registro
+* Formulario de login
+
 
 ### SPRINT 3 // Template Engines
 Generacion de plantillas para contenido dinámico con EJS.
 Reutilizacion de secciones compartidas como...
 .header, navbar, footer.
+
 
 ### SPRINT 4 // JSON + Métodos HTTP
 Se sumo dinamismo con el funcionamiento de los formularios para trabajar con productos y usuarios en formato JSON.
@@ -88,7 +92,6 @@ Tambien trabajamos en las rutas y acceso en tres niveles...
 .contenido publico (para todos)
 .contenido privado (solo usuarios registrados)
 .contenido privado (solo administradores / CRUD productos)
-
 
 
 ### SPRINT 6 // Bases de datos
@@ -127,6 +130,7 @@ datos más importantes de su aplicación en formato JSON.
 En la segunda parte van a estar armando un dashboard hecho en React que consuma los datos
 de la API y muestre de manera resumida las principales métricas de su negocio.
 .Dashboard con indicadores principales
+
 
 
 ## OBSERVACIONES 
