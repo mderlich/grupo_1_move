@@ -118,18 +118,12 @@ tanto desde...
 
 
 ### SPRINT 8 // APIs + React
-Se realizo una API de usuarios y otra de productos que exponen los datos más importantes de la aplicación en formato JSON.
+Se realizo una **API** de usuarios y otra de productos que exponen los datos más importantes de la aplicación en formato JSON.
 
-**Endpoints de usuarios**
-* api/users/
-* api/users/:id
+* Endpoints de usuarios ( api/users/ )
+* Endpoints de productos ( api/products/ )
 
-**Endpoints de productos**
-* api/products/
-* api/products/:id
-
-
-En cuanto a React se realizo un dashboard que consume los datos de las API y muestre de manera resumida las principales métricas del negocio.
+En cuanto a **React** se realizo un dashboard que consume los datos de las API y muestre de manera resumida las principales métricas del negocio.
 
 * Dashboard con indicadores principales
 
