@@ -79,19 +79,21 @@ Reutilizacion de secciones compartidas como...
 
 ### SPRINT 4 // JSON + Métodos HTTP
 Se sumo dinamismo con el funcionamiento de los formularios para trabajar con productos y usuarios en formato JSON.
+<br>
 Para ambos se realizo el CRUD respectivo...
-○ (C)reate (Creación)
-○ (R)ead (Lectura)
-○ (U)pdate (Actualizacion/Edicion)
-○ (D)elete (Eliminacion)
+* (C)reate (Creación)
+* (R)ead (Lectura)
+* (U)pdate (Actualizacion/Edicion)
+* (D)elete (Eliminacion)
 
 
 ### SPRINT 5 // Middlewares y autenticación
-En esta etapa nos enfocamos en los usuarios, con el registro, login y logout (+recordar session)
+En esta etapa nos enfocamos en los usuarios, con el registro, login (+recordar session) y logout 
+<br>
 Tambien trabajamos en las rutas y acceso en tres niveles...
-.contenido publico (para todos)
-.contenido privado (solo usuarios registrados)
-.contenido privado (solo administradores / CRUD productos)
+* contenido publico (para todos)
+* contenido privado (solo usuarios registrados)
+* contenido privado (solo administradores / CRUD productos)
 
 
 ### SPRINT 6 // Bases de datos
