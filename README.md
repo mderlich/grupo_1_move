@@ -31,7 +31,6 @@ https://grupo1move.herokuapp.com/
 <br>Nicolas Guiñazu // https://github.com/nicolasGuinazu
 
 
-
  
 
 
@@ -42,15 +41,19 @@ https://grupo1move.herokuapp.com/
 Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 
 * **Estefania Pottassa**: _"Tengo 30 años, vivo en Rosario, Santa Fe, soy contadora, me encantan el cine y las series. Esta es mi primera experiencia en programación."_
+<br>https://github.com/estefaniapottassa
 
 * **Maximiliano Lizarraga**: _"Tengo 30 años, vivo en Capital Federal y me gusta hacer deportes y estoy iniciandome en el mundo de la programacion."_
+<br>https://github.com/MaximilianoLizarraga
 
 * **Rodrigo Fernando Alvarez**: _"Tengo 25 años! Vivo en provincia de BSAS, Gregorio de Laferrere, soy tecnico en refrigeracion y diseñador de interiores, me apasiona todo lo que tenga que ver con la tecnología, hice cursos de reparacion de pc!"_
+<br>https://github.com/Rodrione1
 
 * **Matias Derlich**: _"Tengo 36 años, vivo en Comodoro Rivadavia (Chubut) soy ingeniero mecanico y me gusta todo lo vinculado a las nuevas tecnologias. Tengo experiencia en programacion y busco sumar conocimientos, metodologias y buenas practicas"_
+<br>https://github.com/mderlich
 
 * **Melissa Sánchez**: _"Tengo 29 años, soy de Medellin (Colombia), profesional en Derecho, y amo la tecnología"_
-
+<br>https://github.com/Melisan73
 
 ## TECNOLOGIAS UTILIZADAS
 
