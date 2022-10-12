@@ -1,14 +1,14 @@
 # GRUPO 1 // MOVE (Calzado deportivo)
 
+* **Presentación de los integrantes**: (Leer mas adelante)
+
 * **Temática del sitio**: tienda online de venta de calzado deportivo.
 
 * **Público objetivo**: el negocio está enfocado a público en general pero con énfasis en los jóvenes.
 
-* **Presentación de los integrantes**: (Leer mas adelante)
-
 * **Referencias**:
 <br>https://ar.puma.com
-<br>https://indy.com.ar/
+<br>https://indy.com.ar
 <br>https://moov.com.ar
 
 
