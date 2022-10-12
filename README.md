@@ -38,6 +38,11 @@ Los integrantes del grupo de izquierda a derecha y de arriba hacia abajo son...
 * **Melissa Sánchez**: _"Tengo 29 años, soy de Medellin (Colombia), profesional en Derecho, y amo la tecnología"_
 
 
+## TECNOLOGIAS UTILIZADAS
+
+![Tecnologias](/public/images/tecnologias.png "Tecnologias")
+
+
 ## SPRINTS (Resumen de entregables)
 
 ![Sprints](/public/images/sprints.png "Sprints")
