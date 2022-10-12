@@ -18,7 +18,21 @@ https://trello.com/b/loBoMovR/tareas-move
 * **Proyecto en linea**: 
 https://grupo1move.herokuapp.com/
 
+----------------
 
+* **Proyecto desarrollado para el curso**: 
+<br>Desarrollador Fullstack NodeJs // DigitalHouse.com
+
+* **Duracion del curso**:
+<br>6 Meses (Abr/Sep 2022)
+
+* **Profesores del curso**: 
+<br>Leonardo Casales // https://github.com/SmartNetAR
+<br>Nicolas Guiñazu // https://github.com/nicolasGuinazu
+
+
+
+ 
 
 
 ## INTEGRANTES
