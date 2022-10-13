@@ -83,8 +83,15 @@ FORMULARIO NUEVAS CORRECCIONES
 .recordar{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  
+  align-items: baseline;
 }
+
+.izq label, input[type=checkbox]{
+cursor: pointer;
+}
+
+
 
 
 /* 

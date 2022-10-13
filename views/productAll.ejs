@@ -7,38 +7,8 @@
 
     <%- include('./partials/header')%>
 
-    <style>
-        .portada{
-            /* background image */
-            background-image: url("/images/portada_superior.jpg");
-            background-size: cover;
-            height: 100vh;
 
-            /* alineacion flex */
-            display: flex;
-            align-items: center;
-            justify-content: center;  
 
-            /* sombra texto */
-            color: #fff;
-            text-shadow: 0 5px 5px #7f00b2; 
-            font-size: large;
-
-            /* tamaño del texto... */
-            font-size:70px;
-            font-weight: bold;
-        }
-
-        .port2{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.4);
-            width: 100%;
-            height: 100%;
-        }
-        
-    </style>
      
      <%
         let tituloBusqueda = genero;
@@ -49,7 +19,6 @@
         <div class="port2">
             (<%= tituloBusqueda.toUpperCase() %>)
         </div>
-        
     </div>
 
     <main> 

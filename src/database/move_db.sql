@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-09-2022 a las 21:52:58
+-- Tiempo de generación: 13-10-2022 a las 22:21:13
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -48,6 +48,26 @@ INSERT INTO `brands` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `favs`
+--
+
+CREATE TABLE `favs` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `favs`
+--
+
+INSERT INTO `favs` (`id`, `id_user`, `id_product`) VALUES
+(3, 2, 7),
+(10, 2, 24);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `products`
 --
 
@@ -86,7 +106,8 @@ INSERT INTO `products` (`id`, `id_brand`, `name`, `description`, `image`, `price
 (13, 7, 'Classic Slip-On', 'Las zapatillas Vans Classic Slip-On son un clásico de la marca. Inspiradas y creadas para la cultura skate, este modelo relajado sin cordones y con colores combinables está confeccionado en poliéster, lo que las vuelve más livianas y cómodas. Ideales para todos los días, su suela vulcanizada te garantiza una excelente adherencia en múltiples superficies y mayor resistencia.', 'zapatillas_vans_ClassicSlipOn.jpg', 10900, 0, 'unisex', 'importado', 'https://www.moov.com.ar/zapatillas-vans-classic-slip-on/VA_VN000EYEBLK.html', NULL, NULL),
 (14, 5, 'Classic Legacy', 'Sus bordes serrados, franjas laterales en contraste y el diseño audaz de su mediasuela crean un look ganador. Los toques de color y el exterior de nylon de dos tonos que cambia de color completan el look. Cuenta con un exterior de nylon con revestimientos de gamuza, amortiguación con ligereza, mediasuela de EVA troquelada, suela de caucho', 'zapatillas_reebok_ClassicLegacy.jpg', 16499, 0, 'mujer', 'nacional', 'https://www.moov.com.ar/zapatillas-reebok-classic-legacy/RE_GZ7396.html', NULL, NULL),
 (15, 3, 'Air Max 90', 'Las zapatillas Nike Air Max 90 SE son la nueva generación del ícono. Diseñada con líneas impecables, versátiles y atemporales, mantienen la misma suela icónica, revestimientos cosidos y detalles clásicos que iniciaron la revolución. No es una nueva versión, es un recordatorio.', 'zapatillas_nike_AirMax90.jpg', 32499, 0, 'mujer', 'importado', 'https://www.moov.com.ar/zapatillas-nike-air-max-90-se/NI_DD0384-800.html', NULL, NULL),
-(16, 6, 'Yucca', 'Las Zapatillas Topper Yucca se van a transformar en tu calzado más amigable una vez que las pruebes. Su capellada de textil tejida se adapta totalmente a la forma de tu pie para un andar más cómodo y flexible. La suela de EVA termoformada se integra fácilmente con la parte superior para que descubras el verdadero significado de la palabra confort.', 'zapatillas_topper_Yucca.jpg', 8999, 0, '', 'importado', 'https://www.moov.com.ar/zapatillas-topper-yucca/TO_52181.html', NULL, '2022-09-20');
+(16, 6, 'Yucca', 'Las Zapatillas Topper Yucca se van a transformar en tu calzado más amigable una vez que las pruebes. Su capellada de textil tejida se adapta totalmente a la forma de tu pie para un andar más cómodo y flexible. La suela de EVA termoformada se integra fácilmente con la parte superior para que descubras el verdadero significado de la palabra confort.', 'zapatillas_topper_Yucca.jpg', 8999, 0, 'mujer', 'importado', 'https://www.moov.com.ar/zapatillas-topper-yucca/TO_52181.html', NULL, '2022-10-08'),
+(24, 3, 'Air Jordan', 'Si sos un verdadero fan de Michael Jordan, no pueden faltarte estas zapatillas!', 'zapatillas_AirJordan.png', 13546, 20, 'hombre', 'importado', '', '2022-10-06', '2022-10-08');
 
 -- --------------------------------------------------------
 
@@ -123,8 +144,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `gender`, `image`, `role`) VALUES
-(1, 'Gizmo', '(Admin)', 'admin@move.com', '$2a$10$l8fTcHXgp5KUJ6enGYJqoepE9o91y225REqadDVU6gLoz7y6WwYSi', 'masculino', 'admin.jpg', 'admin'),
-(2, 'Ewok', '(User)', 'user@move.com', '$2a$10$l8fTcHXgp5KUJ6enGYJqoepE9o91y225REqadDVU6gLoz7y6WwYSi', 'masculino', 'user.jpg', 'user');
+(1, 'Dario', 'Susnisky', 'admin@move.com', '$2a$10$l8fTcHXgp5KUJ6enGYJqoepE9o91y225REqadDVU6gLoz7y6WwYSi', 'masculino', 'admin.png', 'admin'),
+(2, 'Camila', '', 'user@move.com', '$2a$10$l8fTcHXgp5KUJ6enGYJqoepE9o91y225REqadDVU6gLoz7y6WwYSi', 'femenino', 'user.png', 'user');
 
 --
 -- Índices para tablas volcadas
@@ -134,6 +155,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `gend
 -- Indices de la tabla `brands`
 --
 ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `favs`
+--
+ALTER TABLE `favs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -167,10 +194,16 @@ ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `favs`
+--
+ALTER TABLE `favs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`

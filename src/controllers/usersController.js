@@ -151,26 +151,36 @@ const usersController = {
       
     },
 
-    updateProfile: function(req, res){ 
+    updateProfile: async function(req, res){ 
+
+        // ACTUALIZAMOS...
         const userToLogin = 
             {
                 first_name: req.body.name,
                 last_name: req.body.last_name,
                 gender: req.body.genero,
             }
-        db.User.update(
+
+        await db.User.update(
             userToLogin,
             {
                 where: {id: req.params.id}
-            })
-        .then(()=> {
-            req.session.userLogged = userToLogin
-            console.log(userToLogin)
-            return res.redirect('/users/profile')})            
-        .catch(error => res.send(error))
+            }
+        )
+
+        // TRAEMOS LOS NUEVOS VALORES
+        let userNewValues = await db.User.findOne({
+            where: { id: req.params.id }
+        })
+   
+        delete userNewValues.password; 
+        req.session.userLogged = userNewValues;
+
+        return res.redirect('/users/profile'); 
+
     },
 
-    logout: function(req, res) {
+    logout: function(req, res){ 
         // tengo que borrar la cookie porque si no voy a seguir loggeado aunque haga logout
         // porque la cookie le va a seguir pasando el usuario a session hasta que pase el tiempo seteado y se destruya
         res.clearCookie('userEmail'); 

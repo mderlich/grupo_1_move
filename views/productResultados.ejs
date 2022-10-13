@@ -7,36 +7,29 @@
 
     <%- include('./partials/header')%>
 
-    <style>
-        .portada{
-            /* background image */
-            background-image: url("/images/portada_superior.jpg");
-            background-size: cover;
-            height: 100vh;
 
-            /* alineacion flex */
-            display: flex;
-            align-items: center;
-            justify-content: center;  
 
-            /* sombra texto */
-            color: #fff;
-            text-shadow: 0 5px 5px #7f00b2; 
-            font-size: large;
-        }
+    <% 
+    let nroResultados = productDetail.length;
+    let h2Resultados;
+    if (productDetail.length > 0) { 
+        h2Resultados = productDetail.length;
+    }else{
+        h2Resultados = "SIN";
+    }
+    %>
 
-        .sin_resultados{
-            color: tomato;
-        }
-        
-    </style>
-     
+
     <div class="portada">
-        <h1>(RESULTADOS)</h1>
+        <div class="port2">
+            (<%= h2Resultados %> RESULTADOS)
+        </div>
     </div>
 
+
     <main> 
-        
+
+
         <h1>ZAPATILLAS</h1>
         <h2>(RESULTADOS)</h2>
 
@@ -80,6 +73,7 @@
         <% } else { %>
         <!-- sin resultados -->
         <div>
+            <br>
             <h2 class="sin_resultados">No hay productos que coincidan con esa búsqueda</h2>
         </div>
         <!-- /sin resultados -->

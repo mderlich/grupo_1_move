@@ -5,57 +5,53 @@
 
 <body>
 
-    <%- include('./partials/header')%>
+<%- include('./partials/header')%>
 
-    <main class="mainRegister">
+<main >
 
-        <h1>Mi perfil</h1>
+    <h1>Editando... <%=user.first_name%></h1>
 
-        <style>
-            .inline { 
-                display: inline-block; 
-                border-bottom: 2px solid #A334FF; 
-                width: 300px;
-                padding: 10px;
+    <form action="/users/editProfile/<%=user.id %>" method="post" name="edicionusuario" autocomplete="off" class="formulario">
 
-            }
 
-        </style>
-       
+        <div class="emailycontra">
+            <label for="nombre"><span class="asterisco">* </span>Nombre</label>
+        </div>
+        <input type="text" name="name" id="nombre" value="<%=user.first_name%>">
+      
 
-        <article class="todoslosforms">
+        <div class="emailycontra">
+            <label for="apellido"><span class="asterisco">* </span>Apellido</label>
+        </div>
+        <input type="text" name="last_name" id="apellido" value="<%=user.last_name%>">      
 
-                <form class="datospersona" action="/users/editProfile/<%=user.id %>" method="post" name="edicionusuario">
 
-                    
+        <div class="emailycontra">
+            <label for="genero"><span class="asterisco">* </span>Género</label>
+        </div>
+        <select id="genero" name="genero">
+            <option value="">Seleccione...</option>
+            <%    
+                const gender = ['femenino', 'masculino'];
+                for (let x of gender) {
+            %>
+                <option value="<%= x %>" <%= ( user.gender == x) ? 'selected' : '' %>>
+                <%= x.toUpperCase() %>
+                </option>                     
+            <%     
+                }
+            %>
+        </select>
 
-                    <label for="nombre">Nombre <hr></label>
-                    <input name="name" id="nombre" value="<%=user.first_name%>">
-                   
 
-                    <label for="apellido">Apellido<hr></label>
-                    <input name="last_name" id="apellido" value="<%=user.last_name%>">
-                  
 
-                    <label for="genero">Género<hr></label>
-                    <input name="genero" id="genero" value="<%=user.gender%>">
-                  
+        <button type="submit" class="boton-inicio">GUARDAR</button>
+                
+    </form>
 
-                  <!--   <label for="contraseña">Elegí tu contraseña<hr></label>
-                    <input type="password" name="password" id="contraseña"> -->
-                   
-                 
-                    <!-- <label for="profileImage">Imagen de perfil:</label>
-                    <input type="file" name="profileImage" id="image"> -->
+</main>
 
-                    <button type= "submit" id="crearcuenta" style="color: #fff;">
-                        Editar
-                    </button>
-            </form>
-        </article>
-    </main>
-   
-    <%- include('./partials/footer')%>
+<%- include('./partials/footer')%>
     
 </body>
 </html>
