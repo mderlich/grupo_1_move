@@ -15,13 +15,12 @@
 
 
 <!--lOGIN-->
-<main class="mainLogin">
+<main>
     
     
     <h1>Iniciar Sesión</h1>
     
 
-    
     <div class="login_register" >
         <div class='inline'><div> <a href="login">Iniciar Sesión</a> </div></div>
         <div class='inline'><div> <a href="register">Registrarme</a> </div></div>
@@ -29,28 +28,27 @@
 
 
     <!--email-->
-<div class="todo">
 
 
-    <form action="/users/login" method="POST" autocomplete="off">
+    <form action="/users/login" method="POST" autocomplete="off" class="formulario">
 
     <div class="emailycontra">
         <label for="email"><span class="asterisco">* </span>Email</label>
     </div>
-    <input type="email" id="email" name="email" value="" class="cajita"/>
+    <input type="email" id="email" name="email" value="" />
     <% if (locals.errors && errors.email) { %>
         <div style="color: red"> 
         <%= errors.email.msg%>
         </div>
       <% } %>
+
     <!--contraseña-->
     <div class="emailycontra">
         <label for="password"><span class="asterisco">* </span>Contraseña</label>
     </div>
-    <input type="password" id="password" name="password"  value="" minlength="8"class="cajita"/>
-    <!-- 
-    <button class="botonojo"><i class="ojo fas fa-eye" ></i></button>
-     -->
+    <input type="password" id="password" name="password"  value="" minlength="8" />
+
+    
     
     <div class="recordar">
 
@@ -75,7 +73,6 @@
 
 
     
-</div>
 
 
 <%- include('./partials/footer')%>

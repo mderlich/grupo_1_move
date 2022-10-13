@@ -12,13 +12,15 @@ https://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=cssHeader
  */
 
 .formulario {
-    max-width: 300px;
+    width: 100%;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 
-.formulario input[type=text], input[type=number], input[type=email], input[type=date], select, textarea {
+.formulario input[type=text], input[type=number], input[type=email], input[type=password], input[type=date], select, textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -53,3 +55,110 @@ https://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=cssHeader
   .formulario input[type=submit]:hover {
     background-color: #45a049;
   }
+
+
+  
+/*
+FORMULARIO NUEVAS CORRECCIONES 
+*/
+
+.inline { 
+  display: inline-block; 
+  border-bottom: 2px solid #A334FF; 
+  width: 190px;
+}
+.formulario label {
+  display:block;
+  text-align: left;
+}
+.formulario input[type=checkbox], input[type=radio] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
+  
+}
+.formulario textarea:focus, input:focus{
+  outline: none;
+}
+.recordar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* 
+***************************
+BOTON 
+***************************
+*/
+
+
+
+
+.boton-inicio{
+  width: 100%;
+  background-color: #000;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 20px;
+  height: 50px;
+  line-height: 40px;
+  max-width: 400px;
+  margin: auto;
+  transition: all 1s;
+  margin-top: 30px;
+  border: none;
+
+}
+
+.boton-inicio:hover{
+  background-color: #A334FF;
+  cursor: pointer;
+}
+
+
+/* 
+***************************
+DATO REQUERIDO 
+***************************
+*/
+
+.emailycontra{
+  margin-top:20px;
+  margin-bottom: 8px;
+  color: #666666;
+}
+
+/* 
+***************************
+ENCABEZADO LOGIN/REGISTER 
+***************************
+*/
+
+.login_register{
+  margin-bottom: 40px;
+}
+
+.asterisco{
+  color: salmon;
+}
+
+/* 
+***************************
+INPUT FILE // IMAGEN
+***************************
+*/
+
+/* input[type="file"] */
+#profileImage {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  background-color: gainsboro;
+  border-radius: 10px;
+  padding: 12px 12px;
+  cursor: pointer;
+}

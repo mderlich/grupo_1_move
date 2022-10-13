@@ -7,133 +7,107 @@
 
     <%- include('./partials/header')%>
 
-    <main class="mainRegister">
+    <main >
 
         <h1>Registrarme</h1>
 
-        <style>
-            .inline { 
-                display: inline-block; 
-                border-bottom: 2px solid #A334FF; 
-                width: 300px;
-                padding: 10px;
 
-            }
-
-        </style>
-        <div >
+        <div class="login_register"  >
             <div class='inline'><div> <a href="login">Iniciar Sesión</a> </div></div>
             <div class='inline'><div> <a href="register">Registrarme</a> </div></div>
         </div>
+        
+                <form  action="/users/register" method="post" name="registrousuario" enctype="multipart/form-data" autocomplete="off" class="formulario">
 
-        <article class="todoslosforms">
 
-                <form class="datospersona" action="/users/register" method="post" name="registrousuario" enctype="multipart/form-data" autocomplete="off">
-
-                    <label for="nombre">Nombre <hr></label>
-                    <input name="name" id="nombre" value="<%= (locals.oldData && oldData.name) ? oldData.name : '' %>">
+                    
+                    <div class="emailycontra">
+                        <label for="nombre"><span class="asterisco">* </span>Nombre</label>
+                    </div>
+                    <input type="text" name="name" id="nombre" value="<%= (locals.oldData && oldData.name) ? oldData.name : '' %>">
                     <% if (locals.errors && errors.name) { %>
                         <div style="color: red"> 
                         <%= errors.name.msg%>
                         </div>
-                      <% } %>
+                    <% } %>
 
-                    <label for="apellido">Apellido<hr></label>
-                    <input name="last_name" id="apellido" value="<%= (locals.oldData && oldData.last_name) ? oldData.last_name : '' %>">
+                    
+                    <div class="emailycontra">
+                        <label for="apellido"><span class="asterisco">* </span>Apellido</label>
+                    </div>
+                    <input type="text" name="last_name" id="apellido" value="<%= (locals.oldData && oldData.last_name) ? oldData.last_name : '' %>">
                     <% if (locals.errors && errors.last_name) { %>
                         <div style="color: red"> 
                         <%= errors.last_name.msg%>
                         </div>
-                      <% } %>
+                    <% } %>
 
-                    <label for="genero">Género<hr></label>
-                    <input name="genero" id="genero" value="<%= (locals.oldData && oldData.genero) ? oldData.genero : '' %>">
+
+                    <div class="emailycontra">
+                        <label for="genero"><span class="asterisco">* </span>Género</label>
+                    </div>
+                    <select id="genero" name="genero">
+                        <option value="">Seleccione...</option>
+                        <%    
+                            const gender = ['femenino', 'masculino'];
+                            for (let x of gender) {
+                        %>
+                            <option value="<%= x %>" <%= (locals.oldData && (oldData.genero == x)) ? 'selected' : '' %>>
+                            <%= x.toUpperCase() %>
+                            </option>                     
+                        <%     
+                            }
+                        %>
+                    </select>
                     <% if (locals.errors && errors.genero) { %>
                         <div style="color: red"> 
                         <%= errors.genero.msg%>
                         </div>
-                      <% } %>
+                    <% } %>
 
-                    <label name="email">Ingresar email<hr></label>
-                    <input name="email" id="email" value="<%= (locals.oldData && oldData.email) ? oldData.email : '' %>">
+                    <!-- correo electronico -->
+                    <div class="emailycontra">
+                        <label for="email"><span class="asterisco">* </span>Email</label>
+                    </div>
+                    <input type="email" id="email" name="email" value="<%= (locals.oldData && oldData.email) ? oldData.email : '' %>">
                     <% if (locals.errors && errors.email) { %>
                         <div style="color: red"> 
                         <%= errors.email.msg%>
                         </div>
                       <% } %>
 
-                    <label for="contraseña">Elegí tu contraseña<hr></label>
-                    <input type="password" name="password" id="contraseña" value="<%= (locals.oldData && oldData.password) ? oldData.password : '' %>">
+
+                    <!--contraseña-->
+                    <div class="emailycontra">
+                        <label for="password"><span class="asterisco">* </span>Contraseña</label>
+                    </div>
+                    <input type="password" name="password" id="password" value="<%= (locals.oldData && oldData.password) ? oldData.password : '' %>">
                     <% if (locals.errors && errors.password) { %>
                         <div style="color: red"> 
                         <%= errors.password.msg%>
                         </div>
                       <% } %>
 
-                    <div id="politicas">
-                        <input type="checkbox" name="politicas" id="politicas">
-                        <label for="politicas">Acepto las politicas de privacidad, terminos y condiciones</label>
-                    </div>
-    
-                    <div id="promociones">
-                        <input type="checkbox" name="promocoiones" id="promociones">
-                        <label for="promociones">Quiero recibir emails de promociones y noticias</label>
-                    </div>
-    
-                    <label for="profileImage">Imagen de perfil:</label>
-                    <input type="file" name="profileImage" id="image" >
+   
+
+
+                    <label for="profileImage" class="custom-file-upload">
+                        <i class="fas fa-cloud-upload-alt"></i>&nbsp;Imagen de perfil
+                    </label>
+                    <input type="file" id="profileImage" name="profileImage" accept=".jpg, .jpeg, .png, .gif"/>
+
                     <% if (locals.errors && errors.profileImage) { %>
                       <div style="color: red"> 
                       <%= errors.profileImage.msg%>
                       </div>
                     <% } %>
     
-                    <button type= "submit" id="crearcuenta" style="color: #fff;">
-                            Crear mi cuenta
-                    </button>
-
-                        <!-- //<label for="nacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="nacimiento" id="nacimiento">
-    -->
-                        <!-- <article class="tipoynum">
-                            <label id="tipo" for="tipodoc">Tipo</label>
-                            <label id="numero" for="numerodoc"> Número de documento</label>
-                        </article>
-
-                        <article class="tipoynum">
-                            <input id="tipo" name="tipodoc" id="tipodoc">
-                            <input id="numero" name="numerodoc" id="numerodoc">
-                        </article> -->
-                        
-
-                    <!--  <label for="telefono">Teléfono (cod área + número)</label>
-                        <input name="telefono" id="telefono">-->
-
-                        <!-- <label name="confemail">Confirmar email</label>
-                        <input name="confemail" id="confemail"> -->
-                        <!-- 
-                        <label for="confcontraseña">Confirmar contraseña</label>
-                        <input type="password" name="confcontraseña" id="confcontraseña"> -->
-
-
-                    <!-- 
-                        <label for="intereses">Cuales son tus intereses?</label>
-                    <article class="intereses">
-                        <div>
-                            <input type="checkbox" name="zapatillas" id="zapatillas">  Zapatillas
-                        </div>
-                        <div>
-                            <input type="checkbox" name="zapatillas" id="zapatillas">  Deportes
-                        </div>
-                        <div>
-                            <input type="checkbox" name="zapatillas" id="zapatillas">  Running
-                        </div>
-                        <div>
-                            <input type="checkbox" name="zapatillas" id="zapatillas">  Accesorios
-                        </div>
-                    </article> -->
+                    <!--boton crear cuenta-->
+                    <button type="submit" class="boton-inicio">CREAR CUENTA</button>
+                    
             </form>
-        </article>
+
+
     </main>
    
     <%- include('./partials/footer')%>

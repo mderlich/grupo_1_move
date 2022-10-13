@@ -16,7 +16,7 @@ const validations = [
     .notEmpty().withMessage('Tienes que ingresar una contrasena')
     .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres')
     .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/).withMessage('Debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial'),
-  body('genero').notEmpty().withMessage('Tienes que completar este campo'),
+  body('genero').notEmpty().withMessage('Tienes que indicar un genero'),
   body('profileImage').custom((value, { req }) => {
     let file = req.file;
     let acceptedExtensions = [ '.jpeg','.jpg', '.png', '.gif'];

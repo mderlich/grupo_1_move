@@ -45,7 +45,7 @@
             <a href="/zapatillas/id/<%= productsFiltrados[i].id %>">
             <div class="imagen_texto">
                 <div class="imagen">
-                    <img src="/images/<%= productImage %>" alt="<%= productsFiltrados[i].name %>">
+                    <img src="/images/<%= productImage %>" alt="<%= productsFiltrados[i].name %>" class="imgZapatilla">
                     
                         <div onclick="event.preventDefault(); like('<%= productsFiltrados[i].id %>');">
                             <i class="fas fa-heart <%= arrayFav.includes(productsFiltrados[i].id) ? 'active-fav' : ''  %>" id="heart<%= productsFiltrados[i].id %>"></i>
