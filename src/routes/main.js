@@ -11,6 +11,11 @@ const {
 } = require('../controllers/mainController');
 
 
+// ************ Middlewares Require ************
+const cartMiddleware = require('../middlewares/cartMiddleware');
+
+
+
 // ************ Rutas Generales ************
 
 router.get('/', index); 
@@ -18,7 +23,7 @@ router.get('/', index);
 router.get('/forgetpw', forgetpw); 
 
 /*** CARRO DE PRODUCTOS ***/ 
-router.get('/carrito', carrito); 
+router.get('/carrito', cartMiddleware, carrito); 
 
 
 
