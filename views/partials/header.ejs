@@ -117,6 +117,8 @@ display: none;
                     <i class="fas fa-user <%= iconoColor %>"></i>
                 </a>
 
+
+
                 <!-- icono custom // solo visible en movil -->
                 <!-- dropdown // se vincula con... header.css...funciones.js -->
                 <div class="dropdown">
@@ -131,7 +133,7 @@ display: none;
                     <a href="/admin" style="color: violet;"><strong>(Admin)</strong></a>
                     <% } %>
                     <% if (locals.isLogged ) { %>
-                    <a href="/users/logout" ><strong>(Salir)</strong></a>
+                    <a href="/users/logout" onclick=" deleteCarrito()"><strong>(Salir)</strong></a>
                     <% } %>
 
                 </div>
@@ -146,6 +148,8 @@ display: none;
     </div>
         
 </header>
+
+
 
 
 

@@ -144,19 +144,32 @@ function selectTalle(id){
 }
 
 function addCarrito(){
-    let zapatillaTalle = document.getElementsByClassName("destacado")[0].innerText;
-    let zapatillaId = document.getElementsByClassName("destacado")[0].id;
+
+    let destacado = document.getElementsByClassName("destacado");
+
+    // no se selecciono talle
+    if(destacado.length == 0){
+        let msgAnuncio = document.getElementById("msgAnuncio");
+        msgAnuncio.style.display='block';    
+        msgAnuncio.innerText = "Seleccione un talle";
+        
+        setTimeout(function () {
+            // display none o visibility hidden
+            msgAnuncio.style.display='none';
+        }, 4000);
+    } 
+    // si marco talle...
+
+    let zapatillaTalle = destacado[0].innerText;
+    let zapatillaId = destacado[0].id;
     // el id viene... 1544 con el talle al final y como el talle son dos caract lo borramos
-    zapatillaId = zapatillaId.slice(0, -2);
-/*     if( element ) {
-        alert( element );
-        localStorage.setItem("carrito", element);
-    } */
+    zapatillaId = zapatillaId.slice(0, -2); 
+
+
 
     if (localStorage) {
         let cart;
         
-
         // si no existe lo creamos vacio
         if (!localStorage['cart']) cart = [];
         // si existe aplicamos JSON.parse
@@ -171,6 +184,7 @@ function addCarrito(){
         localStorage.setItem('cart', JSON.stringify(cart));
     } 
 
+    /* cargarCarrito esta en header.ejs */
     cargarCarrito();
 
 
@@ -192,10 +206,22 @@ function addCarrito(){
                     
 
                 </div>
-                
+    
+                <style>
+                    .msgAnuncioVerde{
+                        text-align: center;
+                        color: green;
+                        font-weight: bold;
+                    }
+                    </style>
+                <% if(logueado){ %>
                 <div class="boton_alcarrito" onclick="addCarrito();">AÑADIR AL CARRITO</div>
-                
+                <% } else {%>
+                <div class="boton_alcarrito" onclick="carritoFaltaLoguear();">AÑADIR AL CARRITO</div>
+                <% } %>
 
+                <br>
+                <div id="msgAnuncio" class="msgAnuncioVerde"></div>
                 
 
             </div>
@@ -227,6 +253,24 @@ function addCarrito(){
         
 
     </main>
+
+    <script>
+    function carritoFaltaLoguear() {
+
+    let msgAnuncio = document.getElementById("msgAnuncio");
+    
+    msgAnuncio.style.display='block';    
+    
+    msgAnuncio.innerText = "Debe loguearse antes!";
+    
+        setTimeout(function () {
+            // display none o visibility hidden
+            msgAnuncio.style.display='none';
+        }, 4000);
+        
+    }
+    </script>
+
 
     <%- include('./partials/footer')%>
 

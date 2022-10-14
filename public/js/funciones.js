@@ -72,3 +72,15 @@ async function like(id){
 }
 
 /****************** LIKE CORAZON (final) **********************/
+
+
+
+// *************************
+// Vaciar el carrito 
+// *************************
+function deleteCarrito(){
+     localStorage.removeItem('cart');
+     localStorage.removeItem('cartConteo');
+}
+// *************************
+

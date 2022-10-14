@@ -147,6 +147,7 @@ const controller = {
 		/* LIKE CORAZON */
 		let fav = "";
 		let arrayFav = [];
+		let logueado = false;
 
 		if(req.session.userLogged){
 
@@ -161,6 +162,8 @@ const controller = {
 				arrayFav.push(id_product);
 			}
 
+			/* logueado pasamos a true... */
+			logueado = true;
 		}
 
 
@@ -169,7 +172,8 @@ const controller = {
            res.render( "productDetail",  {
 			productDetail, 
 			brandDetail,
-			arrayFav: arrayFav
+			arrayFav: arrayFav,
+			logueado,
 		} ); 
 		}
 		// si no hay producto...
