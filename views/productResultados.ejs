@@ -33,6 +33,7 @@
         <h1>ZAPATILLAS</h1>
         <h2>(RESULTADOS)</h2>
 
+        <br><br>
         
     
         <div class="recomendados">
@@ -59,13 +60,56 @@
                 <a href="/zapatillas/id/<%= productDetail[i].id %>">
                 <div class="imagen_texto">
                     <div class="imagen">
+                        
                         <img src="/images/<%= productImage %>" alt="<%= productDetail[i].name %>" class="imgZapatilla">
-                        <i class="fas fa-heart"></i>
+                        
+                        <div onclick="event.preventDefault(); like('<%= productDetail[i].id %>');">
+                            <i class="fas fa-heart <%= arrayFav.includes(productDetail[i].id) ? 'active-fav' : ''  %>" id="heart<%= productDetail[i].id %>"></i>
+                        </div>
+
+                        <% 
+                        if(productDetail[i].discount > 0){
+                        %> 
+                        <img src="/images/dto.png"  alt="descuento" class="imgDescuento">
+                        <span class="txtDescuento"><%= productDetail[i].discount + '%' %></span>
+                        <% 
+                        }
+                        %>
+
                     </div>
+
+
+
+
                     <hr>
-                    <div class="texto"><%= productDetail[i].name %>
-                    <br><br>
-                    <h4>$<%= productDetail[i].price %></h4> </div>
+
+                    <div class="texto"> 
+                        <strong>
+                        <%= productDetail[i].brands.name.toUpperCase() + ' // '+ productDetail[i].name %>
+                        </strong> 
+                        <br><br>
+                        <% 
+                        if(productDetail[i].discount > 0){
+                            let valorDto = productDetail[i].price * ( productDetail[i].discount / 100 );
+                            let precioFinal = productDetail[i].price - valorDto;
+                        %> 
+                        <h3 >
+                            <span class="tachado">$<%= productDetail[i].price.toLocaleString() %></span> 
+                            <span class="textoRojo">$<%= precioFinal.toLocaleString() %></span> 
+                        </h3> 
+                        <% 
+                        }else{
+                        %>
+                        <h3>$<%= productDetail[i].price.toLocaleString() %></h3> 
+                        <% 
+                        }
+                        %>
+                    </div>
+
+                
+                    <button class="buttonAnadir">Ver articulo </button>
+                    
+                    
                 </div>
                 </a>
             <% } %>

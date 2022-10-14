@@ -50,17 +50,42 @@
                         <div onclick="event.preventDefault(); like('<%= productsFiltrados[i].id %>');">
                             <i class="fas fa-heart <%= arrayFav.includes(productsFiltrados[i].id) ? 'active-fav' : ''  %>" id="heart<%= productsFiltrados[i].id %>"></i>
                         </div>
-                        
+
+                        <% 
+                        if(productsFiltrados[i].discount > 0){
+                        %> 
+                        <img src="/images/dto.png"  alt="descuento" class="imgDescuento">
+                        <span class="txtDescuento"><%= productsFiltrados[i].discount + '%' %></span>
+                        <% 
+                        }
+                        %>
+
                 </div>
                 <hr>
                 
-                <div class="texto"> 
-                    <strong>
-                    <%= productsFiltrados[i].brands.name.toUpperCase() + ' // '+ productsFiltrados[i].name %>
-                    </strong> 
-                    <br><br>
-                    <h3>$<%= productsFiltrados[i].price.toLocaleString() %></h3> 
-                </div>
+
+                    <div class="texto"> 
+                        <strong>
+                        <%= productsFiltrados[i].brands.name.toUpperCase() + ' // '+ productsFiltrados[i].name %>
+                        </strong> 
+                        <br><br>
+                        <% 
+                        if(productsFiltrados[i].discount > 0){
+                            let valorDto = productsFiltrados[i].price * ( productsFiltrados[i].discount / 100 );
+                            let precioFinal = productsFiltrados[i].price - valorDto;
+                        %> 
+                        <h3 >
+                            <span class="tachado">$<%= productsFiltrados[i].price.toLocaleString() %></span> 
+                            <span class="textoRojo">$<%= precioFinal.toLocaleString() %></span> 
+                        </h3> 
+                        <% 
+                        }else{
+                        %>
+                        <h3>$<%= productsFiltrados[i].price.toLocaleString() %></h3> 
+                        <% 
+                        }
+                        %>
+                    </div>
 
                 <button class="buttonAnadir">Añadir </button>
 

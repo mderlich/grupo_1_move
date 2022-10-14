@@ -171,5 +171,5 @@ En cuanto a **React** se realizo un dashboard que consume los datos de las API y
 
 * **Base de datos // CONFIG.JS**: En caso que requiera especificar user/pass/puerto para conectar a la base de datos, esta se encuentra en el archivo 'config.js' y se encuentra en la carpeta  ( /src/database/config/config.js )
 
-* **Base de datos // USER/PASS**: Por defecto se adjunta un usuario ( user@move.com / #Qwerty1234) y un administrador ( admin@move.com / #Qwerty1234). Sus user/pass son los indicados.
+* **Base de datos // USER/PASS**: Por defecto se adjunta un usuario ( user@move.com / #Qwerty1234 ) y un administrador ( admin@move.com / #Qwerty1234 ). Sus user/pass son los indicados.
 

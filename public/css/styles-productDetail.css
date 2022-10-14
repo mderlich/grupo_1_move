@@ -258,7 +258,6 @@ main .recomendados .texto {
 
 
 .txtDescuento{
-    z-index: 1;
     position: absolute;
     left: 0px;
     bottom: 6px;
@@ -283,6 +282,21 @@ main .recomendados .texto {
 .imgDetail{
     position: relative;
 }
+
+.imgDetail i{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 35px;
+}
+.imgDetail i:hover{
+    color:tomato;
+    cursor: pointer;
+}
+
+
+
+
 .imgDescuento2{
     position: absolute;
     left: -30px;

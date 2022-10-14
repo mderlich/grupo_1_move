@@ -24,9 +24,15 @@
                 // --------------------------------
                 %>
 
+
+
 <div class="imgDetail">
     
                 <img src="/images/<%= productImage %>" alt="<%= productDetail.name %>" class="imgBig">
+
+                <div onclick="event.preventDefault(); like('<%= productDetail.id %>');">
+                    <i class="fas fa-heart <%= arrayFav.includes(productDetail.id) ? 'active-fav' : ''  %>" id="heart<%= productDetail.id %>"></i>
+                </div>
 
                 <% 
                 if(productDetail.discount > 0){

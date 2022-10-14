@@ -143,9 +143,34 @@ const controller = {
 
         let [ productDetail, brandDetail ] = await Promise.all([ productFind , brandFind ]);
 
+		// array de favoritos...
+		/* LIKE CORAZON */
+		let fav = "";
+		let arrayFav = [];
+
+		if(req.session.userLogged){
+
+			const userJson = req.session.userLogged;
+			let userId = userJson.id;
+	
+			fav = await db.Fav.findAll({
+				where: { id_user: userId }
+			});
+
+			for (const {id_product} of fav) {
+				arrayFav.push(id_product);
+			}
+
+		}
+
+
         // si existe...
         if (productDetail){
-           res.render( "productDetail",  {productDetail, brandDetail} ); 
+           res.render( "productDetail",  {
+			productDetail, 
+			brandDetail,
+			arrayFav: arrayFav
+		} ); 
 		}
 		// si no hay producto...
         else {
@@ -173,13 +198,39 @@ const controller = {
  		let resultados = await db.Product.findAll({
 			where: {
 			  description: {[Op.like]:'%'+buscado+'%'}
-			}
+			},
+			include: [{association: "brands"}]
 		});
+
+
+		/* LIKE CORAZON */
+		let fav = "";
+		let arrayFav = [];
+
+		if(req.session.userLogged){
+
+			const userJson = req.session.userLogged;
+			let userId = userJson.id;
+	
+			fav = await db.Fav.findAll({
+				where: { id_user: userId }
+			});
+
+			for (const {id_product} of fav) {
+				arrayFav.push(id_product);
+			}
+
+		}
+
 
 		// si existe...
 		if (resultados){
 
-				res.render( "productResultados",  {productDetail: resultados} ); 
+				res.render( "productResultados",  {
+					productDetail: resultados,
+					arrayFav: arrayFav
+
+				} ); 
 
 				
 		}
@@ -270,24 +321,6 @@ const controller = {
 			res.send("ok");
 		}
 
-
-		
-
-
-
-/* ------------------------------------- */
-
-/*
-		let result;
-		
-		if(random == 0){
-			result = "oops";
-		}else{
-			result = "ok";
-		}
-		
-		return result; 
-		*/
 		
 	},
 

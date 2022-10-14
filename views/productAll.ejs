@@ -67,14 +67,16 @@
                         <div onclick="event.preventDefault(); like('<%= productsFiltrados[i].id %>');">
                             <i class="fas fa-heart <%= arrayFav.includes(productsFiltrados[i].id) ? 'active-fav' : ''  %>" id="heart<%= productsFiltrados[i].id %>"></i>
                         </div>
-                    <% 
-                    if(productsFiltrados[i].discount > 0){
-                    %> 
-                    <img src="/images/dto.png"  alt="descuento" class="imgDescuento">
-                    <span class="txtDescuento"><%= productsFiltrados[i].discount + '%' %></span>
-                    <% 
-                    }
-                    %>
+
+                        <% 
+                        if(productsFiltrados[i].discount > 0){
+                        %> 
+                        <img src="/images/dto.png"  alt="descuento" class="imgDescuento">
+                        <span class="txtDescuento"><%= productsFiltrados[i].discount + '%' %></span>
+                        <% 
+                        }
+                        %>
+                        
                 </div>
                 <hr>
                 

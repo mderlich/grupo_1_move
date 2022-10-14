@@ -132,12 +132,12 @@ const usersController = {
                 }
 
                 //Si la contrasena es incorrecta mando error a la vista:
-                return res.render('login', { errors: { email : {msg: 'ERROR // password incorrecto'}}})
+                return res.render('login', { errors: { email : {msg: 'ERROR // Credenciales invalidas'}}})
 
             }
     
             //Si no encuentra el email manda un error a la vista:
-            return res.render('login', { errors: { email : {msg: 'ERROR // email inexistente'}}})
+            return res.render('login', { errors: { email : {msg: 'ERROR // Credenciales invalidas'}}})
         }) 
     },
 
