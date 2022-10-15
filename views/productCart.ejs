@@ -22,19 +22,19 @@
             margin-top: 30px;
             margin-bottom: 50px;
             align-items: flex-start;
-            background-color: #FFC842;
-            
+/*             background-color: #FFC842;
+ */            
             
         }
 
         .izqInfo{
             margin: auto;
-            background-color: aqua;
-        }
+/*             background-color: aqua;
+ */        }
         .derResumen{
             display: flex;
             flex-direction: column;
-            background-color: aquamarine;
+            /* background-color: aquamarine; */
             margin-top: 30px;
             width: 300px;
             margin-left: auto;
@@ -151,27 +151,81 @@
 <script>
     function plusValue(id)
     {
-        var value = parseInt(document.getElementById('number' + id).value, 10);
+        let value = parseInt(document.getElementById('number' + id).value, 10);
+        let price = document.getElementById('price' + id).innerText;
+        price = price.replace(/\./g, '');
+
         value = isNaN(value) ? 0 : value;
         value++;
         document.getElementById('number' + id).value = value;
+        document.getElementById('subtotal' + id).innerText = parseInt(value * price, 10).toLocaleString();
+
+        // TOTAL = ++ subtotales...
+        let subtotal = document.getElementsByClassName("subtotalCart");
+        let precioTotal = 0;
+        for (var i = 0; i < subtotal.length; i++) {
+            precioTotal = precioTotal + parseInt( subtotal[i].innerText.replace(/\./g, '') );
+        }
+
+        let totalCart = document.getElementById("totalCart");
+        totalCart.innerText = precioTotal.toLocaleString();
+
     }
 
     function minusValue(id)
     {
         var value = parseInt(document.getElementById('number' + id).value, 10);
+
+        let price = document.getElementById('price' + id).innerText;
+        price = price.replace(/\./g, '');
+
         if(value > 1){
             value = isNaN(value) ? 0 : value;
             value--;
             document.getElementById('number' + id).value = value;
+            document.getElementById('subtotal' + id).innerText = parseInt(value * price, 10).toLocaleString();
+
+            // TOTAL = ++ subtotales...
+            let subtotal = document.getElementsByClassName("subtotalCart");
+            let precioTotal = 0;
+            for (var i = 0; i < subtotal.length; i++) {
+                precioTotal = precioTotal + parseInt( subtotal[i].innerText.replace(/\./g, '') );
+            }
+
+            let totalCart = document.getElementById("totalCart");
+            totalCart.innerText = precioTotal.toLocaleString();
+
         }
 
     }
 
     function deleteRow(id)
     {
-        var element = document.getElementById('row' + id);
+        let element = document.getElementById('row' + id);
         element.classList.add("hideRow");
+
+        // ["15_39","24_44"]
+        // alert(localStorage.getItem('cart'));
+        
+        let hide = document.getElementById('hide' + id);
+        let toDelete = hide.className;
+
+        let moment = JSON.parse(localStorage.getItem('cart'))
+        moment.splice(toDelete, 1);
+        localStorage.setItem('cart', JSON.stringify(moment))
+
+        // 15_39
+        // alert(toDelete);
+
+        //borramos por lo del subtotal
+        let subtotalDelete = document.getElementById('subtotal' + id);
+        subtotalDelete.innerHTML = "0";
+
+        //nuevo conteo...
+        let cart = JSON.parse(localStorage['cart']); 
+        localStorage.setItem('cartConteo', cart.length);
+
+        cargarCarrito();
 
     }
 
@@ -180,7 +234,6 @@
     function deleteCarrito(){
             localStorage.removeItem('cart');
             localStorage.removeItem('cartConteo');
-            
     }
 
 
@@ -192,49 +245,104 @@
 
         <div class="izqInfo">
             <!-- ******************************* -->
-            
+ 
+            <style>
+                .inputCantidad{
+                    width: 40px;
+                    padding: 4px;
+                    text-align: center;
+                    margin: 0;
+                }
+                .btnPlusMinus{
+                    width: 30px;
+                    height: 30px;
+                    margin: 0;
+                }
+                .btnPlusMinus:hover{
+                    cursor: pointer;
+                }
+                .imgProduct{
+                    width: 50px;
+                }
+                .contProduct{
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                }
+            </style>
     <table class="table">
         <tr>
           <th class="table__heading">Producto</th>
           <th class="table__heading">Precio</th>
           <th class="table__heading">Cantidad</th>
+          <th class="table__heading">Dto</th>
           <th class="table__heading">Subtotal</th>
           <th class="table__heading" style="width: 100px;"><i class="fas fa-trash"></i></th>
 
         </tr>
-
-        <tr class="table__row" id="row1">
-          <td class="table__content" data-heading="Producto">Gizmo1</td>
-          <td class="table__content" data-heading="Precio">Robot</td>
-          <td class="table__content" data-heading="Cantidad">
-            <button onclick="minusValue(1)" >-</button>
-            <input type="text" id="number1" value="0"/>
-            <button onclick="plusValue(1)" >+</button>
-          </td>
-          <td class="table__content" data-heading="Subtotal">A+</td>
+        <!-- *********************************** -->
         
-          <td class="table__content" data-heading="Borrar">
-            <button onclick="deleteRow(1)" >x</button>
-          </td>
 
-        </tr>
+        
+        
 
-        <tr class="table__row" id="row2">
-            <td class="table__content" data-heading="Name">Gizmo2</td>
-            <td class="table__content" data-heading="Type">Robot</td>
-            <td class="table__content" data-heading="Grade">
 
-                <button onclick="minusValue(2)" >-</button>
-                <input type="text" id="number2" value="0"/>
-                <button onclick="plusValue(2)" >+</button>
 
+        <% 
+        if(typeof productsFiltrados !== 'undefined'){
+            // ordenamos el array ABC
+            cart.sort();
+            for (var i = 0; i < cart.length; i++) { 
+    
+                let number = cart[i].split('_')[0];
+                
+                //discount...
+                let dtoAplicado;
+                if(productsFiltrados[number].discount > 0){
+                    dtoAplicado = productsFiltrados[number].discount;
+                }else{
+                    dtoAplicado = "---";
+                }
+        %>
+
+            <tr class="table__row"  id="row<%= [i]  %>">
+            <td class="table__content" data-heading="Producto">
+        
+                <span id="hide<%= [i] %>" class="<%= cart[i] %>"></span>
+                <div class="contProduct">
+                    <img src="images/products/<%= productsFiltrados[number].image %> " alt="" class="imgProduct">
+                    &nbsp;&nbsp;
+                    <%= productsFiltrados[number].brands.name.toUpperCase()  +  " // " + productsFiltrados[number].name %>
+                </div>
+            
             </td>
-            <td class="table__content" data-heading="Grade">A+</td>
+            <td class="table__content" data-heading="Precio">
+                $ <span id="price<%= [i] %>"><%= productsFiltrados[number].price.toLocaleString() %></span>     
+            </td>
+            <td class="table__content" data-heading="Cantidad">
+                <button onclick="minusValue(<%= [i] %>)"  class="btnPlusMinus" >-</button>
+                <input type="text" id="number<%= [i] %>" class="inputCantidad" value="1"/>
+                <button onclick="plusValue(<%= [i] %>)" class="btnPlusMinus">+</button>
+            </td>
+            <td class="table__content" data-heading="Dto">
+                <%= dtoAplicado %>    
+            </td>
+            <td class="table__content" data-heading="Subtotal" >
+                $ <span id="subtotal<%= [i] %>" class="subtotalCart"><%= productsFiltrados[number].price.toLocaleString() %> </span>  
+            </td>
             <td class="table__content" data-heading="Borrar">
-                <button onclick="deleteRow(2)" >x</button>
+                <button onclick="deleteRow(<%= [i] %>)" class="btnPlusMinus" >x</button>
             </td>
-          
-        </tr>
+            </tr>
+
+        
+            <%
+            }
+            %>
+        <%
+        }
+        %>
+        
 
         
 
@@ -264,7 +372,7 @@
             
             <div class="der_row">
                 <div>Total:</div>
-                <div>$16.999,00</div>
+                <div>$ <span id="totalCart">xxx</span></div>
             </div>
            
             <a href="">
@@ -279,10 +387,11 @@
 
     </div>
 
+    
 
-    <div id="demo"></div>
 
-    <!-- **************************************** -->
+
+
     </main>
 
     <%- include('./partials/footer')%>

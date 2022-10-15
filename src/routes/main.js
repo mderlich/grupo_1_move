@@ -7,6 +7,7 @@ const logDBMiddleware =require('../middlewares/logDBMiddleware');
 const {
     index,
     forgetpw,
+    carritoEmpty,
     carrito,
 } = require('../controllers/mainController');
 
@@ -23,8 +24,10 @@ router.get('/', index);
 router.get('/forgetpw', forgetpw); 
 
 /*** CARRO DE PRODUCTOS ***/ 
-router.get('/carrito', cartMiddleware, carrito); 
+router.get('/carrito', cartMiddleware, carritoEmpty); 
 
+/*** CARRO DE PRODUCTOS ***/ 
+router.post('/carrito', cartMiddleware, carrito); 
 
 
 

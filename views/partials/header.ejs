@@ -2,6 +2,11 @@
 .carrito{
 position: relative;
 }
+
+#cartBtn:hover{
+cursor: pointer;
+}
+
 .circuloRojo{
 position: absolute;
 width: 20px;
@@ -31,16 +36,28 @@ display: none;
         if (localStorage) {
 
             /* ********************************** */
+            let conteo = localStorage.getItem("cartConteo");
+            if (conteo > 0) {
             /* Actualizamos el carrito */
             // add... circuloRojoDisplay
             element.style.display = "block";
             // add... inner text el value del carro
             element.innerText = localStorage.getItem("cartConteo");
+            }else {
+                element.style.display = "none";
+            }
             /* ********************************** */
 
-            let demo = document.getElementById("demo");
-            
-            demo.innerHTML = localStorage.getItem("cart");
+            // TOTAL = ++ subtotales...
+            let subtotal = document.getElementsByClassName("subtotalCart");
+            let precioTotal = 0;
+            for (var i = 0; i < subtotal.length; i++) {
+                precioTotal = precioTotal + parseInt( subtotal[i].innerText.replace(/\./g, '') );
+            }
+
+            let totalCart = document.getElementById("totalCart");
+            totalCart.innerText = precioTotal.toLocaleString();
+            // ---------------------------------
 
 
         } 
@@ -91,14 +108,20 @@ display: none;
                 <input type="text" name="keywords" >
             </form>
 
+
+
             <!-- Iconos -->
             <div class="iconos">
-                <a href="/carrito">
+
+                <form action="/carrito" method="POST" id="cartForm">
+                    <input type="hidden" name="postZapatillas" id="postZapatillas"  value="">
+                    <input type="hidden" name="postZapatillasN" id="postZapatillasN"  value="">
                     <div class="carrito">
-                        <i class="fas fa-shopping-cart "></i>
+                            <i class="fas fa-shopping-cart " id="cartBtn"></i>
                         <div class="circuloRojo" id="circuloRojo">3</div>
                     </div>
-                </a>
+                </form>
+
                 <a href="/zapatillas/favoritas"><i class="fas fa-solid fa-heart "></i></a>
 
                 <!-- Icono perfil (inicio) -->
@@ -148,6 +171,20 @@ display: none;
     </div>
         
 </header>
+
+<script>
+let form = document.getElementById("cartForm");
+let postZapatillas = document.getElementById('postZapatillas');
+let postZapatillasN = document.getElementById('postZapatillasN');
+
+document.getElementById("cartBtn").addEventListener("click", function () {
+
+    postZapatillas.value = localStorage.getItem("cart");
+    postZapatillasN.value = localStorage.getItem("cartConteo");
+    form.submit();
+
+});
+</script>
 
 
 
