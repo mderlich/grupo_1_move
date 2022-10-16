@@ -22,8 +22,15 @@ display: none;
 
 </style>
 
+
+<!-- ******************************** -->
+<!-- 
+    Solo se aplica cuando este logueado, lo de locals es por EJS del lado del servidor
+ -->
+<% if (locals.isLogged) { %>
+
 <script>
-    
+ 
     /* print carrito */
     const cuerpoDelDocumento = document.body;
     cuerpoDelDocumento.onload = cargarCarrito;
@@ -32,12 +39,16 @@ display: none;
 
         // select... class="circuloRojo"
         let element = document.getElementById('circuloRojo');
+   
+
         
-        if (localStorage) {
+        if (localStorage ) {
 
             /* ********************************** */
             let conteo = localStorage.getItem("cartConteo");
             if (conteo > 0) {
+
+
             /* Actualizamos el carrito */
             // add... circuloRojoDisplay
             element.style.display = "block";
@@ -58,14 +69,19 @@ display: none;
             let totalCart = document.getElementById("totalCart");
             totalCart.innerText = precioTotal.toLocaleString();
             // ---------------------------------
-
-
+ 
         } 
-        else{
+        else{ 
             element.style.display = "none";
         }
+ 
+     
+
     }
 </script>
+
+<% } %>
+<!-- ******************************** -->
 
 
 <header>

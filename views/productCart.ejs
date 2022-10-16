@@ -158,7 +158,21 @@
         value = isNaN(value) ? 0 : value;
         value++;
         document.getElementById('number' + id).value = value;
-        document.getElementById('subtotal' + id).innerText = parseInt(value * price, 10).toLocaleString();
+        
+        // dto...
+        let dto = document.getElementById('dto' + id).innerText;
+
+        if(isNaN(dto)){
+            //alert("no lo es");
+            document.getElementById('subtotal' + id).innerText = parseInt(value * price, 10).toLocaleString();
+        }else{
+            //alert("si es");
+            let valorDto = price * ( dto / 100 );
+            let priceDto = price - valorDto;
+            document.getElementById('subtotal' + id).innerText = parseInt(value * priceDto, 10).toLocaleString();
+        }
+
+
 
         // TOTAL = ++ subtotales...
         let subtotal = document.getElementsByClassName("subtotalCart");
@@ -175,15 +189,27 @@
     function minusValue(id)
     {
         var value = parseInt(document.getElementById('number' + id).value, 10);
-
         let price = document.getElementById('price' + id).innerText;
         price = price.replace(/\./g, '');
 
         if(value > 1){
+
             value = isNaN(value) ? 0 : value;
             value--;
             document.getElementById('number' + id).value = value;
-            document.getElementById('subtotal' + id).innerText = parseInt(value * price, 10).toLocaleString();
+
+            // dto...
+            let dto = document.getElementById('dto' + id).innerText;
+
+            if(isNaN(dto)){
+                //alert("no lo es");
+                document.getElementById('subtotal' + id).innerText = parseInt(value * price, 10).toLocaleString();
+            }else{
+                //alert("si es");
+                let valorDto = price * ( dto / 100 );
+                let priceDto = price - valorDto;
+                document.getElementById('subtotal' + id).innerText = parseInt(value * priceDto, 10).toLocaleString();
+            }
 
             // TOTAL = ++ subtotales...
             let subtotal = document.getElementsByClassName("subtotalCart");
@@ -194,7 +220,11 @@
 
             let totalCart = document.getElementById("totalCart");
             totalCart.innerText = precioTotal.toLocaleString();
+            // ------------------------
 
+        }
+        else{
+            deleteRow(id);
         }
 
     }
@@ -273,6 +303,7 @@
     <table class="table">
         <tr>
           <th class="table__heading">Producto</th>
+          <th class="table__heading">Talle</th>
           <th class="table__heading">Precio</th>
           <th class="table__heading">Cantidad</th>
           <th class="table__heading">Dto</th>
@@ -294,14 +325,25 @@
             cart.sort();
             for (var i = 0; i < cart.length; i++) { 
     
+                // numero id...
                 let number = cart[i].split('_')[0];
                 
+                // numero talle...
+                let talle = cart[i].split('_')[1];
+
                 //discount...
                 let dtoAplicado;
+                let subtotal;
                 if(productsFiltrados[number].discount > 0){
                     dtoAplicado = productsFiltrados[number].discount;
+
+                    let valorDto = productsFiltrados[number].price * ( productsFiltrados[number].discount / 100 );
+                    let precioFinal = productsFiltrados[number].price - valorDto;
+                    subtotal = precioFinal;
+                    
                 }else{
                     dtoAplicado = "---";
+                    subtotal = productsFiltrados[number].price;
                 }
         %>
 
@@ -316,6 +358,11 @@
                 </div>
             
             </td>
+ 
+            <td class="table__content" data-heading="Talle">
+                <%= talle %>
+            </td>
+
             <td class="table__content" data-heading="Precio">
                 $ <span id="price<%= [i] %>"><%= productsFiltrados[number].price.toLocaleString() %></span>     
             </td>
@@ -325,10 +372,10 @@
                 <button onclick="plusValue(<%= [i] %>)" class="btnPlusMinus">+</button>
             </td>
             <td class="table__content" data-heading="Dto">
-                <%= dtoAplicado %>    
+                <span id="dto<%= [i] %>"><%= dtoAplicado %> </span>
             </td>
             <td class="table__content" data-heading="Subtotal" >
-                $ <span id="subtotal<%= [i] %>" class="subtotalCart"><%= productsFiltrados[number].price.toLocaleString() %> </span>  
+                $ <span id="subtotal<%= [i] %>" class="subtotalCart"><%= subtotal.toLocaleString() %> </span>  
             </td>
             <td class="table__content" data-heading="Borrar">
                 <button onclick="deleteRow(<%= [i] %>)" class="btnPlusMinus" >x</button>
@@ -348,7 +395,7 @@
 
           <tr class="table__row">
        
-            <td class="table__content" colspan="5" style="text-align: right;">
+            <td class="table__content" colspan="7" style="text-align: right;">
                     <a href="" onclick="deleteCarrito()">
                         <strong>(vaciar carrito)</strong> 
                     </a>    
@@ -375,8 +422,8 @@
                 <div>$ <span id="totalCart">xxx</span></div>
             </div>
            
-            <a href="">
-                <button class="botonComprar">COMPRAR</button>
+            <a href="/compraexitosa">
+                <button class="botonComprar" onclick="deleteCarrito()">COMPRAR</button>
             </a>
             <a href="/zapatillas">
                 <button class="botonSeguirViendo">SEGUIR VIENDO</button>

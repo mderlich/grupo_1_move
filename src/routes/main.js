@@ -1,7 +1,6 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-const logDBMiddleware =require('../middlewares/logDBMiddleware');
 
 // ************ Controller Require ************
 const {
@@ -9,6 +8,7 @@ const {
     forgetpw,
     carritoEmpty,
     carrito,
+    compraexitosa
 } = require('../controllers/mainController');
 
 
@@ -29,6 +29,8 @@ router.get('/carrito', cartMiddleware, carritoEmpty);
 /*** CARRO DE PRODUCTOS ***/ 
 router.post('/carrito', cartMiddleware, carrito); 
 
+/*** CARRO DE PRODUCTOS ***/ 
+router.get('/compraexitosa', cartMiddleware, compraexitosa); 
 
 
 // ************ Exportamos ************

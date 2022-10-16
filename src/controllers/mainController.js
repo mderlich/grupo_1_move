@@ -66,6 +66,11 @@ const controller = {
 
 		// ["15_39","16_39"]
 		let postZapatillas = req.body.postZapatillas;
+
+		if(!postZapatillas){
+			return res.redirect('/carrito');
+		}
+
 		postZapatillas = JSON.parse( postZapatillas);
 
 		let cart = postZapatillas;
@@ -91,12 +96,8 @@ const controller = {
 		});
 
 		
-		// llenamos array de id
-/* 		let arrayId = [];
 
-		for (const {id_product} of fav) {
-			arrayId.push(id_product);
-		} */
+		
 
 
 		// referencias...
@@ -124,6 +125,10 @@ const controller = {
 
 	},
 
+	compraexitosa: async function(req, res) {
+		// Do the magic
+		res.render('productCartok');
+	},
 
 	
 };

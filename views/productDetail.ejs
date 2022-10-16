@@ -146,10 +146,11 @@ function selectTalle(id){
 function addCarrito(){
 
     let destacado = document.getElementsByClassName("destacado");
+    let msgAnuncio = document.getElementById("msgAnuncio");
 
     // no se selecciono talle
     if(destacado.length == 0){
-        let msgAnuncio = document.getElementById("msgAnuncio");
+
         msgAnuncio.style.display='block';    
         msgAnuncio.innerText = "Seleccione un talle";
         
@@ -157,8 +158,19 @@ function addCarrito(){
             // display none o visibility hidden
             msgAnuncio.style.display='none';
         }, 4000);
-    } 
-    // si marco talle...
+
+    } else{
+
+        // si marco talle...
+        msgAnuncio.style.display='block';    
+        msgAnuncio.innerText = "Zapatilla añadida!!!";
+        
+        setTimeout(function () {
+            // display none o visibility hidden
+            msgAnuncio.style.display='none';
+        }, 4000);
+
+    }
 
     let zapatillaTalle = destacado[0].innerText;
     let zapatillaId = destacado[0].id;
