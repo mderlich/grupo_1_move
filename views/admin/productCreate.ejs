@@ -13,7 +13,19 @@
 <style>
 
 .admin_nav{
+    margin: auto;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.admin_nav div{
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    width: 160px;
+    border-radius: 80px;
 }
 
 form label {
@@ -30,8 +42,8 @@ form label {
         <h1>ADMIN / CREAR</h1>
 
         <div class="admin_nav">
-        <i class="fas fa-solid fa-list"></i><a href="/admin">Listar</a>
-        <i class="fas fa-plus"></i><a href="/admin/create">Crear</a>
+            <a href="/admin"><div><i class="fas fa-solid fa-list"></i>&nbsp;Listar</div></a>
+            <a href="/admin/create"><div><i class="fas fa-plus"></i>&nbsp;Crear</div></a>
         </div>
 
 
@@ -73,10 +85,10 @@ form label {
 
 
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio" value="<%= (locals.old && old.precio) ? old.precio : '' %>">
+            <input type="number" name="precio" id="precio" min="0"  value="<%= (locals.old && old.precio) ? old.precio : '' %>">
 
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" value="<%= (locals.old && old.descuento) ? old.descuento : '' %>">
+            <input type="number" name="descuento" id="descuento" min="0" max="50" step="5" value="<%= (locals.old && old.descuento) ? old.descuento : '' %>">
 
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion"><%= (locals.old && old.descripcion) ? old.descripcion : '' %></textarea>
@@ -116,9 +128,22 @@ form label {
                 %>
             </select>
 
-            <label for="image">Imagen</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .gif">
-            
+       
+            <label for="image" class="custom-file-upload" >
+            <i class="fas fa-cloud-upload-alt"></i>&nbsp;Imagen de producto<span id="imgToUpload"></span>
+            </label>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .gif" onchange="getFileData(this);"/>
+
+
+<script>
+function getFileData(myFile){
+    let file = myFile.files[0];  
+    let filename = file.name;
+    let imgToUpload = document.getElementById("imgToUpload")
+    imgToUpload.innerHTML = '...' + filename;
+}    
+</script>
+
             <label for="observaciones">Observaciones</label>
             <textarea name="observaciones" id="observaciones"><%= (locals.old && old.observaciones) ? old.observaciones : '' %></textarea>
 

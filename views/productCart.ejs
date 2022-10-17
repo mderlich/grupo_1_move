@@ -98,7 +98,7 @@
       padding: 1rem;
     }
     
-    .table__heading { border-bottom: 2px solid #FFC842; }
+    .table__heading { border-bottom: 2px solid violet; }
 
     
      @media (max-width: 32rem) {
@@ -116,7 +116,7 @@
      margin: .25rem 1rem;
      padding: .5rem 0;
      display: block;
-     border-bottom: 2px solid #FFC842;
+     border-bottom: 2px solid violet;
     }
      .table__content:before {
      content: attr(data-heading);
@@ -350,12 +350,14 @@
             <tr class="table__row"  id="row<%= [i]  %>">
             <td class="table__content" data-heading="Producto">
         
+                <a href="zapatillas/id/<%= [number] %>">
                 <span id="hide<%= [i] %>" class="<%= cart[i] %>"></span>
                 <div class="contProduct">
                     <img src="images/products/<%= productsFiltrados[number].image %> " alt="" class="imgProduct">
                     &nbsp;&nbsp;
                     <%= productsFiltrados[number].brands.name.toUpperCase()  +  " // " + productsFiltrados[number].name %>
                 </div>
+                 </a>
             
             </td>
  

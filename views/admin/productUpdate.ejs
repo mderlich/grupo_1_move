@@ -13,9 +13,23 @@
 
 <style>
 
+
 .admin_nav{
+    margin: auto;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
 }
+
+.admin_nav div{
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    width: 160px;
+    border-radius: 80px;
+}
+
 
 form label {
     display: block;
@@ -34,10 +48,9 @@ form label {
         <br>
 
         <div class="admin_nav">
-        <i class="fas fa-solid fa-list"></i><a href="/admin">Listar</a>
-        <i class="fas fa-plus"></i><a href="/admin/create">Crear</a>
+            <a href="/admin"><div><i class="fas fa-solid fa-list"></i>&nbsp;Listar</div></a>
+            <a href="/admin/create"><div><i class="fas fa-plus"></i>&nbsp;Crear</div></a>
         </div>
-
 
         <div class="formulario">
 
@@ -77,10 +90,10 @@ form label {
             <input type="text" name="nombre" id="nombre" value="<%= productDetail.name %>">
 
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio" value="<%= productDetail.price %>">
+            <input type="number" name="precio" id="precio" min="0"   value="<%= productDetail.price %>">
 
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento" minlength="0" maxlength="90" value="<%= productDetail.discount %>">
+            <input type="number" name="descuento" id="descuento" min="0" max="50" step="5" value="<%= productDetail.discount %>">
 
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion"><%= productDetail.description %></textarea>
@@ -115,10 +128,23 @@ form label {
                 %>
             </select>
 
-            <label for="image">Imagen</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .gif">
+            <label for="image" class="custom-file-upload" >
+            <i class="fas fa-cloud-upload-alt"></i>&nbsp;Imagen de producto<span id="imgToUpload"></span>
+            </label>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .gif" onchange="getFileData(this);"/>
             <input type="hidden" name="imgFilename"  value="<%= productDetail.image %>" >
 
+
+<script>
+function getFileData(myFile){
+    let file = myFile.files[0];  
+    let filename = file.name;
+    let imgToUpload = document.getElementById("imgToUpload")
+    imgToUpload.innerHTML = '...' + filename;
+}    
+</script>
+
+            
             <label for="observaciones">Observaciones</label>
             <textarea name="observaciones" id="observaciones"><%= productDetail.observations %></textarea>
 
