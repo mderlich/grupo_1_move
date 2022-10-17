@@ -56,26 +56,25 @@
     <section>
         <h2>MAS RECIENTES</h2>
         <br><br>
-        <%- include('./partials/productDetailBox')%>
+        <%- 
+        include('./partials/productsRecientes')
+        %>
     </section>
 
     <div class="degrade" ></div>
 
     <section>
-        <h2>MAS VENDIDOS</h2>
+        <h2>PROMOCIONES</h2>
         <br><br>
-        <%- include('./partials/productDetailBox')%>
+        <%-
+        /* productsFiltrados = productsRecientes;
+         */include('./partials/productsDto')
+         %>
     <section>
 
     <div class="degrade" ></div>
 
-    <section>
-        <h2>RECOMENDADOS PARA VOS</h2>
-        <br><br>
-        <%- include('./partials/productDetailBox')%>
-    </section>    
 
-            <div class="degrade"></div>
 
     </main>
 

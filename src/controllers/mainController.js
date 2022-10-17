@@ -1,7 +1,7 @@
 // ************ Require's ************
 // para base de datos...
 const db = require('../database/models');
-
+const Op = db.Sequelize.Op;
 
 
 
@@ -13,9 +13,49 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 
     // INDEX ************
-	index: (req, res) => {
+	index: async function(req, res) {
 
-        res.render( 'index');
+		// mas recientes...
+		const productsRecientes = await db.Product.findAll({ 
+			order: [['id', 'DESC']] ,
+			include: [{association: "brands"}],
+			limit: 4
+		});
+
+		// con dto...
+		const productsDto = await db.Product.findAll({ 
+			order: [['id', 'DESC']] ,
+			where: {discount: { [Op.gt]: 0 }},
+			include: [{association: "brands"}],
+			limit: 4
+		});
+		
+		/* LIKE CORAZON */
+		let fav = "";
+		let arrayFav = [];
+
+		if(req.session.userLogged){
+
+			const userJson = req.session.userLogged;
+			let userId = userJson.id;
+	
+			fav = await db.Fav.findAll({
+				where: { id_user: userId }
+			});
+
+			for (const {id_product} of fav) {
+				arrayFav.push(id_product);
+			}
+
+		}
+		// -------------------------------
+
+		
+		res.render('index', { 
+			productsRecientes: productsRecientes,
+			productsDto: productsDto,
+			arrayFav: arrayFav
+		});
 
 	},
 
