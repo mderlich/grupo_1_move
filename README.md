@@ -23,13 +23,17 @@ https://trello.com/b/loBoMovR/tareas-move
 * **Git Original de trabajo**: 
 https://github.com/estefaniapottassa/grupo_1_move
 
+* **Videos de exposicion**: 
+<br>https://youtu.be/uFaZpZgcSH8
+<br>https://youtu.be/Tw4G1KWH6eg
+
 ----------------
 
 * **Proyecto desarrollado para el curso**: 
 <br>Desarrollador Fullstack NodeJs // DigitalHouse.com
 
 * **Duracion del curso**:
-<br>6 Meses (Abr/Sep 2022)
+<br>7 Meses (Abr/Oct 2022)
 
 * **Profesores del curso**: 
 <br>Leonardo Casales // https://github.com/SmartNetAR
