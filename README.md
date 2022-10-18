@@ -20,8 +20,8 @@
 * **Tablero de Trello**: 
 https://trello.com/b/loBoMovR/tareas-move
 
-* **Proyecto en linea**: 
-https://grupo1move.herokuapp.com/
+* **Git Original de trabajo**: 
+https://github.com/estefaniapottassa/grupo_1_move
 
 ----------------
 
